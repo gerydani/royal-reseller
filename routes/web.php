@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'UserController@index')->name('user.registrasi');
+Route::get('/register', 'UserController@create');
+Route::post('/tambah', 'UserController@store');
