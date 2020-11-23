@@ -32,36 +32,42 @@
                     <div class="col-xl-6">
                         <div class="card-box">
                             <h4 class="header-title m-t-0 m-b-30">Form Data</h4>
-                            <form action="#" data-parsley-validate novalidate>
+                            <form action="/tambah" method="post" data-parsley-validate novalidate>
+                                {{ csrf_field() }}
                                 <div class="form-group">
                                     <label class="col-4 col-form-label">Nama Toko*</label>
                                     <input type="text" name="namatoko" parsley-trigger="change" required
-                                           placeholder="Nama Toko" class="form-control" id="">
+                                           placeholder="Nama Toko" class="form-control" id=""
+                                           value="@isset($user->namatoko){{$user->namatoko}}@endisset">
                                 </div>
                                 <div class="form-group">
                                     <label class="col-4 col-form-label">Nama Owner*</label>
                                     <input type="text" name="namaowner" parsley-trigger="change" required
-                                           placeholder="Nama Owner" class="form-control" id="">
+                                           placeholder="Nama Owner" class="form-control" id=""
+                                           value="@isset($user->namaowner){{$user->namaowner}}@endisset">
                                 </div>
                                 <div class="form-group">
                                     <label class="col-4 col-form-label">Email*</label>
                                     <input id="" type="email" name="email" placeholder="Email Toko" required
-                                           class="form-control">
+                                           class="form-control" value="@isset($user->email){{$user->email}}@endisset">
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-4 col-form-label">Nomor Handphone *</label>
-                                    <input type="number" name="nohp" required
-                                           placeholder="Nomor Handphone" class="form-control" id="">
+                                    <label class="col-4 col-form-label">Nomor Handphone*</label>
+                                    <input type="text" name="nohp" required
+                                           placeholder="Nomor Handphone" class="form-control" id=""
+                                           value="@isset($user->nohp){{$user->nohp}}@endisset">
                                 </div>
                                 <div class="form-group">
                                     <label class="col-4 col-form-label">Username *</label>
                                     <input type="text" name="username" required
-                                           placeholder="username" class="form-control" id="">
+                                           placeholder="username" class="form-control" id=""
+                                           value="@isset($user->username){{$user->username}}@endisset">
                                 </div>
                                 <div class="form-group">
                                     <label class="col-4 col-form-label">Password *</label>
                                     <input type="password" name="password" required
-                                           placeholder="Password" class="form-control" id="">
+                                           placeholder="Password" class="form-control" id=""
+                                           value="@isset($user->password){{$user->password}}@endisset">
                                 </div>
                                 <div class="form-group text-right m-b-0">
                                     <button class="btn btn-primary waves-effect waves-light" type="submit">

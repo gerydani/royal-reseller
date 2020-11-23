@@ -16,9 +16,7 @@ class UserController extends Controller
     public function index()
     {
         $user = User::all();
-        echo "lala";
-        die;
-        // return view('user.registrasi',compact('user'));
+        return view('user.login',compact('user'));
     }
 
     /**
@@ -28,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.registrasi');
     }
 
     /**
@@ -39,7 +37,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // echo "<pre>";
+        // print_r($request->all());
+        // die;
+        $user = new User(array(
+            'namatoko' => $request->namatoko,
+            'namaowner' =>  $request->namaowner,
+            'email' => $request->email,
+            'nohp' => $request->nohp,
+            'username' => $request->username,
+            'password' => $request->password
+        ));
+        $user->save();
+        return redirect()->route('user.registrasi')->with('status','Data Berhasil disimpan');
     }
 
     /**
