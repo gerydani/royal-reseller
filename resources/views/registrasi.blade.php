@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,6 +22,7 @@
 
     <body>
                 <!-- Page-Title -->
+                {{ csrf_field() }}
                 <div class="row">
                     <div class="col-sm-12">
                         <h4 class="page-title">REGISTRASI</h4>
@@ -32,38 +32,37 @@
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="card-box">
-<!-----------------basic form----------------->
                             <h4 class="header-title m-t-0 m-b-30">Form Data</h4>
                             <form action="#" data-parsley-validate novalidate>
                                 <div class="form-group">
-                                    <label for="userName">Nama Toko*</label>
-                                    <input type="text" name="nick" parsley-trigger="change" required
-                                           placeholder="Nama Toko" class="form-control" id="userName">
+                                    <label class="col-4 col-form-label">Nama Toko*</label>
+                                    <input type="text" name="namatoko" parsley-trigger="change" required
+                                           placeholder="Nama Toko" class="form-control" id="">
                                 </div>
                                 <div class="form-group">
-                                    <label for="emailAddress">Nama Owner*</label>
-                                    <input type="email" name="email" parsley-trigger="change" required
-                                           placeholder="Nama Owner" class="form-control" id="emailAddress">
+                                    <label class="col-4 col-form-label">Nama Owner*</label>
+                                    <input type="text" name="namaowner" parsley-trigger="change" required
+                                           placeholder="Nama Owner" class="form-control" id="">
                                 </div>
                                 <div class="form-group">
-                                    <label for="pass1">Email*</label>
-                                    <input id="pass1" type="password" placeholder="Email Toko" required
+                                    <label class="col-4 col-form-label">Email*</label>
+                                    <input id="" type="email" name="email" placeholder="Email Toko" required
                                            class="form-control">
                                 </div>
                                 <div class="form-group">
-                                    <label for="passWord2">Nomor Handphone *</label>
-                                    <input data-parsley-equalto="#pass1" type="password" required
-                                           placeholder="Nomor Handphone" class="form-control" id="passWord2">
+                                    <label class="col-4 col-form-label">Nomor Handphone *</label>
+                                    <input type="number" name="nohp" required
+                                           placeholder="Nomor Handphone" class="form-control" id="">
                                 </div>
                                 <div class="form-group">
-                                    <label for="passWord2">Username *</label>
-                                    <input data-parsley-equalto="#pass1" type="password" required
-                                           placeholder="username" class="form-control" id="passWord2">
+                                    <label class="col-4 col-form-label">Username *</label>
+                                    <input type="text" name="username" required
+                                           placeholder="username" class="form-control" id="">
                                 </div>
                                 <div class="form-group">
-                                    <label for="passWord2">Password *</label>
-                                    <input data-parsley-equalto="#pass1" type="password" required
-                                           placeholder="Password" class="form-control" id="passWord2">
+                                    <label class="col-4 col-form-label">Password *</label>
+                                    <input type="password" name="password" required
+                                           placeholder="Password" class="form-control" id="">
                                 </div>
                                 <div class="form-group text-right m-b-0">
                                     <button class="btn btn-primary waves-effect waves-light" type="submit">

@@ -11,4 +11,4 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/', 'UserController@index')->name('user.registrasi');
