@@ -62,7 +62,7 @@ File: Pages
 }
 
 .fc-day {
-  background: $white;
+  background: transparent;
 }
 
 .fc-toolbar .fc-state-active, .fc-toolbar .ui-state-active,
@@ -81,7 +81,7 @@ File: Pages
 
 .fc {
   th.fc-widget-header {
-    background: $light5;
+    background: rgba($white,0.2);
     font-size: 14px;
     line-height: 20px;
     padding: 10px 0px;
@@ -89,11 +89,18 @@ File: Pages
   }
 }
 
+.fc-unthemed th, .fc-unthemed td, .fc-unthemed thead, .fc-unthemed tbody,
+.fc-unthemed .fc-divider, .fc-unthemed .fc-row, .fc-unthemed .fc-popover {
+  background-color: transparent;
+  border-color: rgba($white,0.1);
+}
+
 .fc-button {
-  background: $white;
-  border: 1px solid $light5;
-  color: $lightdark5;
+  background: darken($dark,4%) !important;
+  border: 1px solid darken($dark,1%);
+  color: $white;
   text-transform: capitalize;
+  text-shadow: none;
 }
 
 .fc-text-arrow {
@@ -102,7 +109,7 @@ File: Pages
 }
 
 .fc-state-hover {
-  background: $light3;
+  background: #F5F5F5;
 }
 
 .fc-state-highlight {
@@ -115,7 +122,7 @@ File: Pages
 
 .fc-unthemed {
   .fc-today {
-    background: $white;
+    background: transparent !important;
   }
 }
 
@@ -126,6 +133,7 @@ File: Pages
   font-size: 13px;
   margin: 5px 7px;
   padding: 5px 5px;
+  color: $white !important;
   text-align: center;
 }
 
@@ -145,9 +153,6 @@ File: Pages
   td.fc-day-number {
     padding-right: 5px;
   }
-}
-.fc-content {
-  color: $white;
 }
 
 
@@ -170,7 +175,8 @@ File: Pages
 .bootstrap-tagsinput {
   box-shadow: none;
   padding: 3px 7px 6px;
-  border: 1px solid #e3e3e3;
+  background-color: darken($dark,7%);
+  border: 2px solid darken($dark,1%);
   width: 100%;
 
   .label-info {
@@ -181,6 +187,10 @@ File: Pages
     margin: 3px 1px;
     border-radius: 3px;
   }
+
+  input {
+    color: $white;
+  }
 }
 /* Multiple */
 .ms-container {
@@ -188,36 +198,72 @@ File: Pages
 
   .ms-list {
     box-shadow: none;
-    border: 1px solid #e3e3e3;
+    border: 2px solid darken($dark,1%);
   }
   .ms-list.ms-focus {
     box-shadow: none;
-    border: 1px solid #aaaaaa;
+    border: 2px solid lighten($dark,2%);
   }
   .ms-selectable {
+    background-color: darken($dark,7%);
     li.ms-elem-selectable{
       border: none;
       padding: 5px 10px;
+      color: $muted;
     }
   }
   .ms-selection {
+    background-color: darken($dark,7%);
     li.ms-elem-selection{
       border: none;
       padding: 5px 10px;
+      color: $muted;
     }
   }
 }
+
+
+.search-input {
+  margin-bottom: 10px;
+}
+
+.ms-selectable {
+  box-shadow: none;
+  outline: none !important;
+}
+
+.ms-container {
+  .ms-list.ms-focus {
+    box-shadow: none;
+  }
+  .ms-selectable {
+    li.ms-hover {
+      background-color: $custom;
+      color: $white;
+    }
+  }
+  .ms-selection {
+    li.ms-hover {
+      background-color: $custom;
+      color: $white;
+    }
+  }
+}
+
+
 /* Select 2 */
 .select2-container {
   width: 100% !important;
 
   .select2-selection--single {
-    border: 1px solid darken($light,1%);
+    background-color: darken($dark,7%);
+    border: 2px solid darken($dark,1%);
     height: 38px;
 
     .select2-selection__rendered {
       line-height: 36px;
       padding-left: 12px;
+      color: $muted;
     }
 
     .select2-selection__arrow {
@@ -279,7 +325,8 @@ File: Pages
 
 .select2-container .select2-selection--multiple {
   min-height: 38px;
-  border: 1px solid darken($light,5%) !important;
+  background-color: darken($dark,7%);
+  border: 2px solid darken($dark,1%) !important;
 
   .select2-selection__rendered {
     padding: 2px 10px;
@@ -287,6 +334,7 @@ File: Pages
   .select2-search__field {
     margin-top: 7px;
     border: 0;
+    color: $white;
   }
   .select2-selection__choice {
     background-color: $custom;
@@ -374,7 +422,7 @@ File: Pages
   background-color: $light-alt;
 }
 .datepicker-inline {
-  border: 2px solid $light;
+  border: 2px solid darken($dark,1%);
 }
 .daterangepicker td.active, .daterangepicker td.active:hover {
     background-color: $primary;
@@ -399,33 +447,6 @@ File: Pages
   background-color: $primary;
       border: 1px solid $primary;
 }
-
-
-.search-input {
-  margin-bottom: 10px;
-}
-
-.ms-selectable {
-  box-shadow: none;
-  outline: none !important;
-}
-
-.ms-container {
-  .ms-list.ms-focus {
-    box-shadow: none;
-  }
-  .ms-selectable {
-    li.ms-hover {
-      background-color: $primary;
-    }
-  }
-  .ms-selection {
-    li.ms-hover {
-      background-color: $primary;
-    }
-  }
-}
-
 
 
 /* Timepicker */
@@ -458,10 +479,10 @@ File: Pages
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.25;
-    color: $dark;
+    color: $muted;
     text-align: center;
-    background-color: $light;
-    border: 1px solid rgba($dark,.15);
+    background-color: darken($dark,5%);
+    border: 1px solid darken($dark,5%);
   }
   .input-group-btn:not(:first-child)>.btn, .input-group-btn:not(:first-child)>.btn-group {
     z-index: 2;
@@ -496,6 +517,23 @@ File: Pages
       &:hover,&:focus,&:active {
         border-right: none !important;
       }
+    }
+  }
+}
+
+/* Dropify */
+.dropify-wrapper {
+  background-color: darken($dark,10%);
+  border: 2px solid darken($dark,1%);
+
+  &:hover {
+    background-image: -webkit-linear-gradient(135deg,$dark 25%,transparent 25%,transparent 50%,$dark 50%,$dark 75%,transparent 75%,transparent);
+    background-image: linear-gradient(-45deg,$dark 25%,transparent 25%,transparent 50%,$dark 50%,$dark 75%,transparent 75%,transparent);
+  }
+
+  .dropify-message {
+    p {
+      color: $muted;
     }
   }
 }
@@ -553,8 +591,8 @@ File: Pages
   border-width: 0px !important;
 }
 .mce-container .mce-menubar {
-  background-color: #f2f4f7 !important;
-  border: 1px solid #d7dce5 !important;
+  background-color: darken($dark,5%) !important;
+  border: 1px solid darken($dark,1%) !important;
   padding: 2px;
 }
 .mce-container .mce-menubar .mce-btn button span {
@@ -607,18 +645,18 @@ File: Pages
   background-image: none;
 }
 .mce-container .mce-toolbar-grp {
-  background-color: #f2f4f7 !important;
-  border: 1px solid #d7dce5 !important;
+  background-color: darken($dark,5%) !important;
+  border: 1px solid darken($dark,1%) !important;
   border-top-width: 0px !important;
   padding: 6px;
 }
 .mce-container .mce-edit-area {
-  border: 1px solid #d7dce5 !important;
+  border: 1px solid darken($dark,1%) !important;
   border-width: 0px 1px !important;
 }
 .mce-container .mce-statusbar {
-  background-color: #f2f4f7 !important;
-  border: 1px solid #d7dce5 !important;
+  background-color: darken($dark,5%) !important;
+  border: 1px solid darken($dark,1%) !important;
 }
 .mce-container .mce-statusbar .mce-path .mce-path-item {
   color: #707780;
@@ -632,12 +670,15 @@ File: Pages
   border-left: 1px solid transparent;
 }
 .mce-container .mce-btn-group {
-  border: 1px solid #e9ecf2 !important;
+  border: 1px solid transparent !important;
+}
+.mce-label {
+  text-shadow: none !important;
 }
 .mce-container .mce-btn-group .mce-btn {
   box-shadow: none;
   background-image: none;
-  background-color: $white;
+  background-color: darken($dark,4%);
   border-width: 0px;
   border-radius: 0px !important;
 }
@@ -645,12 +686,20 @@ File: Pages
 .mce-container .mce-btn-group .mce-btn:focus {
   box-shadow: none;
   background-image: none;
-  background-color: $white;
+  background-color: darken($dark,3%);
 }
 .mce-container .mce-btn-group .mce-btn button span {
   color: #707780;
   font-size: 14px;
   font-weight: 300;
+}
+
+.mce-caret {
+  border-top: 4px solid lighten($dark,5%) !important;
+}
+
+.mce-splitbtn .mce-open,.mce-colorbutton:hover .mce-open,.mce-colorbutton .mce-open {
+  border-left: none !important;
 }
 .mce-container .mce-btn-group .mce-btn button .mce-caret {
   color: #707780;
@@ -729,7 +778,7 @@ File: Pages
   background-color: #d7dce5;
 }
 .mce-menubtn button {
-    color: $dark !important;
+    color: $muted !important;
 }
 .mce-menu-item-normal.mce-active {
     background-color: $custom !important;
@@ -842,7 +891,6 @@ File: Pages
 ============= */
 
 /* Morris chart */
-
 .morris-chart {
   text {
     font-family: $font-primary !important;
@@ -936,11 +984,18 @@ File: Pages
   tr {
    height: 20px;
   }
+  div:first-of-type {
+    background-color: transparent !important;
+  }
 }
 .legendLabel {
     padding-left: 5px !important;
     line-height: 10px;
     padding-right: 10px;
+    color: $muted;
+}
+.flot-tick-label {
+  color: $muted !important;
 }
 
 /* Sparkline chart */
@@ -974,7 +1029,7 @@ File: Pages
   }
 }
 .ct-grid {
-    stroke: rgba($dark,0.15);
+    stroke: rgba($white,0.15);
 }
 .ct-chart.simple-pie-chart-chartist {
   .ct-label {
@@ -1165,7 +1220,7 @@ File: Pages
     top: 50%;
     width: 21px;
     i {
-      color: $light5;
+      color: darken($dark,5%);
     }
   }
   .time-icon {
@@ -1195,7 +1250,7 @@ h3.timeline-title {
   .timeline-desk {
     .arrow {
       border-bottom: 8px solid transparent;
-      border-right: 8px solid $white !important;
+      border-right: 8px solid darken($dark,10%) !important;
       border-top: 8px solid transparent;
       display: block;
       height: 0;
@@ -1217,7 +1272,7 @@ h3.timeline-title {
   .timeline-desk {
     .arrow-alt {
       border-bottom: 8px solid transparent;
-      border-left: 8px solid $white !important;
+      border-left: 8px solid darken($dark,10%) !important;
       border-top: 8px solid transparent;
       display: block;
       height: 0;
@@ -1272,7 +1327,7 @@ h3.timeline-title {
     margin: 0;
   }
   .panel {
-    background: $white;
+    background: darken($dark,10%);
     display: block;
     margin-bottom: 5px;
     margin-left: 45px;
@@ -1289,7 +1344,6 @@ h3.timeline-title {
     }
   }
   p {
-    color: #999999;
     font-size: 14px;
     margin-bottom: 0;
   }
@@ -1326,7 +1380,7 @@ h3.timeline-title {
     -ms-transition: all 0.3s ease-out;
     -o-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
-    color: #333333;
+    color: $muted;
     font-weight: 600;
     padding: 5px 10px;
     display: inline-block;
@@ -1342,14 +1396,11 @@ h3.timeline-title {
 }
 
 .thumb {
-  background-color: $white;
+  background-color: darken($dark,10%);
   border-radius: 3px;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
   margin-top: 20px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 10px;
+  padding: 10px;
   width: $width;
 }
 
@@ -1472,6 +1523,10 @@ h3.timeline-title {
    Tour page
 ============= */
 
+div.hopscotch-bubble,div.hopscotch-bubble h3,
+div.hopscotch-bubble .hopscotch-content {
+  font-family: $font-primary;
+}
 div.hopscotch-bubble {
   border: 3px solid $primary;
   border-radius: 5px;
@@ -1556,7 +1611,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
     font-size: 48px;
     font-family: $font-secondary;
     margin-bottom: 10px;
-    color: $dark;
+    color: $white;
   }
   .plan-duration {
     font-size: 13px;
@@ -1646,6 +1701,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 }
 
 .kanban-box {
+  border: 2px solid darken($dark,5%);
   .checkbox-wrapper {
     float: left;
 
@@ -1662,8 +1718,8 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
       font-weight: 500;
       font-family: $font-primary;
 
-      a{
-        color: $dark;
+      a {
+        color: $muted;
       }
     }
     ul {
@@ -1672,7 +1728,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
           display: inline-block;
           i {
             font-size: 16px;
-            color: $muted;
+            color: $white;
             padding: 0px 5px;
             line-height: 32px;
           }
@@ -1684,15 +1740,15 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 }
 
 .gu-mirror {
-  box-shadow: 0 0px 24px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
-  border: 1px solid rgba($dark,0.1) !important;
   margin-bottom: 0px !important;
   opacity: 1;
+  list-style: none;
 
   .card-box {
-    margin-bottom: 0px !important;
+    margin: 0px !important;
   }
 }
+
 
 /* Task Detail */
 .task-detail {
@@ -1789,12 +1845,13 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 ============= */
 
 .account-pages {
-  background: url("../images/big/bg1.jpg") center;
+  background: url("../images/big/bg.jpg") center;
   position: absolute;
   height: 100%;
   top: 0;
   width: 100%;
   background-size: cover;
+  border: 20px solid rgba($dark, 0.3);
 }
 .wrapper-page {
   margin: 5% auto;
@@ -1806,6 +1863,8 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
   }
   .logo {
     font-size: 42px;
+    color: $primary !important;
+    font-family: 'Rancho', cursive;
   }
 }
 
@@ -1940,10 +1999,10 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
   width: 240px;
   transition-duration: .3s;
   z-index: 5;
-  color: $dark;
+  color: $muted;
 
   a {
-    color: $dark;
+    color: $muted;
   }
 
   .menu-segment {
@@ -1966,7 +2025,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
       text-transform: uppercase;
       font-weight: 600;
       padding: 10px 0;
-      color: #465162;
+      color: $muted;
 
       .icon {
         float: right;
@@ -2043,13 +2102,13 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 
 #main {
   position: fixed;
-  top: 72px;
-  left: 490px;
+  top: 121px;
+  left: 330px;
   bottom: 0;
   right: 0;
   z-index: 4;
   transition-duration: .3s;
-  background-color: $white;
+  background-color: darken($dark,10%);
 
   .overlay {
     position: absolute;
@@ -2143,15 +2202,15 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
         height: 40px;
         z-index: 2;
         outline: none;
-        color: #999;
+        color: $white;
         background: transparent;
-        border: 2px solid #EFEFEF;
+        border: 2px solid darken($dark,5%);
         border-radius: 5px;
         transition-timing-function: cubic-bezier(0.3, 1.5, 0.6, 1);
 
         &:focus {
-          color: #333;
-          border-color: #d6d6d6;
+          color: $white;
+          border-color: darken($dark,1%);
         }
 
         &:focus ~ .icon {
@@ -2192,6 +2251,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
       height: 50px;
       line-height: 50px;
       cursor: default;
+      color: rgba($muted, 0.6);
       transition-duration: .3s;
 
       &:hover {
@@ -2287,7 +2347,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 
     li.unread {
       font-weight: 600;
-      color: #555;
+      color: rgba($muted,0.95);
     }
 
     li.blue-dot .mail-col-1 .dot {
@@ -2339,7 +2399,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 
 #message {
   position: fixed;
-  top: 72px;
+  top: 121px;
   left: 60%;
   bottom: 0;
   width: 40%;
@@ -2359,6 +2419,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
       float: none;
       margin-bottom: 15px;
       line-height: 40px;
+      color: $dark;
 
       .icon {
         margin-top: 4px;
@@ -2541,6 +2602,11 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
   #main {
     left: 0;
     box-shadow: none;
+    top: 60px;
+  }
+
+  #message {
+    top: 60px;
   }
 
   #main .header .page-title .sidebar-toggle-btn {
@@ -2725,10 +2791,15 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
 .profile-pills {
   li{
     a{
-      color: rgba($dark,0.5) !important;
+      color: rgba($white,0.5) !important;
       padding: 0 10px;
       display: block;
       line-height: 30px !important;
+
+      &:hover {
+        background-color: transparent;
+        color: $white !important;
+      }
 
       i {
         font-size: 14px;
@@ -2759,7 +2830,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
       position: relative;
   }
   .comment-text {
-      border: 1px solid #e5e5e5;
+      border: 1px solid darken($dark,2%);
       border-radius: 2px;
       padding: 7px 12px 8px;
   }
@@ -2768,7 +2839,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
       padding-bottom: 2px;
 
     a{
-      color: $dark;
+      color: lighten($muted,15%);
       font-weight: bold;
     }
     span {
@@ -2789,7 +2860,7 @@ div.hopscotch-bubble .hopscotch-bubble-arrow-container.down .hopscotch-bubble-ar
     }
   }
   .comment-footer, .comment-footer a {
-    color: rgba($dark, 0.5);
+    color: lighten($muted,5%);
 
     &:hover {
       color: $custom;
