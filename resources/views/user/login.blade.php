@@ -35,21 +35,21 @@
                     <h4 class="text-uppercase font-bold mb-0">Sign In</h4>
                 </div>
                 <div class="p-20">
-                    <form class="form-horizontal m-t-20" action="index.html">
-
+                    <form class="form-horizontal m-t-20" action="{{route('Login')}}" method="POST">
+                        @csrf
                         <div class="form-group">
                             <div class="col-xs-12">
-                                <input class="form-control" type="text" required="" placeholder="Username">
+                                <input class="form-control" type="text" required="" placeholder="Username" name="username">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <div class="col-xs-12">
-                                <input class="form-control" type="password" required="" placeholder="Password">
+                                <input class="form-control" type="password" required="" placeholder="Password" name="password">
                             </div>
                         </div>
 
-                        <div class="form-group ">
+                        {{--  <div class="form-group ">
                             <div class="col-xs-12">
                                 <div class="checkbox checkbox-custom">
                                     <input id="checkbox-signup" type="checkbox">
@@ -59,7 +59,7 @@
                                 </div>
 
                             </div>
-                        </div>
+                        </div>  --}}
 
                         <div class="form-group text-center m-t-30">
                             <div class="col-xs-12">
@@ -67,11 +67,11 @@
                             </div>
                         </div>
 
-                        <div class="form-group m-t-30 mb-0">
+                        {{--  <div class="form-group m-t-30 mb-0">
                             <div class="col-sm-12">
                                 <a href="page-recoverpw.html" class="text-muted"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
                             </div>
-                        </div>
+                        </div>  --}}
                     </form>
 
                 </div>

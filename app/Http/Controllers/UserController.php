@@ -46,10 +46,10 @@ class UserController extends Controller
             'namaowner' =>  'required|string',
             'email' => 'required|email|unique:tbluser',
             'nohp' => 'required',
-            'username' => 'required|username|unique:tbluser|max:199',
+            'username' => 'required|unique:tbluser|max:199',
             'password' => 'required'
         ]);
-        if($validator->fails()) {
+        if ($validator->fails()) {
             return redirect()->back()->withErrors($validator->errors());
         }
         // echo "<pre>";
@@ -112,5 +112,40 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function login(Request $request){
+
+        $validator = Validator::make($request->all(), [
+            'username' => 'required',
+            'password' => 'required'
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back();
+        }else{
+            $user = User::where('username',$request->username)->first();
+
+            if($user && Hash::check($request->password, $user->password)){
+                $request->session()->put('username', $request->usernmae);
+
+                // if(empty($user->rolemapping()->first())){
+                //     $request->session()->put('role',"null");
+                // }else{
+                //     $request->session()->put('role', $user->rolemapping()->first()->role()->first()->role_nama);
+                // }
+                $request->session()->put('name', $user->name);
+                $request->session()->put('user_id', $user->id);
+                // $request->session()->put('nip', $user->nip);
+                // $request->session()->put('foto', $user->scanfoto);
+                // $request->session()->put('isLoggedIn', 'Ya');
+                // echo "<pre>";
+                // print_r("lala");
+                // die;
+
+                return redirect()->route('registrasi');
+            }else{
+                return redirect()->back();
+            }
+        }
     }
 }
