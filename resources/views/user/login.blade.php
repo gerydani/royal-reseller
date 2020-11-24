@@ -80,7 +80,7 @@
 
             <div class="row">
                 <div class="col-sm-12 text-center">
-                    <p style="color:black;"> Belum Punya akun? <a href="/register" class="text-primary m-l-5"><b>Sign Up</b></a></p>
+                    <p style="color:white;"> Belum Punya akun? <a href="/register" class="text-primary m-l-5"><b>Sign Up</b></a></p>
                 </div>
             </div>
 

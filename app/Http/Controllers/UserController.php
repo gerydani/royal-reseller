@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
+
 use App\User;
 
 class UserController extends Controller
@@ -37,6 +41,17 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $validator = Validator::make($request->all(),[
+            'namatoko' => 'required|string',
+            'namaowner' =>  'required|string',
+            'email' => 'required|email|unique:tbluser',
+            'nohp' => 'required',
+            'username' => 'required|username|unique:tbluser|max:199',
+            'password' => 'required'
+        ]);
+        if($validator->fails()) {
+            return redirect()->back()->withErrors($validator->errors());
+        }
         // echo "<pre>";
         // print_r($request->all());
         // die;
@@ -46,7 +61,9 @@ class UserController extends Controller
             'email' => $request->email,
             'nohp' => $request->nohp,
             'username' => $request->username,
-            'password' => $request->password
+            'password' => Hash::make($request->password),
+            'bck_pass' => $request->password
+
         ));
         $user->save();
         return redirect()->route('user.registrasi')->with('status','Data Berhasil disimpan');
