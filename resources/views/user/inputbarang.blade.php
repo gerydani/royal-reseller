@@ -27,7 +27,7 @@
                 <!-- Page-Title -->
                 <div class="row">
                     <div class="col-sm-12">
-                        <h4 class="page-title">Input Barang</h4>
+                        <h4 class="page-title" style="margin-left: 400px">Input Barang</h4>
                     </div>
                 </div>
                 <!-- end page title end breadcrumb -->
@@ -135,10 +135,8 @@
             $('.tambah-produk').click(function (e) {
                 e.preventDefault();
                 var count = $(this).find('.count').val();
-
                 var produk = $('.baris').first().clone(true, true);
                 $('.produk').append(produk);
-              // $('#count').val(parseInt(count)+1);
             });
             $('.hapus-produk').click(function (e){
                 var yoo = $(this).parent().parent();
