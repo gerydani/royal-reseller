@@ -38,11 +38,14 @@
 <!-----------------basic form----------------->
                             <h4 class="header-title m-t-0 m-b-30">Data Pengiriman</h4>
                             <form action="#" data-parsley-validate novalidate>
-                                <div class="form-group">
-                                    <label for="userName">Marketplace</label>
-                                    <input type="select" name="nick" parsley-trigger="change" required
-                                           placeholder="Nama Toko" class="form-control" id="userName">
-                                </div>
+                                    <div class="form-group">
+                                      <label for="">MarketPlace</label>
+                                      <select class="form-control" name="" id="">
+                                        <option>shopee</option>
+                                        <option>tokopedia</option>
+                                        <option>bukalapak</option>
+                                      </select>
+                                    </div>
                                 <div class="form-group">
                                     <label for="emailAddress">Nama Toko*</label>
                                     <input type="email" name="email" parsley-trigger="change" required
