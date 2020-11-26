@@ -84,13 +84,13 @@
                                                   </select>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-2">
                                                 <div class="form-group">
                                                   <label for="harga">Quantitiy</label>
                                                   <input type="number" class="form-control" name="list[][harga]">
                                                 </div>
                                             </div>
-                                            <div class="col-md-2">
+                                            <div class="col-md-4">
                                                 <div class="form-group">
                                                   <label for="quantity">Harga</label>
                                                   <input type="text" class="form-control" name="list[][quantity]">
