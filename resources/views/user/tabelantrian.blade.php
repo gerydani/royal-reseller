@@ -109,7 +109,7 @@
                                                 <td>breng breng</td>
                                                 <td>pake gojek yang datang</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary">Complete</button>
+                                                    <button type="button" class="btn btn-primary ceklist">Complete</button>
                                                 </td>
                                             </tr>
                                         </table>
@@ -180,7 +180,7 @@
                                                     <td>breng breng</td>
                                                     <td>pake gojek yang datang</td>
                                                     <td>
-                                                        <button type="button" class="btn btn-danger">Remove</button>
+                                                        <button type="button" class="btn btn-danger remove">Remove</button>
                                                     </td>
                                                 </tr>
                                             </table>
@@ -267,8 +267,15 @@
                 table.buttons().container()
                     .appendTo('#datatable-buttons_wrapper .col-md-6:eq(0)');
             });
+            $('.ceklist').click(function (e){
+                page.reload();
+            });
+            $('.remove').click(function (e){
+                page.reload();
+            });
 
         </script>
+
 
 
     </body>
