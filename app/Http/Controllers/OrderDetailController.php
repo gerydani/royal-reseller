@@ -2,24 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
+use app\OrderDetail;
 
-use App\User;
-
-class UserController extends Controller
+class OrderDetailController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-
+        //
     }
 
     /**
@@ -29,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.registrasi');
+        //
     }
 
     /**
@@ -40,32 +36,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),[
-            'namatoko' => 'required|string',
-            'namaowner' =>  'required|string',
-            'email' => 'required|email|unique:tbluser',
-            'nohp' => 'required',
-            'username' => 'required|unique:tbluser|max:199',
-            'password' => 'required'
-        ]);
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator->errors());
-        }
-        // echo "<pre>";
-        // print_r($request->all());
-        // die;
-        $user = new User(array(
-            'namatoko' => $request->namatoko,
-            'namaowner' =>  $request->namaowner,
-            'email' => $request->email,
-            'nohp' => $request->nohp,
-            'username' => $request->username,
-            'password' => Hash::make($request->password),
-            'bck_pass' => $request->password
-
-        ));
-        $user->save();
-        return redirect()->route('Login')->with('status','Data Berhasil disimpan');
+        //
     }
 
     /**
@@ -110,6 +81,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-
+        //
     }
 }
