@@ -49,27 +49,27 @@
                                 <div class="form-group">
                                     <label for="emailAddress">Nama Toko*</label>
                                     <input type="email" name="email" parsley-trigger="change" required
-                                           placeholder="Nama Owner" class="form-control" id="emailAddress">
+                                           placeholder="Nama toko" class="form-control" id="emailAddress">
                                 </div>
                                 <div class="form-group">
-                                    <label for="pass1">Alamat*</label>
-                                    <input id="pass1" type="password" placeholder="Email Toko" required
+                                    <label for="pass1">Alamat Pengiriman*</label>
+                                    <input id="pass1" type="password" placeholder="Alamat Pengiriman" required
                                            class="form-control">
                                 </div>
                                 <div class="form-group">
                                     <label for="passWord2">Kode Booking Resi *</label>
                                     <input data-parsley-equalto="#pass1" type="password" required
-                                           placeholder="Nomor Handphone" class="form-control" id="passWord2">
+                                           placeholder="Kode Booking " class="form-control" id="passWord2">
                                 </div>
                                 <div class="form-group">
                                     <label for="passWord2">No resi *</label>
                                     <input data-parsley-equalto="#pass1" type="password" required
-                                           placeholder="username" class="form-control" id="passWord2">
+                                           placeholder="Nomor Resi" class="form-control" id="passWord2">
                                 </div>
                                 <div class="form-group">
                                     <label for="passWord2">Catatan Toko *</label>
                                     <input data-parsley-equalto="#pass1" type="password" required
-                                           placeholder="Password" class="form-control" id="passWord2">
+                                           placeholder="Catatan Toko" class="form-control" id="passWord2">
                                 </div>
                                 <hr />
                                 <div class="product-list">
