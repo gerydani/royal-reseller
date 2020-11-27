@@ -49,18 +49,22 @@
                                             <thead>
                                             <tr>
                                                 <th>Nama Product</th>
-                                                <th>Kode Produk</th>
                                                 <th>SKU</th>
+                                                <th>Harga Modal</th>
                                                 <th>Harga Kesepakatan</th>
+                                                <th>Dimensi(PxLxT)</th>
+                                                <th>Berat(Gram)</th>
                                                 <th>Status Barang</th>
                                                 <th>Edit Barang</th>
                                             </tr>
                                             </thead>
                                             <tr>
                                                 <td>Klorofil</td>
-                                                <td>klinkklo</td>
                                                 <td>Chlorophyl</td>
+                                                <td>Rp. 75.000,-</td>
                                                 <td>Rp. 85.000,-</td>
+                                                <td>8x3x2</td>
+                                                <td>110</td>
                                                 <td>Ready/Habis</td>
                                                 <td>
                                                     <a href="" class="btn btn-custom btn-rounded waves-effect waves-light w-md m-b-5" id="edit">Edit</a>
