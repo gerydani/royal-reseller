@@ -63,7 +63,7 @@
                                                 <td>breng breng</td>
                                                 <td>pake gojek yang datang</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary" id="ceklist">Complete</button>
+                                                    <button type="button" class="btn btn-primary btn-rounded" id="ceklist">Complete</button>
                                                 </td>
                                             </tr>
                                         </table>
@@ -118,7 +118,7 @@
                                                     <td>breng breng</td>
                                                     <td>pake gojek yang datang</td>
                                                     <td>
-                                                        <button type="button" class="btn btn-danger" id="remove">Remove</button>
+                                                        <button type="button" class="btn btn-danger btn-rounded" id="remove">Remove</button>
                                                     </td>
                                                 </tr>
                                             </table>
