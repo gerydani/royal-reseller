@@ -39,37 +39,42 @@
                             <h4 class="header-title m-t-0 m-b-30">Data Pengiriman</h4>
                             <form action="#" data-parsley-validate novalidate>
                                     <div class="form-group">
-                                      <label for="">MarketPlace</label>
-                                      <select class="form-control" name="" id="">
-                                        <option>shopee</option>
-                                        <option>tokopedia</option>
-                                        <option>bukalapak</option>
+                                      <label class="col-4 col-form-label">Marketplace</label>
+                                      <select class="form-control" name="marketplace" id="">
+                                        <option>Shopee</option>
+                                        <option>Tokopedia</option>
+                                        <option>Bukalapak</option>
                                       </select>
                                     </div>
                                 <div class="form-group">
-                                    <label for="emailAddress">Nama Toko*</label>
-                                    <input type="email" name="email" parsley-trigger="change" required
-                                           placeholder="Nama toko" class="form-control" id="emailAddress">
+                                    <label class="col-4 col-form-label">Nama Toko*</label>
+                                    <input type="text" name="namatoko" parsley-trigger="change" required
+                                           placeholder="Nama toko" class="form-control" id=""
+                                           value = "@isset($user->namatoko){{ $user->namatoko }}@endisset">
                                 </div>
                                 <div class="form-group">
-                                    <label for="pass1">Alamat Pengiriman*</label>
-                                    <input id="pass1" type="password" placeholder="Alamat Pengiriman" required
-                                           class="form-control">
+                                    <label class="col-4 col-form-label">Alamat Pengiriman*</label>
+                                    <input id="" type="text" placeholder="Alamat Pengiriman" required
+                                           class="form-control" name="alamat"
+                                           value = "@isset($user->alamat){{ $user->alamat }}@endisset">
                                 </div>
                                 <div class="form-group">
-                                    <label for="passWord2">Kode Booking Resi *</label>
-                                    <input data-parsley-equalto="#pass1" type="password" required
-                                           placeholder="Kode Booking " class="form-control" id="passWord2">
+                                    <label class="col-4 col-form-label">Kode Booking Resi*</label>
+                                    <input type="text" required name="booking"
+                                           placeholder="Kode Booking " class="form-control" id=""
+                                           value = "@isset($user->booking){{ $user->booking }}@endisset">
                                 </div>
                                 <div class="form-group">
-                                    <label for="passWord2">No resi *</label>
-                                    <input data-parsley-equalto="#pass1" type="password" required
-                                           placeholder="Nomor Resi" class="form-control" id="passWord2">
+                                    <label class="col-4 col-form-label">No Resi*</label>
+                                    <input type="text" required name="resi"
+                                           placeholder="Nomor Resi" class="form-control" id=""
+                                           value = "@isset($user->resi){{ $user->resi }}@endisset">
                                 </div>
                                 <div class="form-group">
-                                    <label for="passWord2">Catatan Toko *</label>
-                                    <input data-parsley-equalto="#pass1" type="password" required
-                                           placeholder="Catatan Toko" class="form-control" id="passWord2">
+                                    <label class="col-4 col-form-label">Catatan Toko*</label>
+                                    <input type="text" required name="catatan"
+                                           placeholder="Catatan Toko" class="form-control" id=""
+                                           value = "@isset($user->catatan){{ $user->catatan }}@endisset">
                                 </div>
                                 <hr />
                                 <div class="product-list">
@@ -81,7 +86,7 @@
                                         <div class="row baris">
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                  <label for="namaproduk">Nama Produk</label>
+                                                  <label class="col-4 col-form-label">Produk</label>
                                                   <select class="form-control" name="list[][id]">
                                                         <option value="">yoyo</option>
                                                   </select>
@@ -89,13 +94,13 @@
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group">
-                                                  <label for="harga">Quantitiy</label>
+                                                  <label class="col-4 col-form-label">Quantitiy</label>
                                                   <input type="number" class="form-control" name="list[][harga]">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                  <label for="quantity">Harga</label>
+                                                  <label class="col-4 col-form-label">Harga</label>
                                                   <input type="text" class="form-control" name="list[][quantity]">
                                                 </div>
                                             </div>

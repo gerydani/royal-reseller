@@ -29,7 +29,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.tabelantrian');
+        return view('user.registrasi');
     }
 
     /**
@@ -65,7 +65,7 @@ class UserController extends Controller
 
         ));
         $user->save();
-        return redirect()->route('Login')->with('status','Data Berhasil disimpan');
+        return redirect()->route('Login.get')->with('status','Data Berhasil disimpan');
     }
 
     /**

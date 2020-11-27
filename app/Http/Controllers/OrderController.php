@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use app\Order;
+use app\OrderDetail;
 
 class OrderController extends Controller
 {
@@ -36,7 +37,15 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $order= new Order(array(
+            'marketplace' => $request ->marketplace,
+            'namatoko' => $request ->nama_toko,
+            'booking' => $request ->kode_booking,
+            'resi' => $request ->no_resi,
+            'catatan' => $request ->catatan
+        ));
+        $order->save();
+        return redirect()->back()->with('status','Data Berhasil Disimpan');
     }
 
     /**
