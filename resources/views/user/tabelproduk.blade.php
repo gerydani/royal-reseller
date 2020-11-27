@@ -57,13 +57,16 @@
                                             </tr>
                                             </thead>
                                             <tr>
-                                                <td>shopee</td>
-                                                <td>klorofil</td>
-                                                <td>3</td>
-                                                <td>breng breng</td>
-                                                <td>pake gojek yang datang</td>
+                                                <td>Klorofil</td>
+                                                <td>klinkklo</td>
+                                                <td>Chlorophyl</td>
+                                                <td>Rp. 85.000,-</td>
+                                                <td>Ready/Habis</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary" id="ceklist">Complete</button>
+                                                    <a href="" class="btn btn-custom btn-rounded waves-effect waves-light w-md m-b-5" id="edit">Edit</a>
+                                                    <form action="">
+                                                        <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light w-md m-b-5" id="remove">Remove</button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         </table>
