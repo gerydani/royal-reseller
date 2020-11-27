@@ -48,6 +48,7 @@
                                         <table id="key-table1" class="table table-bordered tabelantrian">
                                             <thead>
                                             <tr>
+                                                <th style="width:5%">No</th>
                                                 <th>Nama Product</th>
                                                 <th>SKU</th>
                                                 <th>Harga Modal</th>
@@ -58,7 +59,12 @@
                                                 <th>Edit Barang</th>
                                             </tr>
                                             </thead>
+                                        <tbody>
+                                            @php
+                                                $i=1;
+                                            @endphp
                                             <tr>
+                                                <td>{{ $i }}</td>
                                                 <td>Klorofil</td>
                                                 <td>Chlorophyl</td>
                                                 <td>Rp. 75.000,-</td>
@@ -73,6 +79,10 @@
                                                     </form>
                                                 </td>
                                             </tr>
+                                            @php
+                                                $i++;
+                                            @endphp
+                                        </tbody>
                                         </table>
                                     </div>
                                 </div>
