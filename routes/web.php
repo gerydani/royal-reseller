@@ -19,4 +19,7 @@ Route::get('login','HomeController@login')->name('Login.get');
 
 Route::middleware(['checkUser'])->group(function () {
     Route::get('/logout','HomeController@logout')->name('Logout');
+    Route::post('/order','OrderController@store');
 });
+
+

@@ -74,7 +74,7 @@ Index Laporan Keuangan
                         </div>
                     </div><!-- end col -->
             </div> <!-- end container -->
-@endsectionS
+@endsection
 
 @section('js')
     <!-- Validation js (Parsleyjs) -->

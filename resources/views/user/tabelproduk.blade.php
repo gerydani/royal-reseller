@@ -20,7 +20,7 @@
                     <div class="container-fluid">
                         <ul class="nav navbar-nav list-inline navbar-left">
                             <li class="list-inline-item">
-                                <h4 class="page-title">WAITING LIST PACKAGING</h4>
+                                <h4 class="page-title">LIST PRODUK DAN HARGA KESEPAKATAN</h4>
                             </li>
                         </ul>
                         <nav class="navbar-custom">
@@ -48,93 +48,51 @@
                                         <table id="key-table1" class="table table-bordered tabelantrian">
                                             <thead>
                                             <tr>
-                                                <th>Market Place</th>
+                                                <th style="width:5%">No</th>
                                                 <th>Nama Product</th>
-                                                <th>Quantity</th>
-                                                <th>Nama Toko</th>
-                                                <th>Catatan Toko</th>
-                                                <th>Checklist Packaging</th>
+                                                <th>SKU</th>
+                                                <th>Harga Modal</th>
+                                                <th>Harga Kesepakatan</th>
+                                                <th>Dimensi(PxLxT)</th>
+                                                <th>Berat(Gram)</th>
+                                                <th>Status Barang</th>
+                                                <th>Edit Barang</th>
                                             </tr>
                                             </thead>
+                                        <tbody>
+                                            @php
+                                                $i=1;
+                                            @endphp
                                             <tr>
-                                                <td>shopee</td>
-                                                <td>klorofil</td>
-                                                <td>3</td>
-                                                <td>breng breng</td>
-                                                <td>pake gojek yang datang</td>
+                                                <td>{{ $i }}</td>
+                                                <td>Klorofil</td>
+                                                <td>Chlorophyl</td>
+                                                <td>Rp. 75.000,-</td>
+                                                <td>Rp. 85.000,-</td>
+                                                <td>8x3x2</td>
+                                                <td>110</td>
+                                                <td>Ready/Habis</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary btn-rounded" id="ceklist">Complete</button>
+                                                    <a href="" class="btn btn-custom btn-rounded waves-effect waves-light w-md m-b-5" id="edit">Edit</a>
+                                                    <form action="">
+                                                        <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light w-md m-b-5" id="remove">Remove</button>
+                                                    </form>
                                                 </td>
                                             </tr>
+                                            @php
+                                                $i++;
+                                            @endphp
+                                        </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="navbar navbar-default" role="navigation">
-                        <div class="container-fluid">
-                            <ul class="nav navbar-nav list-inline navbar-left">
-                                <li class="list-inline-item">
-                                    <h4 class="page-title">READY TO DELIVER</h4>
-                                </li>
-                            </ul>
-                            <nav class="navbar-custom">
-                                <ul class="list-unstyled topbar-right-menu float-right mb-0">
-                                    <li class="hide-phone">
-                                        <form class="app-search">
-                                            <input type="text" placeholder="Search..."
-                                                   class="form-control">
-                                            <button type="submit"><i class="fa fa-search"></i></button>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
                 </div>
-                    <div class="content">
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="card-box">
-                                        <div class="table-responsive">
-                                            <h4 class="m-t-0 header-title">Table Selesai Packing</h4>
-                                            <table id="key-table" class="table table-bordered tabelantrian">
-                                                <thead>
-                                                <tr>
-                                                    <th>Market Place</th>
-                                                    <th>Nama Product</th>
-                                                    <th>Quantity</th>
-                                                    <th>Nama Toko</th>
-                                                    <th>Catatan Toko</th>
-                                                    <th>Checklist Packaging</th>
-                                                </tr>
-                                                </thead>
-                                                <tr>
-                                                    <td>shopee</td>
-                                                    <td>klorofil</td>
-                                                    <td>3</td>
-                                                    <td>breng breng</td>
-                                                    <td>pake gojek yang datang</td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-danger btn-rounded" id="remove">Remove</button>
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- container -->
-                </div> <!-- content -->
-                <footer class="footer text-right">
-                    ROYAL RESELLER
-                </footer>
             </div>
         </div>
 @endsection
-
 
 @section('js')
         <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>

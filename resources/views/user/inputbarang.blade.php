@@ -1,43 +1,28 @@
+@extends('layout.main')
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8" />
-        <title>Adminto - Responsive Admin Dashboard Template</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
-        <meta content="Coderthemes" name="author" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-        <!-- App favicon -->
+@section('icon')
         <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+@endsection
 
-        <!-- App css -->
-        <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css" />
+@section('css')
         <link href="https://fonts.googleapis.com/css?family=Lato:400,600,700" rel="stylesheet" />
         <link href="{{ asset('colorlib-search-9/css/main.css') }}" rel="stylesheet" />
+@endsection
 
-        <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
-        <script src="{{ asset('colorlib-search-9/js/extention/choices.js') }}"></script>
-
-    </head>
-    <body>
-                <!-- Page-Title -->
+@section('judul')
                 <div class="row">
                     <div class="col-sm-12">
                         <h4 class="page-title" style="margin-left: 400px">Input Barang</h4>
                     </div>
                 </div>
-                <!-- end page title end breadcrumb -->
-                <div class="row">
-                    <div class="col-md-3"></div>
-                    <div class="col-xl-6">
+@endsection
+@section('content')
+                <div class="col-md-12">
+                    <div class="col-xl-8">
                         <div class="card-box">
-<!-----------------basic form----------------->
                             <h4 class="header-title m-t-0 m-b-30">Data Pengiriman</h4>
-                            <form action="#" data-parsley-validate novalidate>
+                            <form action="/order" data-parsley-validate novalidate method="post">
+                                @csrf
                                     <div class="form-group">
                                       <label class="col-4 col-form-label">Marketplace</label>
                                       <select class="form-control" name="marketplace" id="">
@@ -56,25 +41,25 @@
                                     <label class="col-4 col-form-label">Alamat Pengiriman*</label>
                                     <input id="" type="text" placeholder="Alamat Pengiriman" required
                                            class="form-control" name="alamat"
-                                           value = "@isset($user->alamat){{ $user->alamat }}@endisset">
+                                           value = "@isset($order->alamat){{ $order->alamat }}@endisset">
                                 </div>
                                 <div class="form-group">
                                     <label class="col-4 col-form-label">Kode Booking Resi*</label>
                                     <input type="text" required name="booking"
                                            placeholder="Kode Booking " class="form-control" id=""
-                                           value = "@isset($user->booking){{ $user->booking }}@endisset">
+                                           value = "@isset($order->booking){{ $order->booking }}@endisset">
                                 </div>
                                 <div class="form-group">
                                     <label class="col-4 col-form-label">No Resi*</label>
                                     <input type="text" required name="resi"
                                            placeholder="Nomor Resi" class="form-control" id=""
-                                           value = "@isset($user->resi){{ $user->resi }}@endisset">
+                                           value = "@isset($order->resi){{ $order->resi }}@endisset">
                                 </div>
                                 <div class="form-group">
                                     <label class="col-4 col-form-label">Catatan Toko*</label>
                                     <input type="text" required name="catatan"
                                            placeholder="Catatan Toko" class="form-control" id=""
-                                           value = "@isset($user->catatan){{ $user->catatan }}@endisset">
+                                           value = "@isset($order->catatan){{ $order->catatan }}@endisset">
                                 </div>
                                 <hr />
                                 <div class="product-list">
@@ -87,21 +72,24 @@
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                   <label class="col-4 col-form-label">Produk</label>
-                                                  <select class="form-control" name="list[][id]">
-                                                        <option value="">yoyo</option>
+                                                  <select class="form-control" name="kode[]">
+                                                        <option value="yoyo">yoyo</option>
+                                                        <option value="yaya">yaya</option>
                                                   </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                   <label class="col-4 col-form-label">Quantitiy</label>
-                                                  <input type="number" class="form-control" name="list[][harga]">
+                                                  <input type="number" class="form-control" name="qty[]">
+                                                  {{-- value="@isset($detail->qty){{ $detail->qty }}" --}}
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                   <label class="col-4 col-form-label">Harga</label>
-                                                  <input type="text" class="form-control" name="list[][quantity]">
+                                                  <input type="text" class="form-control" name="harga[]">
+                                                  {{-- value="@isset($detail->harga){{ $detail->harga }}"> --}}
                                                 </div>
                                             </div>
                                             <div class="col-md-2" style="padding-top: 30px">
@@ -116,23 +104,22 @@
                                     </button>
                                 </div>
                             </form>
+                            <div class="links">
+                                <br>
+                                <br>
+                                <a href="logout">Log out</a>
+                            </div>
                         </div>
-                    </div><!-- end col -->
-            </div> <!-- end container -->
-        <!-- jQuery  -->
-        <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
-        <script src="{{ asset('assets/js/popper.min.js') }}"></script>
-        <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('assets/js/waves.js') }}"></script>
-        <script src="{{ asset('assets/js/jquery.slimscroll.js') }}"></script>
+                    </div>
+                </div>
+            </div>
+@endsection
 
-        <!-- Validation js (Parsleyjs) -->
+@section('js')
         <script type="text/javascript" src="{{ asset('assets/plugins/parsleyjs/dist/parsley.min.js') }}"></script>
+@endsection
 
-        <!-- App js -->
-        <script src="{{ asset('assets/js/jquery.core.js') }}"></script>
-        <script src="{{ asset('assets/js/jquery.app.js') }}"></script>
-
+@section('script-js')
         <script type="text/javascript">
             $(document).ready(function() {
                 $('form').parsley();
@@ -152,6 +139,4 @@
             });
         });
         </script>
-
-    </body>
-</html>
+@endsection

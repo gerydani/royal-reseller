@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use app\Order;
-use app\OrderDetail;
+use App\Order;
+use App\OrderDetail;
 
 class OrderController extends Controller
 {
@@ -16,7 +16,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -26,7 +26,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -37,14 +37,33 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+
         $order= new Order(array(
             'marketplace' => $request ->marketplace,
-            'namatoko' => $request ->nama_toko,
-            'booking' => $request ->kode_booking,
-            'resi' => $request ->no_resi,
+            'nama_toko' => $request ->namatoko,
+            'alamat' => $request ->alamat,
+            'kode_booking' => $request ->booking,
+            'no_resi' => $request ->resi,
             'catatan' => $request ->catatan
         ));
         $order->save();
+
+        for($i=0;$i<count($request->qty);$i++){
+            $detail= new OrderDetail(array(
+                'trx_id' => $order->id,
+                'kode_produk' => $request ->kode[$i],
+                'qty' => $request ->qty[$i],
+                'harga' => $request ->harga[$i]
+            ));
+            $detail->save();
+        }
+
+        // $detail= new OrderDetail(array(
+        //     'kode_produk' => $request ->kode_produk,
+        //     'qty' => $request ->qty,
+        //     'harga' => $request ->harga
+        // ));
+        // $detail->save();
         return redirect()->back()->with('status','Data Berhasil Disimpan');
     }
 
