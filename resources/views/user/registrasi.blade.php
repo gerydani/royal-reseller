@@ -30,37 +30,38 @@ Index Laporan Keuangan
                             <h4 class="header-title m-t-0 m-b-30">Form Data</h4>
                             <form action="/tambah" method="post" data-parsley-validate novalidate>
                                 {{ csrf_field() }}
+                                <label class="col-4 col-form-label"><span class="text-danger">* required field</span></label>
                                 <div class="form-group">
-                                    <label class="col-4 col-form-label">Nama Toko*</label>
+                                    <label class="col-4 col-form-label">Nama Toko <span class="text-danger">*</span></label>
                                     <input type="text" name="namatoko" parsley-trigger="change" required
                                            placeholder="Nama Toko" class="form-control" id=""
                                            value="@isset($user->namatoko){{$user->namatoko}}@endisset">
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-4 col-form-label">Nama Owner*</label>
+                                    <label class="col-4 col-form-label">Nama Owner <span class="text-danger">*</span></label>
                                     <input type="text" name="namaowner" parsley-trigger="change" required
                                            placeholder="Nama Owner" class="form-control" id=""
                                            value="@isset($user->namaowner){{$user->namaowner}}@endisset">
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-4 col-form-label">Email*</label>
+                                    <label class="col-4 col-form-label">Email <span class="text-danger">*</span></label>
                                     <input id="" type="email" name="email" placeholder="Email Toko" required
                                            class="form-control" value="@isset($user->email){{$user->email}}@endisset">
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-4 col-form-label">Nomor Handphone*</label>
+                                    <label class="col-4 col-form-label">Nomor Handphone <span class="text-danger">*</span></label>
                                     <input type="text" name="nohp" required
                                            placeholder="Nomor Handphone" class="form-control" id=""
                                            value="@isset($user->nohp){{$user->nohp}}@endisset">
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-4 col-form-label">Username *</label>
+                                    <label class="col-4 col-form-label">Username <span class="text-danger">*</span></label>
                                     <input type="text" name="username" required
                                            placeholder="username" class="form-control" id=""
                                            value="@isset($user->username){{$user->username}}@endisset">
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-4 col-form-label">Password *</label>
+                                    <label class="col-4 col-form-label">Password <span class="text-danger">*</span></label>
                                     <input type="password" name="password" required
                                            placeholder="Password" class="form-control" id=""
                                            value="@isset($user->password){{$user->password}}@endisset">
