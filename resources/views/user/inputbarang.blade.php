@@ -107,7 +107,9 @@
                             <div class="links">
                                 <br>
                                 <br>
-                                <a href="logout">Log out</a>
+                                 <button type="button" class="btn btn-default btn-sm" href=>
+                                    <span class="glyphicon glyphicon-log-out"></span> Log out
+                                </button>
                             </div>
                         </div>
                     </div>

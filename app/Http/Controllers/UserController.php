@@ -65,7 +65,7 @@ class UserController extends Controller
 
         ));
         $user->save();
-        return redirect()->route('Login.get')->with('status','Data Berhasil disimpan');
+        return redirect()->route('Home')->with('status','Data Berhasil disimpan');
     }
 
     /**
