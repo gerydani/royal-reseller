@@ -110,6 +110,11 @@
                                 <a href="logout" class="f90-logout-button">Log out</a>
                             </div>
                         </div>
+                        <div class="links">
+                                <br>
+                                <br>
+                                <a href="menu" class="f90-logout-button">Menu Toko</a>
+                            </div>
                     </div>
                 </div>
             </div>

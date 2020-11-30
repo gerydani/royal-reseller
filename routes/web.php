@@ -16,6 +16,8 @@ Route::get('/register', 'UserController@create')->name('registrasi');
 Route::post('/tambah', 'UserController@store');
 Route::post('login','HomeController@login')->name('Login');
 
+Route::get('/menu','UserController@index')->name('menu');
+
 Route::middleware(['checkUser'])->group(function () {
     Route::get('/logout','HomeController@logout')->name('Logout');
     Route::post('/order','OrderController@store');

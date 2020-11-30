@@ -30,7 +30,7 @@
                 </div> <!-- content -->
 
                 <footer class="footer text-right">
-                    2019 Royal Warehouse
+                    Royal Warehouse 2020
                 </footer>
 
             </div>

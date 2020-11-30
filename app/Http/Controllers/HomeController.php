@@ -22,7 +22,7 @@ class HomeController extends Controller
             // echo "<pre>";
             // print_r($request->all());
             // die;
-            return view('user.inputbarang',compact('user'));
+            return view('Order.inputbarang',compact('user'));
         }else{
             return view('user.login');
         }
