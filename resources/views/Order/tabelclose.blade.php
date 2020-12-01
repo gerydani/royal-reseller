@@ -13,7 +13,7 @@
 
 @section('content')
         <div id="wrapper">
-            <!-- Top Bar Start -->
+            {{--  <!-- Top Bar Start -->
             <div class="topbar" style="padding-left: 10px">
                 <!-- Button mobile view to collapse sidebar menu -->
                 <div class="navbar navbar-default" role="navigation">
@@ -23,7 +23,7 @@
                                 <h4 class="page-title">WAITING LIST PACKAGING</h4>
                             </li>
                         </ul>
-                        {{--  <nav class="navbar-custom">
+                        <nav class="navbar-custom">
                             <ul class="list-unstyled topbar-right-menu float-right mb-0">
                                 <li class="hide-phone">
                                     <form class="app-search">
@@ -33,7 +33,7 @@
                                     </form>
                                 </li>
                             </ul>
-                        </nav>  --}}
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -71,7 +71,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>  --}}
                     <div class="navbar navbar-default" role="navigation">
                         <div class="container-fluid">
                             <ul class="nav navbar-nav list-inline navbar-left">
@@ -79,17 +79,15 @@
                                     <h4 class="page-title">READY TO DELIVER</h4>
                                 </li>
                             </ul>
-                            {{--  <nav class="navbar-custom">
+                            <nav class="navbar-custom">
                                 <ul class="list-unstyled topbar-right-menu float-right mb-0">
                                     <li class="hide-phone">
-                                        <form class="app-search">
-                                            <input type="text" placeholder="Search..."
-                                                   class="form-control">
-                                            <button type="submit"><i class="fa fa-search"></i></button>
-                                        </form>
+                                        <button class="btn btn-danger waves-effect" type="submit">
+                                            Close Order
+                                        </button>
                                     </li>
                                 </ul>
-                            </nav>  --}}
+                            </nav>
                         </div>
                     </div>
                 </div>
@@ -108,7 +106,7 @@
                                                     <th>Quantity</th>
                                                     <th>Nama Toko</th>
                                                     <th>Catatan Toko</th>
-                                                    <th>Checklist Packaging</th>
+                                                    {{--  <th>Checklist Packaging</th>  --}}
                                                 </tr>
                                                 </thead>
                                                 <tr>
@@ -117,9 +115,9 @@
                                                     <td>3</td>
                                                     <td>breng breng</td>
                                                     <td>pake gojek yang datang</td>
-                                                    <td>
+                                                    {{--  <td>
                                                         <button type="button" class="btn btn-danger btn-rounded" id="remove">Remove</button>
-                                                    </td>
+                                                    </td>  --}}
                                                 </tr>
                                             </table>
                                         </div>
