@@ -21,8 +21,8 @@
                     <div class="col-xl-20">
                         <div class="card-box">
                             <h3 class="header-title m-t-0 m-b-30">Aturan Menghindari Beruang Disaat Berkemah</h4>
-                                <ol>
-                                    <li >Jangan Main Klarinet</li>
+                                <ol class="strong">
+                                    <li>Jangan Main Klarinet</li>
                                     <li>Jangan pernah melambaikan lampu senter ke depan dan ke belakang terlalu cepat. Itu dianggap undangan</li>
                                     <li>Jangan pernah berhenti menatap sekitar</li>
                                     <li>Jangan makan keju, kecuali yang kotak</li>

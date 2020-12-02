@@ -13,65 +13,6 @@
 
 @section('content')
         <div id="wrapper">
-            {{--  <!-- Top Bar Start -->
-            <div class="topbar" style="padding-left: 10px">
-                <!-- Button mobile view to collapse sidebar menu -->
-                <div class="navbar navbar-default" role="navigation">
-                    <div class="container-fluid">
-                        <ul class="nav navbar-nav list-inline navbar-left">
-                            <li class="list-inline-item">
-                                <h4 class="page-title">WAITING LIST PACKAGING</h4>
-                            </li>
-                        </ul>
-                        <nav class="navbar-custom">
-                            <ul class="list-unstyled topbar-right-menu float-right mb-0">
-                                <li class="hide-phone">
-                                    <form class="app-search">
-                                        <input type="text" placeholder="Search..."
-                                               class="form-control">
-                                        <button type="submit"><i class="fa fa-search"></i></button>
-                                    </form>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="content">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="card-box">
-                                    <div class="table-responsive">
-                                        <h4 class="m-t-0 header-title">Table Packing</h4>
-                                        <table id="key-table1" class="table table-bordered tabelantrian">
-                                            <thead>
-                                            <tr>
-                                                <th>Market Place</th>
-                                                <th>Nama Product</th>
-                                                <th>Quantity</th>
-                                                <th>Nama Toko</th>
-                                                <th>Catatan Toko</th>
-                                                <th>Checklist Packaging</th>
-                                            </tr>
-                                            </thead>
-                                            <tr>
-                                                <td>shopee</td>
-                                                <td>klorofil</td>
-                                                <td>3</td>
-                                                <td>breng breng</td>
-                                                <td>pake gojek yang datang</td>
-                                                <td>
-                                                    <button type="button" class="btn btn-primary btn-rounded" id="ceklist">Complete</button>
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>  --}}
                     <div class="navbar navbar-default" role="navigation">
                         <div class="container-fluid">
                             <ul class="nav navbar-nav list-inline navbar-left">
@@ -105,8 +46,10 @@
                                                     <th>Nama Product</th>
                                                     <th>Quantity</th>
                                                     <th>Nama Toko</th>
+                                                    <th>Alamat</th>
+                                                    <th>Kode Booking Resi</th>
+                                                    <th>No Resi</th>
                                                     <th>Catatan Toko</th>
-                                                    {{--  <th>Checklist Packaging</th>  --}}
                                                 </tr>
                                                 </thead>
                                                 <tr>
@@ -114,10 +57,10 @@
                                                     <td>klorofil</td>
                                                     <td>3</td>
                                                     <td>breng breng</td>
+                                                    <td>Jalan Kenangan no.69</td>
+                                                    <td>AG547890KO</td>
+                                                    <td>1203974647GRR64709</td>
                                                     <td>pake gojek yang datang</td>
-                                                    {{--  <td>
-                                                        <button type="button" class="btn btn-danger btn-rounded" id="remove">Remove</button>
-                                                    </td>  --}}
                                                 </tr>
                                             </table>
                                         </div>
@@ -126,9 +69,6 @@
                             </div>
                         </div> <!-- container -->
                 </div> <!-- content -->
-                {{--  <footer class="footer text-right">
-                    ROYAL RESELLER
-                </footer>  --}}
             </div>
         </div>
 @endsection
