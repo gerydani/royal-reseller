@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\toko;
 
-use App\Order;
-use App\OrderDetail;
-
-class OrderController extends Controller
+class TokoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $antrian = OrderDetail::join('tblorder','tblorder_detail.trx_id','tblorder.id')->get();
-        return view('Order.tabelantrian', compact('antrian') );
+        $toko = toko::all();
+        return view('Order.tokostatus',compact('toko'));
     }
 
     /**
@@ -27,7 +26,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-
+        return view('Order.menutoko');
     }
 
     /**
@@ -38,34 +37,25 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-
-        $order= new Order(array(
-            'marketplace' => $request ->marketplace,
-            'nama_toko' => $request ->namatoko,
-            'alamat' => $request ->alamat,
-            'kode_booking' => $request ->booking,
-            'no_resi' => $request ->resi,
-            'catatan' => $request ->catatan
-        ));
-        $order->save();
-
-        for($i=0;$i<count($request->qty);$i++){
-            $detail= new OrderDetail(array(
-                'trx_id' => $order->id,
-                'kode_produk' => $request ->kode[$i],
-                'qty' => $request ->qty[$i],
-                'harga' => $request ->harga[$i]
-            ));
-            $detail->save();
+        $validator = Validator::make($request->all(),[
+            'marketplace' => 'required|string',
+            'namatoko' =>  'required|string'
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator->errors());
         }
-
-        // $detail= new OrderDetail(array(
-        //     'kode_produk' => $request ->kode_produk,
-        //     'qty' => $request ->qty,
-        //     'harga' => $request ->harga
-        // ));
-        // $detail->save();
-        return redirect()->back()->with('status','Data Berhasil Disimpan');
+        // echo "<pre>";
+        // print_r($request->all());
+        // die;
+        $toko = new toko(array(
+            'marketplace' => $request->marketplace,
+            'nama_toko' =>  $request->namatoko,
+            'username_mp' => $request->usernamemp,
+            'password_mp' => $request->passwordmp,
+            'status' => $request->statustoko
+        ));
+        $toko->save();
+        return redirect()->route('toko')->with('status','Data Berhasil disimpan');
     }
 
     /**

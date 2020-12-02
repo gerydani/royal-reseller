@@ -57,11 +57,13 @@
                                             </tr>
                                             </thead>
                                             <tr>
-                                                <td>shopee</td>
-                                                <td>klorofil</td>
-                                                <td>3</td>
-                                                <td>breng breng</td>
-                                                <td>pake gojek yang datang</td>
+                                                @foreach ($antrian as $queue)
+                                                    <td>{{ $queue->marketplace }}</td>
+                                                    <td>{{ $queue->nama_prod->nama_produk }}</td>
+                                                    <td>{{ $queue->qty }}</td>
+                                                    <td>{{ $queue->nama_toko }}</td>
+                                                    <td>{{ $queue->catatan }}</td>
+                                                @endforeach
                                                 <td>
                                                     <button type="button" class="btn btn-primary btn-rounded" id="ceklist">Complete</button>
                                                 </td>
