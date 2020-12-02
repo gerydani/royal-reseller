@@ -35,20 +35,28 @@
                         <th>Owner</th>
                         <th>Marketplace</th>
                         <th>Nama Toko</th>
-                        <th>Username</th>
-                        <th>Password</th>
+                        <th>Username Toko</th>
+                        <th>Password Toko</th>
                         <th>Status</th>
                     </thead>
                     {{--  @foreach($mitra as $m)  --}}
+                        @php
+                            $i=1;
+                        @endphp
+                    @foreach ($toko as $tok )
                     <tr>
-                        <td>1</td>
-                        <td>Samsudin</td>
-                        <td>Tokopedia</td>
-                        <td>Sams_cuy</td>
-                        <td>samsudin321</td>
-                        <td>samcan321</td>
-                        <td>Aktif</td>
+                        <td>{{ $i }}</td>
+                        <td>{{ $tok->infotoko->namaowner }}</td>
+                        <td>{{ $tok->marketplace }}</td>
+                        <td>{{ $tok->nama_toko }}</td>
+                        <td>{{ $tok->username_mp }}</td>
+                        <td>{{ $tok->password_mp }}</td>
+                        <td>{{ $tok->status }}</td>
+                    @endforeach
                     </tr>
+                        @php
+                            $i++
+                        @endphp
                 </table>
             </div>
         </div>
