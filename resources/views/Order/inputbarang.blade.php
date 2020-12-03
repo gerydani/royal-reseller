@@ -10,11 +10,7 @@
 @endsection
 
 @section('judul')
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h4 class="page-title" style="margin-left: 400px">Input Barang</h4>
-                    </div>
-                </div>
+Input Barang
 @endsection
 @section('content')
                 <div class="col-md-22">
