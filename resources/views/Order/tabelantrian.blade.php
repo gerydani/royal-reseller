@@ -59,7 +59,7 @@
                                             @foreach ($antrian as $queue)
                                             <tr>
                                                 <td>{{ $queue->marketplace }}</td>
-                                                <td>{{ $queue->nama_prod->nama_produk }}</td>
+                                                <td>{{ $queue->nama_prod->name }}</td>
                                                 <td>{{ $queue->qty }}</td>
                                                 <td>{{ $queue->nama_toko }}</td>
                                                 <td>{{ $queue->catatan }}</td>
@@ -119,7 +119,7 @@
                                                 @foreach ($package as $pack)
                                                 <tr>
                                                     <td>{{ $pack->marketplace }}</td>
-                                                    <td>{{ $pack->nama_prod->nama_produk }}</td>
+                                                    <td>{{ $pack->nama_prod->name }}</td>
                                                     <td>{{ $pack->qty }}</td>
                                                     <td>{{ $pack->nama_toko }}</td>
                                                     <td>{{ $pack->catatan }}</td>

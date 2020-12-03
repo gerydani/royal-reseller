@@ -19,7 +19,7 @@
 
 @section('content')
     <div class="card-box">
-       <h3 class="page-title text-uppercase" style="padding-left: 60px">Input Aturan/h4>
+       <h3 class="page-title text-uppercase" style="padding-left: 60px">Input Aturan</h3>
             <form action="{{ route('store.aturan') }}" method="post">
                 @csrf
                 <textarea id="" name="aturan" value="@isset($aturan->Peraturan){{$aturan->Peraturan}}@endisset"></textarea>

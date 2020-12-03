@@ -54,12 +54,12 @@
                                             @foreach ($user as $use)
                                             <tr>
                                                 <td>{{ $i }}</td>
-                                                <td>{{ $use->nama_produk }}</td>
+                                                <td>{{ $use->name }}</td>
                                                 <td>{{ $use->sku }}</td>
-                                                <td>{{ $use->harga_modal }}</td>
-                                                <td>{{ $use->harga_kesepakatan }}</td>
-                                                <td>{{ $use->dimensi }}</td>
-                                                <td>{{ $use->berat }}</td>
+                                                <td>{{ $use->capital_price }}</td>
+                                                <td>{{ $use->agreed_price }}</td>
+                                                <td>{{ $use->dimension }}</td>
+                                                <td>{{ $use->weight }}</td>
                                                 <td>
                                                     <a href="" class="btn btn-custom btn-rounded waves-effect waves-light w-md m-b-5" id="edit">Edit</a>
                                                     <form class="" action="{{ route('produk.destroy', ['id' => $use->id]) }}" method="post">
