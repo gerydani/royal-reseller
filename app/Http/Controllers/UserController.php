@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        return view('Order.tokostatus');
+        return view('Order.tambahproduk');
     }
 
     /**

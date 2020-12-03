@@ -5,13 +5,25 @@
 @endsection
 
 @section('css')
-        <link href="assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/plugins/datatables/select.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+<!-- DataTables -->
+        <link href="{{ asset('assets/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/plugins/datatables/buttons.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- Responsive datatable examples -->
+        <link href="{{ asset('assets/plugins/datatables/responsive.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- Multi Item Selection examples -->
+        <link href="{{ asset('assets/plugins/datatables/select.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
+        <!-- Sweet Alert css -->
+        <link href="{{ asset('assets/plugins/sweet-alert/sweetalert2.min.css') }}" rel="stylesheet" type="text/css" />
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 
 @section('content')
+    <div class="card-box">
+        <h3 class="page-title text-uppercase" style="padding-left: 60px">Aturan Menghindari Beruang Disaat Berkemah</h4>
+            <textarea id="" name="" value="">
+            </textarea>
+        <br>
+        <hr />
         <div id="wrapper">
             <!-- Top Bar Start -->
             <div class="topbar" style="padding-left: 10px">
@@ -33,46 +45,29 @@
                             <div class="col-12">
                                 <div class="card-box">
                                     <div class="table-responsive">
-                                        <h4 class="m-t-0 header-title">Table Packing</h4>
+                                        <h4 class="m-t-0 header-title" style="padding-left: 10px">Table Packing</h4>
                                         <table id="key-table1" class="table table-bordered tabelantrian">
                                             <thead>
                                             <tr>
                                                 <th style="width:5%">No</th>
                                                 <th>Nama Product</th>
-                                                <th>SKU</th>
-                                                <th>Harga Modal</th>
                                                 <th>Harga Kesepakatan</th>
-                                                <th>Dimensi(PxLxT)</th>
-                                                <th>Berat(Gram)</th>
-                                                <th>Edit Barang</th>
+                                                <th>Status</th>
                                             </tr>
                                             </thead>
                                         <tbody>
                                             @php
                                                 $i=1;
                                             @endphp
-                                            @foreach ($user as $use)
                                             <tr>
                                                 <td>{{ $i }}</td>
-                                                <td>{{ $use->nama_produk }}</td>
-                                                <td>{{ $use->sku }}</td>
-                                                <td>{{ $use->harga_modal }}</td>
-                                                <td>{{ $use->harga_kesepakatan }}</td>
-                                                <td>{{ $use->dimensi }}</td>
-                                                <td>{{ $use->berat }}</td>
-                                                <td>
-                                                    <a href="" class="btn btn-custom btn-rounded waves-effect waves-light w-md m-b-5" id="edit">Edit</a>
-                                                    <form class="" action="{{ route('produk.destroy', ['id' => $use->id]) }}" method="post">
-                                                        @csrf
-                                                        {{ method_field('delete') }}
-                                                        <button type="submit" class="btn btn-danger btn-rounded waves-effect waves-light w-md m-b-5" id="remove">Remove</button>
-                                                    </form>
-                                                </td>
+                                                <td>Klorofil</td>
+                                                <td>Rp. 85.000,-</td>
+                                                <td>Ready</td>
+                                            </tr>
                                             @php
                                                 $i++;
                                             @endphp
-                                            @endforeach
-                                            </tr>
                                         </tbody>
                                         </table>
                                     </div>
@@ -82,23 +77,36 @@
                     </div>
                 </div>
             </div>
+                <div class="links">
+                    <br>
+                    <br>
+                    <a href="menu" class="f90-logout-button">Menu Toko</a>
+                </div>
         </div>
+    </div>
+<div class="links">
+    <br>
+    <br>
+    <a href="logout" class="f90-logout-button">Log out</a>
+</div>
 @endsection
 
 @section('js')
-        <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
-        <script src="assets/plugins/datatables/dataTables.bootstrap4.min.js"></script>
-        <script src="assets/plugins/datatables/dataTables.buttons.min.js"></script>
-        <script src="assets/plugins/datatables/buttons.bootstrap4.min.js"></script>
-        <script src="assets/plugins/datatables/jszip.min.js"></script>
-        <script src="assets/plugins/datatables/pdfmake.min.js"></script>
-        <script src="assets/plugins/datatables/vfs_fonts.js"></script>
-        <script src="assets/plugins/datatables/buttons.html5.min.js"></script>
-        <script src="assets/plugins/datatables/buttons.print.min.js"></script>
-        <script src="assets/plugins/datatables/dataTables.keyTable.min.js"></script>
-        <script src="assets/plugins/datatables/dataTables.responsive.min.js"></script>
-        <script src="assets/plugins/datatables/responsive.bootstrap4.min.js"></script>
-        <script src="assets/plugins/datatables/dataTables.select.min.js"></script>
+<!-- Sweet Alert Js  -->
+<script src="{{ asset('assets/plugins/sweet-alert/sweetalert2.min.js') }}"></script>
+<script src="{{ asset('assets/pages/jquery.sweet-alert.init.js') }}"></script>
+
+<!-- Required datatable js -->
+<script src="{{ asset('assets/plugins/datatables/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/datatables/dataTables.bootstrap4.min.js') }}"></script>
+
+<!-- Responsive examples -->
+<script src="{{ asset('assets/plugins/datatables/dataTables.responsive.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/datatables/responsive.bootstrap4.min.js') }}"></script>
+
+<!-- Sweet Alert Js  -->
+<script src="{{ asset('assets/plugins/sweet-alert/sweetalert2.min.js') }}"></script>
+<script src="{{ asset('assets/pages/jquery.sweet-alert.init.js') }}"></script>
 @endsection
 
 @section('script-js')

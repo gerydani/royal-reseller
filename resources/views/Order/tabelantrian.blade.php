@@ -23,7 +23,7 @@
                                 <h4 class="page-title">WAITING LIST PACKAGING</h4>
                             </li>
                         </ul>
-                        <nav class="navbar-custom">
+                        {{--  <nav class="navbar-custom">
                             <ul class="list-unstyled topbar-right-menu float-right mb-0">
                                 <li class="hide-phone">
                                     <form class="app-search">
@@ -33,7 +33,7 @@
                                     </form>
                                 </li>
                             </ul>
-                        </nav>
+                        </nav>  --}}
                     </div>
                 </div>
             </div>
@@ -84,7 +84,7 @@
                                     <h4 class="page-title">READY TO DELIVER</h4>
                                 </li>
                             </ul>
-                            <nav class="navbar-custom">
+                            {{--  <nav class="navbar-custom">
                                 <ul class="list-unstyled topbar-right-menu float-right mb-0">
                                     <li class="hide-phone">
                                         <form class="app-search">
@@ -94,7 +94,7 @@
                                         </form>
                                     </li>
                                 </ul>
-                            </nav>
+                            </nav>  --}}
                         </div>
                     </div>
                 </div>
@@ -138,9 +138,9 @@
                             </div>
                         </div> <!-- container -->
                 </div> <!-- content -->
-                <footer class="footer text-right">
+                {{--  <footer class="footer text-right">
                     ROYAL RESELLER
-                </footer>
+                </footer>  --}}
             </div>
         </div>
 @endsection
