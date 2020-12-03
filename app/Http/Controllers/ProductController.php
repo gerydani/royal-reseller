@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $user = Product::all()->where('tblproduct.status', 1);
+        $user = Product::all();
         return view('produk.tabelproduk',compact('user'));
     }
 
@@ -107,5 +107,6 @@ class ProductController extends Controller
     {
         $product = Product::where('id', $id)->first();
         $product->status = 0;
+        return redirect()->route('product.index')->with('status','Data Berhasil dihapus');
     }
 }
