@@ -23,17 +23,6 @@
                                 <h4 class="page-title">LIST PRODUK DAN HARGA KESEPAKATAN</h4>
                             </li>
                         </ul>
-                        <nav class="navbar-custom">
-                            <ul class="list-unstyled topbar-right-menu float-right mb-0">
-                                <li class="hide-phone">
-                                    <form class="app-search">
-                                        <input type="text" placeholder="Search..."
-                                               class="form-control">
-                                        <button type="submit"><i class="fa fa-search"></i></button>
-                                    </form>
-                                </li>
-                            </ul>
-                        </nav>
                     </div>
                 </div>
             </div>
@@ -55,7 +44,6 @@
                                                 <th>Harga Kesepakatan</th>
                                                 <th>Dimensi(PxLxT)</th>
                                                 <th>Berat(Gram)</th>
-                                                <th>Status Barang</th>
                                                 <th>Edit Barang</th>
                                             </tr>
                                             </thead>
@@ -63,25 +51,28 @@
                                             @php
                                                 $i=1;
                                             @endphp
+                                            @foreach ($user as $use)
                                             <tr>
                                                 <td>{{ $i }}</td>
-                                                <td>Klorofil</td>
-                                                <td>Chlorophyl</td>
-                                                <td>Rp. 75.000,-</td>
-                                                <td>Rp. 85.000,-</td>
-                                                <td>8x3x2</td>
-                                                <td>110</td>
-                                                <td>Ready/Habis</td>
+                                                <td>{{ $use->nama_produk }}</td>
+                                                <td>{{ $use->sku }}</td>
+                                                <td>{{ $use->harga_modal }}</td>
+                                                <td>{{ $use->harga_kesepakatan }}</td>
+                                                <td>{{ $use->dimensi }}</td>
+                                                <td>{{ $use->berat }}</td>
                                                 <td>
                                                     <a href="" class="btn btn-custom btn-rounded waves-effect waves-light w-md m-b-5" id="edit">Edit</a>
-                                                    <form action="">
-                                                        <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light w-md m-b-5" id="remove">Remove</button>
+                                                    <form class="" action="{{ route('produk.destroy', ['id' => $use->id]) }}" method="post">
+                                                        @csrf
+                                                        {{ method_field('delete') }}
+                                                        <button type="submit" class="btn btn-danger btn-rounded waves-effect waves-light w-md m-b-5" id="remove">Remove</button>
                                                     </form>
                                                 </td>
-                                            </tr>
                                             @php
                                                 $i++;
                                             @endphp
+                                            @endforeach
+                                            </tr>
                                         </tbody>
                                         </table>
                                     </div>

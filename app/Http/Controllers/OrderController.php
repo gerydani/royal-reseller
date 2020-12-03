@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Order;
 use App\OrderDetail;
+use PhpParser\Node\Stmt\TryCatch;
 
 class OrderController extends Controller
 {
@@ -16,7 +17,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-
+        $antrian = OrderDetail::join('tblorder','tblorder_detail.trx_id','tblorder.id')->where('tblorder.status', 0)->get();
+        $package = OrderDetail::join('tblorder','tblorder_detail.trx_id','tblorder.id')->where('tblorder.status', 1)->get();
+        return view('Order.tabelantrian', compact('antrian','package') );
     }
 
     /**
@@ -98,7 +101,22 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $antrian = Order::where('id', $id)->first();
+        if($antrian->status==0){
+            $antrian->status = 1;
+        }
+        else if($antrian->status==1){
+            $antrian->status = 0;
+        }
+        // success
+        try{
+            $antrian->update();
+            return redirect()->route('Order.index')->with('status', 'Data berhasil diupdate');
+        // fail
+        }catch(\Exception $e){
+            return redirect()->back()->withErrors($e->getMessage());
+        }
     }
 
     /**

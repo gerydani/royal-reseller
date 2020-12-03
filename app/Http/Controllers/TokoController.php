@@ -2,25 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use App\toko;
 
-
-use App\User;
-use App\Aturan;
-
-class UserController extends Controller
+class TokoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        return view('Order.tambahaturan');
+        $toko = toko::all();
+        return view('Order.tokostatus',compact('toko'));
     }
 
     /**
@@ -30,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.registrasi');
+        return view('Order.menutoko');
     }
 
     /**
@@ -42,12 +38,8 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'namatoko' => 'required|string',
-            'namaowner' =>  'required|string',
-            'email' => 'required|email|unique:tbluser',
-            'nohp' => 'required',
-            'username' => 'required|unique:tbluser|max:199',
-            'password' => 'required'
+            'marketplace' => 'required|string',
+            'namatoko' =>  'required|string'
         ]);
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator->errors());
@@ -55,18 +47,15 @@ class UserController extends Controller
         // echo "<pre>";
         // print_r($request->all());
         // die;
-        $user = new User(array(
-            'namatoko' => $request->namatoko,
-            'namaowner' =>  $request->namaowner,
-            'email' => $request->email,
-            'nohp' => $request->nohp,
-            'username' => $request->username,
-            'password' => Hash::make($request->password),
-            'bck_pass' => $request->password
-
+        $toko = new toko(array(
+            'marketplace' => $request->marketplace,
+            'nama_toko' =>  $request->namatoko,
+            'username_mp' => $request->usernamemp,
+            'password_mp' => $request->passwordmp,
+            'status' => $request->statustoko
         ));
-        $user->save();
-        return redirect()->route('Home')->with('status','Data Berhasil disimpan');
+        $toko->save();
+        return redirect()->route('toko')->with('status','Data Berhasil disimpan');
     }
 
     /**
@@ -111,20 +100,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-
+        //
     }
-
-    public function createaturan(Request $request){
-        $aturan = new Aturan(array(
-            'Peraturan' => $request ->aturan
-        ));
-        $aturan->save();
-        return redirect()->route('Home')->with('status','Data Berhasil disimpan');
-    }
-
-    // public function aturan(Request $request){
-        // $aturan = Aturan::where('id',session('user_id'))->first();
-        // return view('Order.dashboard',compact('aturan'));
-    // }
-
 }

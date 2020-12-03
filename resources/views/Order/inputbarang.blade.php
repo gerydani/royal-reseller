@@ -13,9 +13,26 @@
 Input Barang
 @endsection
 @section('content')
-                <div class="col-md-12">
-                    <div class="col-xl-8">
+                <div class="col-md-22">
+                    <div class="col-xl-20">
                         <div class="card-box">
+                            <h3 class="header-title m-t-0 m-b-30">Aturan Menghindari Beruang Disaat Berkemah</h4>
+                                <ol class="strong">
+                                    <li>Jangan Main Klarinet</li>
+                                    <li>Jangan pernah melambaikan lampu senter ke depan dan ke belakang terlalu cepat. Itu dianggap undangan</li>
+                                    <li>Jangan pernah berhenti menatap sekitar</li>
+                                    <li>Jangan makan keju, kecuali yang kotak</li>
+                                    <li>Jangan pakai topi sombrero</li>
+                                    <li>Jangan pakai baju bodoh</li>
+                                    <li>Jangan pakai rok panjang</li>
+                                    <li>Jangan pakai sepatu merah</li>
+                                    <li>Jangan berlagak seperti kera</li>
+                                    <li>Jika beruang sudah mendekat, buat gambar lingkaran besar untuk melindungi diri dari gigitan beruang. Usahakan jangan lonjong</li>
+                                    <li>Jangan lari</li>
+                                    <li>Jangan jalan pincang</li>
+                                    <li>Jangan merangkak</li>
+                                </ol>
+                            <hr />
                             <h4 class="header-title m-t-0 m-b-30">Data Pengiriman</h4>
                             <form action="/order" data-parsley-validate novalidate method="post">
                                 @csrf
@@ -106,6 +123,11 @@ Input Barang
                                 <a href="logout" class="f90-logout-button">Log out</a>
                             </div>
                         </div>
+                        <div class="links">
+                                <br>
+                                <br>
+                                <a href="menu" class="f90-logout-button">Menu Toko</a>
+                            </div>
                     </div>
                 </div>
             </div>

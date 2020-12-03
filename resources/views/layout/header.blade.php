@@ -10,7 +10,7 @@
             <!-- Logo container-->
             <div class="logo">
                 <!-- Text Logo -->
-                <a href="{{ route('registrasi') }}" class="logo">
+                <a href="{{ route('Home') }}" class="logo">
                     <span>Royal<span>Warehouse</span></span><i class="mdi mdi-layers"></i>
                 </a>
                 <!-- Image Logo -->
