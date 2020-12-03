@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 
 use App\User;
+use App\Aturan;
 
 class UserController extends Controller
 {
@@ -19,7 +20,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        return view('Order.tambahproduk');
+        return view('Order.tambahaturan');
     }
 
     /**
@@ -112,4 +113,18 @@ class UserController extends Controller
     {
 
     }
+
+    public function createaturan(Request $request){
+        $aturan = new Aturan(array(
+            'Peraturan' => $request ->aturan
+        ));
+        $aturan->save();
+        return redirect()->route('Home')->with('status','Data Berhasil disimpan');
+    }
+
+    // public function aturan(Request $request){
+        // $aturan = Aturan::where('id',session('user_id'))->first();
+        // return view('Order.dashboard',compact('aturan'));
+    // }
+
 }

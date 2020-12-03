@@ -19,9 +19,16 @@
 
 @section('content')
     <div class="card-box">
-        <h3 class="page-title text-uppercase" style="padding-left: 60px">Aturan Menghindari Beruang Disaat Berkemah</h4>
-            <textarea id="" name="" value="">
-            </textarea>
+        <h3 class="page-title text-uppercase" style="padding-left: 60px">Peraturan Yang Harus Ditaati</h4>
+            {{--  <form action="/create" method="get">
+                @csrf
+            foreach($aturan as $atur){
+                <ul>
+                    <li class="list-inline" name="aturan">
+                    {{ $atur->aturan }}
+                    </li>
+                </ul>
+            }  --}}
         <br>
         <hr />
         <div id="wrapper">
@@ -46,7 +53,7 @@
                                 <div class="card-box">
                                     <div class="table-responsive">
                                         <h4 class="m-t-0 header-title" style="padding-left: 10px">Table Packing</h4>
-                                        <table id="key-table1" class="table table-bordered tabelantrian">
+                                        <table id="key-table1" class="table table-bordered">
                                             <thead>
                                             <tr>
                                                 <th style="width:5%">No</th>
