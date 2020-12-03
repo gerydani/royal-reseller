@@ -69,8 +69,8 @@
                                             @foreach ($user as $use)
                                             <tr>
                                                 <td>{{ $i }}</td>
-                                                <td>{{ $use->nama_produk }}</td>
-                                                <td>{{ $use->harga_kesepakatan }}</td>
+                                                <td>{{ $use->name }}</td>
+                                                <td>{{ $use->agreed_price }}</td>
                                                 <td>{{ $use->status }}</td>
                                             @php
                                                 $i++;
@@ -86,18 +86,8 @@
                     </div>
                 </div>
             </div>
-                <div class="links">
-                    <br>
-                    <br>
-                    <a href="menu" class="f90-logout-button">Menu Toko</a>
-                </div>
         </div>
     </div>
-<div class="links">
-    <br>
-    <br>
-    <a href="logout" class="f90-logout-button">Log out</a>
-</div>
 @endsection
 
 @section('js')

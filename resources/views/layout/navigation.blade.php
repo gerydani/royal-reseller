@@ -115,6 +115,14 @@
                         </li>
                     </ul>
                 </li>
+                <li class="has-submenu" style="padding-left: 270px">
+                    <a href="logout"><i class="mdi mdi-logout"></i><span> Log out </span></a>
+                </li>
+                {{-- <li class="has-submenu" style="padding-left:320px">
+                    <div class="links">
+                        <a href="logout"><i class="mdi mdi-logout"></i><span>Log out</span></a>
+                    </div>
+                </li> --}}
             </ul>
             <!-- End navigation menu -->
         </div> <!-- end #navigation -->
