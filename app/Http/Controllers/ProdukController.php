@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use App\toko;
+use App\product;
 
-class TokoController extends Controller
+class ProdukController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,8 @@ class TokoController extends Controller
      */
     public function index()
     {
-        $toko = toko::all();
-        return view('toko.tokostatus',compact('toko'));
+        $user = product::all();
+        return view('produk.tabelproduk',compact('user'));
     }
 
     /**
@@ -26,7 +25,7 @@ class TokoController extends Controller
      */
     public function create()
     {
-        return view('toko.menutoko');
+        return view('produk.tambahproduk');
     }
 
     /**
@@ -37,25 +36,7 @@ class TokoController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),[
-            'marketplace' => 'required|string',
-            'namatoko' =>  'required|string'
-        ]);
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator->errors());
-        }
-        // echo "<pre>";
-        // print_r($request->all());
-        // die;
-        $toko = new toko(array(
-            'marketplace' => $request->marketplace,
-            'nama_toko' =>  $request->namatoko,
-            'username_mp' => $request->usernamemp,
-            'password_mp' => $request->passwordmp,
-            'status' => $request->statustoko
-        ));
-        $toko->save();
-        return redirect()->route('toko')->with('status','Data Berhasil disimpan');
+        //
     }
 
     /**
@@ -100,6 +81,12 @@ class TokoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $produk = product::where('id', $id)->first();
+        if($produk->delete()){
+            return redirect()->route('produk')->with('status', 'Data berhasil dihapus');
+        // fail
+        }else{
+            return redirect()->back()->withErrors($e);
+        }
     }
 }

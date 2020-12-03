@@ -19,12 +19,12 @@
 
 @section('content')
     <div class="card-box">
-       <h3 class="page-title text-uppercase" style="padding-left: 60px">Aturan Menghindari Beruang Disaat Berkemah</h4>
-            <form action="/create" method="post">
+       <h3 class="page-title text-uppercase" style="padding-left: 60px">Input Aturan/h4>
+            <form action="{{ route('store.aturan') }}" method="post">
                 @csrf
-                <textarea id="" name="aturan" value="@isset($aturan->aturan){{$aturan->aturan}}@endisset"></textarea>
-                </br>
-                </br>
+                <textarea id="" name="aturan" value="@isset($aturan->Peraturan){{$aturan->Peraturan}}@endisset"></textarea>
+                <br>
+                <br>
                 <div class="form-group text-right m-b-0">
                     <button class="btn btn-primary waves-effect waves-light" style="margin-right: 50px" type="submit">
                         Submit

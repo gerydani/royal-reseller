@@ -33,7 +33,7 @@
                             <div class="col-12">
                                 <div class="card-box">
                                     <div class="table-responsive">
-                                        <h4 class="m-t-0 header-title">Table Packing</h4>
+                                        <h4 class="m-t-0 header-title">Table Product</h4>
                                         <table id="key-table1" class="table table-bordered tabelantrian">
                                             <thead>
                                             <tr>
@@ -51,24 +51,28 @@
                                             @php
                                                 $i=1;
                                             @endphp
+                                            @foreach ($user as $use)
                                             <tr>
                                                 <td>{{ $i }}</td>
-                                                <td>Klorofil</td>
-                                                <td>Chlorophyl</td>
-                                                <td>Rp. 75.000,-</td>
-                                                <td>Rp. 85.000,-</td>
-                                                <td>8x3x2</td>
-                                                <td>110</td>
+                                                <td>{{ $use->nama_produk }}</td>
+                                                <td>{{ $use->sku }}</td>
+                                                <td>{{ $use->harga_modal }}</td>
+                                                <td>{{ $use->harga_kesepakatan }}</td>
+                                                <td>{{ $use->dimensi }}</td>
+                                                <td>{{ $use->berat }}</td>
                                                 <td>
                                                     <a href="" class="btn btn-custom btn-rounded waves-effect waves-light w-md m-b-5" id="edit">Edit</a>
-                                                    <form action="">
-                                                        <button type="button" class="btn btn-danger btn-rounded waves-effect waves-light w-md m-b-5" id="remove">Remove</button>
+                                                    <form class="" action="{{ route('produk.destroy', ['id' => $use->id]) }}" method="post">
+                                                        @csrf
+                                                        {{ method_field('delete') }}
+                                                        <button type="submit" class="btn btn-danger btn-rounded waves-effect waves-light w-md m-b-5" id="remove">Remove</button>
                                                     </form>
                                                 </td>
-                                            </tr>
                                             @php
                                                 $i++;
                                             @endphp
+                                            @endforeach
+                                            </tr>
                                         </tbody>
                                         </table>
                                     </div>

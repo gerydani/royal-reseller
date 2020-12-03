@@ -56,6 +56,18 @@ return [
             'engine' => null,
         ],
 
+        'mysql_external' => [
+            'driver'    => 'mysql',
+            'host'      => env('DB_EXT_HOST', '127.0.0.1'),
+            'database'  => env('DB_EXT_DATABASE', 'forge'),
+            'username'  => env('DB_EXT_USERNAME', 'forge'),
+            'password'  => env('DB_EXT_PASSWORD', ''),
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+            'strict'    => false,
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),

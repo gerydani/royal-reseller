@@ -11,17 +11,28 @@
 |
 */
 
+// login dan register
 Route::get('/', 'HomeController@index')->name('Home');
+Route::post('login','HomeController@login')->name('Login');
+Route::get('/aturan', 'HomeController@create')->name('input.aturan');
+Route::post('/postaturan', 'HomeController@store')->name('store.aturan');
 Route::get('/register', 'UserController@create')->name('registrasi');
 Route::post('/tambah', 'UserController@store');
-Route::post('login','HomeController@login')->name('Login');
+
+// logout
+Route::middleware(['checkUser'])->group(function () {
+    Route::get('/logout','HomeController@logout')->name('Logout');
+    Route::post('/order','OrderController@store');
+});
 
 Route::get('/menu','UserController@index')->name('menu');
 
+//menu toko
 Route::get('/toko','TokoController@index')->name('toko');
 Route::get('/registoko','TokoController@create')->name('registoko');
 Route::post('/tambahtoko','TokoController@store');
 
+<<<<<<< HEAD
 Route::middleware(['checkUser'])->group(function () {
     Route::get('/logout','HomeController@logout')->name('Logout');
     Route::post('/order','OrderController@store');
@@ -29,4 +40,15 @@ Route::middleware(['checkUser'])->group(function () {
 
 Route::post('/create','UserController@createaturan')->name('buat');
 Route::get('/dashboard','UserController@aturan')->name('aturan');
+=======
+// menu produk
+Route::get('/produk','ProdukController@index')->name('produk');
+Route::get('/insertproduk','ProdukController@create')->name('tampro');
+Route::post('/tambahproduk','ProdukController@store');
+Route::delete('/deleteproduk/{id}','ProdukController@destroy')->name('produk.destroy');
+>>>>>>> 44dcdbd4163697c03773c3769624399e5c2a0499
 
+//menu antrian
+Route::get('/order','OrderController@index')->name('order.index');
+Route::get('/inputorder','OrderController@create')->name('order.input');
+Route::post('/updateorder/{id}','OrderController@update')->name('order.update');
