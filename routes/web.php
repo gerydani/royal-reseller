@@ -15,6 +15,8 @@ Route::get('/', 'HomeController@index')->name('Home');
 Route::get('/register', 'UserController@create')->name('registrasi');
 Route::post('/tambah', 'UserController@store');
 Route::post('login','HomeController@login')->name('Login');
+Route::get('/lalala', 'LalalaController@index')->name('lalala');
+Route::post('/pushto_royalcontrolling', 'LalalaController@store');
 
 Route::middleware(['checkUser'])->group(function () {
     Route::get('/logout','HomeController@logout')->name('Logout');
