@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 
-class ProdukController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        $user = Product::all();
+        $user = Product::all()->where('tblproduct.status', 1);
         return view('produk.tabelproduk',compact('user'));
     }
 
@@ -36,7 +36,17 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product(array(
+            'prod_id' => $request->prod_id,
+            'name' =>  $request->name,
+            'sku' => $request->sku,
+            'capital_price' => $request->capital_price,
+            'agreed_price' => $request->agreed_price,
+            'weight' => $request->weight,
+            'dimension' => $request->dimension
+        ));
+        $product->save();
+        return redirect()->route('product.index')->with('status','Data Berhasil disimpan');
     }
 
     /**
@@ -58,7 +68,8 @@ class ProdukController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::where('id', $id)->first();
+        return view('produk.tambahproduk', compact('product'));
     }
 
     /**
@@ -70,7 +81,20 @@ class ProdukController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try{
+            $product = Product::where('id', $id)->first();
+            $product->prod_id = $request->prod_id;
+            $product->name = $request->name;
+            $product->sku = $request->sku;
+            $product->capital_price = $product->capital_price;
+            $product->agreed_price = $product->agreed_price;
+            $product->weight = $product->weight;
+            $product->dimension = $product->dimension;
+            $product->update();
+            return redirect()->route('product.index')->with('status', 'Data berhasil diupdate');
+        }catch(\Exception $e){
+            return redirect()->back()->withErrors($e->getMessage());
+        }
     }
 
     /**
@@ -81,12 +105,7 @@ class ProdukController extends Controller
      */
     public function destroy($id)
     {
-        $produk = Product::where('id', $id)->first();
-        if($produk->delete()){
-            return redirect()->route('product')->with('status', 'Data berhasil dihapus');
-        // fail
-        }else{
-            return redirect()->back()->withErrors($e);
-        }
+        $product = Product::where('id', $id)->first();
+        $product->status = 0;
     }
 }

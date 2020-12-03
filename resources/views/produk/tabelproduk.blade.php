@@ -61,8 +61,8 @@
                                                 <td>{{ $use->dimension }}</td>
                                                 <td>{{ $use->weight }}</td>
                                                 <td>
-                                                    <a href="" class="btn btn-custom btn-rounded waves-effect waves-light w-md m-b-5" id="edit">Edit</a>
-                                                    <form class="" action="{{ route('produk.destroy', ['id' => $use->id]) }}" method="post">
+                                                    <a href="{{ route('product.edit', ['id' => $use->id]) }}" class="btn btn-custom btn-rounded waves-effect waves-light w-md m-b-5" id="edit">Edit</a>
+                                                    <form class="" action="{{ route('product.destroy', ['id' => $use->id]) }}" method="post">
                                                         @csrf
                                                         {{ method_field('delete') }}
                                                         <button type="submit" class="btn btn-danger btn-rounded waves-effect waves-light w-md m-b-5" id="remove">Remove</button>
