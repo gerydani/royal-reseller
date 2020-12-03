@@ -27,4 +27,5 @@ Route::middleware(['checkUser'])->group(function () {
     Route::post('/order','OrderController@store');
 });
 
+Route::post('/create','UserController@createaturan')->name('buat');
 

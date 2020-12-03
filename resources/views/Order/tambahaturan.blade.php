@@ -20,8 +20,9 @@
 @section('content')
     <div class="card-box">
        <h3 class="page-title text-uppercase" style="padding-left: 60px">Aturan Menghindari Beruang Disaat Berkemah</h4>
-            <form action=" " method="post">
-                <textarea id="" name="" value=""></textarea>
+            <form action="/create" method="post">
+                @csrf
+                <textarea id="" name="aturan" value="@isset($aturan->aturan){{$aturan->aturan}}@endisset"></textarea>
                 </br>
                 </br>
                 <div class="form-group text-right m-b-0">
