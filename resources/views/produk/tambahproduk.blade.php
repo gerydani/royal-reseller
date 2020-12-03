@@ -26,7 +26,7 @@
                                 <div class="form-group">
                                     <label class="col-4 col-form-label">Kode Produk</label>
                                     <input type="text" name="" required placeholder="Kode Produk"
-                                            class="form-control" id="" value = "">
+                                            class="form-control" id="" value = "@isset($user->namatoko){{$user->namatoko}}@endisset">
                                 </div>
                                 <div class="form-group">
                                     <label class="col-4 col-form-label">Nama Produk</label>

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\product;
+use App\Product;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -20,7 +20,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         if($request->session()->has('isLoggedIn')){
-            $user = product::all();
+            $user = Product::all();
             $aturan = Aturan::all();
             // echo "<pre>";
             // print_r($request->all());
@@ -50,7 +50,7 @@ class HomeController extends Controller
     public function store(Request $request)
     {
         $aturan = new Aturan(array(
-            'peraturan'=> $request ->Peraturan
+            'Peraturan'=> $request ->aturan
         ));
         $aturan->save();
         return redirect()->route('Home')->with('status','Data Berhasil Disimpan');

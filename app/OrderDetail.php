@@ -10,6 +10,6 @@ class OrderDetail extends Model
     protected $fillable = ['trx_id','kode_produk','qty','harga'];
 
     public function nama_prod(){
-        return $this->belongsTo('App\product','kode_produk','kode_produk');
+        return $this->belongsTo('App\Product','kode_produk','kode_produk');
     }
 }

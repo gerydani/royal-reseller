@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2020 at 04:30 AM
+-- Generation Time: Dec 03, 2020 at 10:26 AM
 -- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.11
+-- PHP Version: 7.4.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,8 +18,28 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `resseler_20201123`
+-- Database: `reseller_23112020`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `peraturan`
+--
+
+CREATE TABLE `peraturan` (
+  `id` int(11) NOT NULL,
+  `Peraturan` text DEFAULT NULL,
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `peraturan`
+--
+
+INSERT INTO `peraturan` (`id`, `Peraturan`, `updated_at`, `created_at`) VALUES
+(10, 'Kecelakaan akibat kelalaian pengemudi masih sering terjadi. Sepanjang tahun 2019, sudah ada 15 orang yang meninggal karena kecelakaan lalu lintas, terutama di jalan tol. Mengendarai kendaraan saat mengantuk adalah salah satu penyumbang terbesar dari angka di atas. Hal ini bisa menyebabkan kecelakaan lalu lintas beruntun yang berakibat merugikan banyak orang. Insiden kecelakaan karena kelalaian ini bisa terjadi kapan saja, baik siang maupun malam. Maka kita harus selalu berkonsentrasi ketika mengendarai kendaraan di jalanan. Selain menjadi penyebab kecelakaan, kita juga bisa menjadi korban.', '2020-12-03 00:33:16', '2020-12-03 00:33:16');
 
 -- --------------------------------------------------------
 
@@ -35,6 +55,7 @@ CREATE TABLE `tblorder` (
   `no_resi` varchar(100) DEFAULT NULL,
   `marketplace` varchar(100) DEFAULT NULL,
   `catatan` varchar(100) DEFAULT NULL,
+  `status` int(2) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -43,9 +64,11 @@ CREATE TABLE `tblorder` (
 -- Dumping data for table `tblorder`
 --
 
-INSERT INTO `tblorder` (`id`, `nama_toko`, `alamat`, `kode_booking`, `no_resi`, `marketplace`, `catatan`, `created_at`, `updated_at`) VALUES
-(1, 'Dodol Garut', NULL, NULL, '34232wefsdwr', 'Shopee', 'Pelan pelan , sakit', '2020-11-27 04:06:37', '2020-11-27 04:06:37'),
-(2, 'Dodol Garut', 'Jl. Sadang Saip No.21, Sadang Serang, Kecamatan Coblong, Kota Bandung', 'jhfjsdfjsdkf9298239u', '34232wefsdwr', 'Tokopedia', 'Pelan pelan , sakit', '2020-11-27 04:08:40', '2020-11-27 04:08:40');
+INSERT INTO `tblorder` (`id`, `nama_toko`, `alamat`, `kode_booking`, `no_resi`, `marketplace`, `catatan`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Dodol Garut', NULL, NULL, '34232wefsdwr', 'Shopee', 'Pelan pelan , sakit', 0, '2020-11-27 04:06:37', '2020-12-02 20:46:55'),
+(2, 'Dodol Garut', 'Jl. Sadang Saip No.21, Sadang Serang, Kecamatan Coblong, Kota Bandung', 'jhfjsdfjsdkf9298239u', '34232wefsdwr', 'Tokopedia', 'Pelan pelan , sakit', 0, '2020-11-27 04:08:40', '2020-12-02 20:46:57'),
+(3, 'breng breng', NULL, NULL, NULL, 'Tokopedia', NULL, 0, '2020-12-01 20:33:51', '2020-12-01 20:33:51'),
+(4, 'breng breng', NULL, NULL, NULL, 'Tokopedia', NULL, 0, '2020-12-01 20:39:21', '2020-12-01 20:39:21');
 
 -- --------------------------------------------------------
 
@@ -68,30 +91,62 @@ CREATE TABLE `tblorder_detail` (
 --
 
 INSERT INTO `tblorder_detail` (`id`, `trx_id`, `kode_produk`, `qty`, `harga`, `created_at`, `updated_at`) VALUES
-(1, 1, 'yoyo', '123', '124345', '2020-11-27 04:06:37', '2020-11-27 04:06:37'),
-(2, 1, 'yaya', '124', '555', '2020-11-27 04:06:37', '2020-11-27 04:06:37'),
-(3, 1, 'yoyo', '121', '124345', '2020-11-27 04:06:37', '2020-11-27 04:06:37'),
-(4, 2, 'yoyo', '1', '124345', '2020-11-27 04:08:40', '2020-11-27 04:08:40'),
-(5, 2, 'yoyo', '2', '555', '2020-11-27 04:08:40', '2020-11-27 04:08:40'),
-(6, 2, 'yaya', '3', '124345', '2020-11-27 04:08:40', '2020-11-27 04:08:40'),
-(7, 2, 'yaya', '4', '555', '2020-11-27 04:08:40', '2020-11-27 04:08:40'),
-(8, 2, 'yoyo', '5', '124345', '2020-11-27 04:08:40', '2020-11-27 04:08:40');
+(1, 1, '2', '123', '124345', '2020-11-27 04:06:37', '2020-11-27 04:06:37'),
+(3, 1, '4', '121', '124345', '2020-11-27 04:06:37', '2020-11-27 04:06:37'),
+(4, 2, '5', '1', '124345', '2020-11-27 04:08:40', '2020-11-27 04:08:40');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tblproduk`
+-- Table structure for table `tblproduct`
 --
 
-CREATE TABLE `tblproduk` (
+CREATE TABLE `tblproduct` (
   `id` int(11) NOT NULL,
-  `kode_produk` varchar(100) NOT NULL,
-  `nama_produk` varchar(100) NOT NULL,
+  `prod_id` varchar(100) NOT NULL,
+  `name` varchar(100) DEFAULT NULL,
   `sku` varchar(100) NOT NULL,
-  `harga` varchar(100) NOT NULL,
+  `capital_price` int(11) DEFAULT NULL,
+  `agreed_price` int(11) DEFAULT NULL,
+  `weight` int(11) DEFAULT NULL,
+  `dimension` varchar(100) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tblproduct`
+--
+
+INSERT INTO `tblproduct` (`id`, `prod_id`, `name`, `sku`, `capital_price`, `agreed_price`, `weight`, `dimension`, `status`, `created_at`, `updated_at`) VALUES
+(5, '3', 'le minelare', 'le', 10000, 15000, 1000, '12x13x14', 0, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbltoko`
+--
+
+CREATE TABLE `tbltoko` (
+  `id` int(10) NOT NULL,
+  `id_user` int(10) DEFAULT NULL,
+  `nama_toko` varchar(255) DEFAULT NULL,
+  `username_mp` varchar(255) NOT NULL,
+  `password_mp` varchar(255) NOT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `marketplace` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbltoko`
+--
+
+INSERT INTO `tbltoko` (`id`, `id_user`, `nama_toko`, `username_mp`, `password_mp`, `status`, `marketplace`, `created_at`, `updated_at`) VALUES
+(2, 2, 'breng breng', 'alanyy', 'nnfsdns', 'aktif', 'tokopedia', '2020-12-02 05:44:43', '2020-12-02 05:44:43'),
+(3, 4, 'saf', 'as', 'fa', 'aktif', 'tokopedia', '2020-12-02 05:44:46', '2020-12-02 05:44:46');
 
 -- --------------------------------------------------------
 
@@ -135,6 +190,12 @@ INSERT INTO `tbluser` (`id`, `username`, `bck_pass`, `password`, `namaowner`, `n
 --
 
 --
+-- Indexes for table `peraturan`
+--
+ALTER TABLE `peraturan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tblorder`
 --
 ALTER TABLE `tblorder`
@@ -147,9 +208,16 @@ ALTER TABLE `tblorder_detail`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tblproduk`
+-- Indexes for table `tblproduct`
 --
-ALTER TABLE `tblproduk`
+ALTER TABLE `tblproduct`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `prod_id` (`prod_id`);
+
+--
+-- Indexes for table `tbltoko`
+--
+ALTER TABLE `tbltoko`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -163,10 +231,16 @@ ALTER TABLE `tbluser`
 --
 
 --
+-- AUTO_INCREMENT for table `peraturan`
+--
+ALTER TABLE `peraturan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
 -- AUTO_INCREMENT for table `tblorder`
 --
 ALTER TABLE `tblorder`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tblorder_detail`
@@ -175,10 +249,16 @@ ALTER TABLE `tblorder_detail`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `tblproduk`
+-- AUTO_INCREMENT for table `tblproduct`
 --
-ALTER TABLE `tblproduk`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tblproduct`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `tbltoko`
+--
+ALTER TABLE `tbltoko`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbluser`

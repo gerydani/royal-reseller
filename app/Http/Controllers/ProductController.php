@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\product;
+use App\Product;
 
 class ProdukController extends Controller
 {
@@ -14,7 +14,7 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        $user = product::all();
+        $user = Product::all();
         return view('produk.tabelproduk',compact('user'));
     }
 
@@ -81,9 +81,9 @@ class ProdukController extends Controller
      */
     public function destroy($id)
     {
-        $produk = product::where('id', $id)->first();
+        $produk = Product::where('id', $id)->first();
         if($produk->delete()){
-            return redirect()->route('produk')->with('status', 'Data berhasil dihapus');
+            return redirect()->route('product')->with('status', 'Data berhasil dihapus');
         // fail
         }else{
             return redirect()->back()->withErrors($e);

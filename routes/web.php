@@ -25,14 +25,23 @@ Route::middleware(['checkUser'])->group(function () {
     Route::post('/order','OrderController@store');
 });
 
+    // Resources
+    Route::resources([
+        // Employee
+        'toko' => 'TokoController',
+        // Modul Management
+        'product' => 'ProductController',
+        // Sub Modul Management
+        'order' => 'OrderController',
+        // Role Management
+    ]);
 Route::get('/menu','UserController@index')->name('menu');
 
-//menu toko
-Route::get('/toko','TokoController@index')->name('toko');
-Route::get('/registoko','TokoController@create')->name('registoko');
-Route::post('/tambahtoko','TokoController@store');
+// //menu toko
+// Route::get('/toko','TokoController@index')->name('toko');
+// Route::get('/registoko','TokoController@create')->name('registoko');
+// Route::post('/tambahtoko','TokoController@store');
 
-<<<<<<< HEAD
 Route::middleware(['checkUser'])->group(function () {
     Route::get('/logout','HomeController@logout')->name('Logout');
     Route::post('/order','OrderController@store');
@@ -40,15 +49,21 @@ Route::middleware(['checkUser'])->group(function () {
 
 Route::post('/create','UserController@createaturan')->name('buat');
 Route::get('/dashboard','UserController@aturan')->name('aturan');
-=======
+
 // menu produk
 Route::get('/produk','ProdukController@index')->name('produk');
 Route::get('/insertproduk','ProdukController@create')->name('tampro');
 Route::post('/tambahproduk','ProdukController@store');
 Route::delete('/deleteproduk/{id}','ProdukController@destroy')->name('produk.destroy');
->>>>>>> 44dcdbd4163697c03773c3769624399e5c2a0499
 
-//menu antrian
-Route::get('/order','OrderController@index')->name('order.index');
-Route::get('/inputorder','OrderController@create')->name('order.input');
-Route::post('/updateorder/{id}','OrderController@update')->name('order.update');
+// // menu produk
+// Route::get('/produk','ProductController@index')->name('produk');
+// Route::get('/insertproduk','ProductController@create')->name('tampro');
+// Route::post('/tambahproduk','ProductController@store');
+// Route::delete('/deleteproduk/{id}','ProductController@destroy')->name('produk.destroy');
+
+
+// //menu antrian
+// Route::get('/order','OrderController@index')->name('order.index');
+// Route::get('/inputorder','OrderController@create')->name('order.input');
+// Route::post('/updateorder/{id}','OrderController@update')->name('order.update');

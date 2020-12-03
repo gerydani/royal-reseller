@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class product extends Model
+class Product extends Model
 {
-    protected $table ='tblproduk';
+    protected $table ='tblproduct';
     protected $fillable = [
-        'id','kode_produk','nama_produk','sku','harga_modal','harga_kesepakatan','berat','dimensi', 'status'
+        'id','kode_produk','name','sku','capital_price','agreed_price','weight','dimension', 'status'
     ];
 }

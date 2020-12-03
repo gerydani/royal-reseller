@@ -22,13 +22,13 @@
         <h3 class="page-title text-uppercase" style="padding-left: 60px">Peraturan Yang Harus Ditaati</h4>
              <form action="/create" method="get">
                 @csrf
-                <ul>
-                    @foreach ($aturan as $atur)
+                @foreach ($aturan as $atur)
+                <ul style="margin-right: 500px">
                         <li class="list-inline" name="aturan">
-                        {{ $aturan->Peraturan }}
+                        {{ $atur->Peraturan }}
                         </li>
-                    @endforeach
                 </ul>
+                @endforeach
         <br>
         <hr />
         <div id="wrapper">
