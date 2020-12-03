@@ -28,4 +28,5 @@ Route::middleware(['checkUser'])->group(function () {
 });
 
 Route::post('/create','UserController@createaturan')->name('buat');
+Route::get('/dashboard','UserController@aturan')->name('aturan');
 

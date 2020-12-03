@@ -20,15 +20,15 @@
 @section('content')
     <div class="card-box">
         <h3 class="page-title text-uppercase" style="padding-left: 60px">Peraturan Yang Harus Ditaati</h4>
-            {{--  <form action="/create" method="get">
+            {{-- <form action="/create" method="get">
                 @csrf
-            foreach($aturan as $atur){
+            @foreach($aturan as $atur)
                 <ul>
-                    <li class="list-inline" name="aturan">
+                    <li class="list-inline">
                     {{ $atur->aturan }}
                     </li>
                 </ul>
-            }  --}}
+            @endforeach --}}
         <br>
         <hr />
         <div id="wrapper">
