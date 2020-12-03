@@ -20,7 +20,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        return view('Order.tambahaturan');
+        return view('dashboard.tambahaturan');
     }
 
     /**
@@ -124,7 +124,7 @@ class UserController extends Controller
 
     // public function aturan(Request $request){
         // $aturan = Aturan::where('id',session('user_id'))->first();
-        // return view('Order.dashboard',compact('aturan'));
+        // return view('dashboard.dashboard',compact('aturan'));
     // }
 
 }

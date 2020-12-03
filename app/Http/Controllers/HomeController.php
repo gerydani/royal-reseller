@@ -23,7 +23,7 @@ class HomeController extends Controller
             // echo "<pre>";
             // print_r($request->all());
             // die;
-            return view('Order.dashboard',compact('user'));
+            return view('dashboard.dashboard',compact('user'));
         }else{
             return view('user.login');
         }

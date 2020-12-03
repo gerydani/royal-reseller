@@ -23,8 +23,8 @@
             <form action="/create" method="post">
                 @csrf
                 <textarea id="" name="aturan" value="@isset($aturan->aturan){{$aturan->aturan}}@endisset"></textarea>
-                </br>
-                </br>
+                <br>
+                <br>
                 <div class="form-group text-right m-b-0">
                     <button class="btn btn-primary waves-effect waves-light" style="margin-right: 50px" type="submit">
                         Submit

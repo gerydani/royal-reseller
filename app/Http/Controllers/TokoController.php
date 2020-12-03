@@ -16,7 +16,7 @@ class TokoController extends Controller
     public function index()
     {
         $toko = toko::all();
-        return view('Order.tokostatus',compact('toko'));
+        return view('toko.tokostatus',compact('toko'));
     }
 
     /**
@@ -26,7 +26,7 @@ class TokoController extends Controller
      */
     public function create()
     {
-        return view('Order.menutoko');
+        return view('toko.menutoko');
     }
 
     /**
