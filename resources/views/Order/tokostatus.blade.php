@@ -52,11 +52,11 @@
                         <td>{{ $tok->username_mp }}</td>
                         <td>{{ $tok->password_mp }}</td>
                         <td>{{ $tok->status }}</td>
+                    @php
+                        $i++
+                    @endphp
                     @endforeach
                     </tr>
-                        @php
-                            $i++
-                        @endphp
                 </table>
             </div>
         </div>

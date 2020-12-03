@@ -56,18 +56,21 @@
                                                 <th>Checklist Packaging</th>
                                             </tr>
                                             </thead>
+                                            @foreach ($antrian as $queue)
                                             <tr>
-                                                @foreach ($antrian as $queue)
-                                                    <td>{{ $queue->marketplace }}</td>
-                                                    <td>{{ $queue->nama_prod->nama_produk }}</td>
-                                                    <td>{{ $queue->qty }}</td>
-                                                    <td>{{ $queue->nama_toko }}</td>
-                                                    <td>{{ $queue->catatan }}</td>
-                                                @endforeach
+                                                <td>{{ $queue->marketplace }}</td>
+                                                <td>{{ $queue->nama_prod->nama_produk }}</td>
+                                                <td>{{ $queue->qty }}</td>
+                                                <td>{{ $queue->nama_toko }}</td>
+                                                <td>{{ $queue->catatan }}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-primary btn-rounded" id="ceklist">Complete</button>
+                                                    <form class="" action="{{ route('order.update', ['id' => $queue->id]) }}" method="post">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-primary btn-rounded" id="ceklist">Complete</button>
+                                                    </form>
                                                 </td>
                                             </tr>
+                                            @endforeach
                                         </table>
                                     </div>
                                 </div>
@@ -113,16 +116,21 @@
                                                     <th>Checklist Packaging</th>
                                                 </tr>
                                                 </thead>
+                                                @foreach ($package as $pack)
                                                 <tr>
-                                                    <td>shopee</td>
-                                                    <td>klorofil</td>
-                                                    <td>3</td>
-                                                    <td>breng breng</td>
-                                                    <td>pake gojek yang datang</td>
+                                                    <td>{{ $pack->marketplace }}</td>
+                                                    <td>{{ $pack->nama_prod->nama_produk }}</td>
+                                                    <td>{{ $pack->qty }}</td>
+                                                    <td>{{ $pack->nama_toko }}</td>
+                                                    <td>{{ $pack->catatan }}</td>
                                                     <td>
-                                                        <button type="button" class="btn btn-danger btn-rounded" id="remove">Remove</button>
+                                                    <form class="" action="{{ route('order.update', ['id' => $pack->id]) }}" method="post">
+                                                        @csrf
+                                                        <button type="submit" class="btn btn-danger btn-rounded" id="remove">Remove</button>
+                                                    </form>
                                                     </td>
                                                 </tr>
+                                                @endforeach
                                             </table>
                                         </div>
                                     </div>

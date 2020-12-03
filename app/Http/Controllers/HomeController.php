@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\product;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -18,11 +19,11 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         if($request->session()->has('isLoggedIn')){
-            $user = User::where('id',session('user_id'))->first();
+            $user = product::all();
             // echo "<pre>";
             // print_r($request->all());
             // die;
-            return view('Order.inputbarang',compact('user'));
+            return view('Order.tabelproduk',compact('user'));
         }else{
             return view('user.login');
         }
@@ -91,7 +92,7 @@ class HomeController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
     public function login(Request $request){
 
