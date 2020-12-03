@@ -13,9 +13,11 @@
 
 // login dan register
 Route::get('/', 'HomeController@index')->name('Home');
+Route::post('login','HomeController@login')->name('Login');
+Route::get('/aturan', 'HomeController@create')->name('input.aturan');
+Route::post('/postaturan', 'HomeController@store')->name('store.aturan');
 Route::get('/register', 'UserController@create')->name('registrasi');
 Route::post('/tambah', 'UserController@store');
-Route::post('login','HomeController@login')->name('Login');
 
 // logout
 Route::middleware(['checkUser'])->group(function () {

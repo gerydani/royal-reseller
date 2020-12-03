@@ -14,7 +14,8 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        //
+        $user = product::all();
+        return view('produk.tabelproduk',compact('user'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        //
+        return view('produk.tambahproduk');
     }
 
     /**
@@ -82,7 +83,7 @@ class ProdukController extends Controller
     {
         $produk = product::where('id', $id)->first();
         if($produk->delete()){
-            return redirect()->route('Home')->with('status', 'Data berhasil dihapus');
+            return redirect()->route('produk')->with('status', 'Data berhasil dihapus');
         // fail
         }else{
             return redirect()->back()->withErrors($e);

@@ -33,7 +33,7 @@
                             <div class="col-12">
                                 <div class="card-box">
                                     <div class="table-responsive">
-                                        <h4 class="m-t-0 header-title">Table Packing</h4>
+                                        <h4 class="m-t-0 header-title">Table Product</h4>
                                         <table id="key-table1" class="table table-bordered tabelantrian">
                                             <thead>
                                             <tr>

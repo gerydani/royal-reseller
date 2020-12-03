@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Aturan;
 
 class HomeController extends Controller
 {
@@ -20,10 +21,11 @@ class HomeController extends Controller
     {
         if($request->session()->has('isLoggedIn')){
             $user = product::all();
+            $aturan = Aturan::all();
             // echo "<pre>";
             // print_r($request->all());
             // die;
-            return view('dashboard.dashboard',compact('user'));
+            return view('dashboard.dashboard',compact('user','aturan'));
         }else{
             return view('user.login');
         }
@@ -36,7 +38,7 @@ class HomeController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.tambahaturan');
     }
 
     /**
@@ -47,7 +49,11 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $aturan = new Aturan(array(
+            'peraturan'=> $request ->Peraturan
+        ));
+        $aturan->save();
+        return redirect()->route('Home')->with('status','Data Berhasil Disimpan');
     }
 
     /**

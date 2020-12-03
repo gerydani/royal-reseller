@@ -20,15 +20,16 @@
 @section('content')
     <div class="card-box">
         <h3 class="page-title text-uppercase" style="padding-left: 60px">Peraturan Yang Harus Ditaati</h4>
-            {{--  <form action="/create" method="get">
+             <form action="/create" method="get">
                 @csrf
-            foreach($aturan as $atur){
                 <ul>
-                    <li class="list-inline" name="aturan">
-                    {{ $atur->aturan }}
-                    </li>
+                    @foreach ($aturan as $atur)
+                        <li class="list-inline" name="aturan">
+                        {{ $aturan->Peraturan }}
+                        </li>
+                    @endforeach
+
                 </ul>
-            }  --}}
         <br>
         <hr />
         <div id="wrapper">
@@ -66,15 +67,17 @@
                                             @php
                                                 $i=1;
                                             @endphp
+                                            @foreach ($user as $use)
                                             <tr>
                                                 <td>{{ $i }}</td>
-                                                <td>Klorofil</td>
-                                                <td>Rp. 85.000,-</td>
-                                                <td>Ready</td>
-                                            </tr>
+                                                <td>{{ $use->nama_produk }}</td>
+                                                <td>{{ $use->harga_kesepakatan }}</td>
+                                                <td>{{ $use->status }}</td>
                                             @php
                                                 $i++;
                                             @endphp
+                                            </tr>
+                                            @endforeach
                                         </tbody>
                                         </table>
                                     </div>
