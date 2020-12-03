@@ -42,11 +42,26 @@ Route::get('/menu','UserController@index')->name('menu');
 // Route::get('/registoko','TokoController@create')->name('registoko');
 // Route::post('/tambahtoko','TokoController@store');
 
+Route::middleware(['checkUser'])->group(function () {
+    Route::get('/logout','HomeController@logout')->name('Logout');
+    Route::post('/order','OrderController@store');
+});
+
+Route::post('/create','UserController@createaturan')->name('buat');
+Route::get('/dashboard','UserController@aturan')->name('aturan');
+
+// menu produk
+Route::get('/produk','ProdukController@index')->name('produk');
+Route::get('/insertproduk','ProdukController@create')->name('tampro');
+Route::post('/tambahproduk','ProdukController@store');
+Route::delete('/deleteproduk/{id}','ProdukController@destroy')->name('produk.destroy');
+
 // // menu produk
 // Route::get('/produk','ProductController@index')->name('produk');
 // Route::get('/insertproduk','ProductController@create')->name('tampro');
 // Route::post('/tambahproduk','ProductController@store');
 // Route::delete('/deleteproduk/{id}','ProductController@destroy')->name('produk.destroy');
+
 
 // //menu antrian
 // Route::get('/order','OrderController@index')->name('order.index');

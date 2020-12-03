@@ -19,14 +19,14 @@
 
 @section('content')
     <div class="card-box">
-        <h3 class="page-title text-uppercase" style="padding-left: 60px">Peraturan Yang Harus Ditaati</h4>
+        <h3 class="page-title text-uppercase" style="padding-left: 60px; text-align:center">Peraturan Yang Harus Ditaati</h4>
              <form action="/create" method="get">
                 @csrf
                 @foreach ($aturan as $atur)
-                <ul style="margin-right: 500px">
-                        <li class="list-inline" name="aturan">
+                <ul style=" padding-left:80px; text-align:center; padding-right:60px">
+                        <li class="list-inline" name="aturan"><h4 style="">
                         {{ $atur->Peraturan }}
-                        </li>
+                        </h4></li>
                 </ul>
                 @endforeach
         <br>
@@ -69,8 +69,8 @@
                                             @foreach ($user as $use)
                                             <tr>
                                                 <td>{{ $i }}</td>
-                                                <td>{{ $use->nama_produk }}</td>
-                                                <td>{{ $use->harga_kesepakatan }}</td>
+                                                <td>{{ $use->name }}</td>
+                                                <td>{{ $use->agreed_price }}</td>
                                                 <td>{{ $use->status }}</td>
                                             @php
                                                 $i++;
@@ -86,18 +86,8 @@
                     </div>
                 </div>
             </div>
-                <div class="links">
-                    <br>
-                    <br>
-                    <a href="menu" class="f90-logout-button">Menu Toko</a>
-                </div>
         </div>
     </div>
-<div class="links">
-    <br>
-    <br>
-    <a href="logout" class="f90-logout-button">Log out</a>
-</div>
 @endsection
 
 @section('js')
