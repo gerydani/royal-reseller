@@ -19,14 +19,14 @@
 
 @section('content')
     <div class="card-box">
-        <h3 class="page-title text-uppercase" style="padding-left: 60px">Peraturan Yang Harus Ditaati</h4>
+        <h3 class="page-title text-uppercase" style="padding-left: 60px; text-align:center">Peraturan Yang Harus Ditaati</h4>
              <form action="/create" method="get">
                 @csrf
                 @foreach ($aturan as $atur)
-                <ul style="margin-right: 500px">
-                        <li class="list-inline" name="aturan">
+                <ul style=" padding-left:80px; text-align:center; padding-right:60px">
+                        <li class="list-inline" name="aturan"><h4 style="">
                         {{ $atur->Peraturan }}
-                        </li>
+                        </h4></li>
                 </ul>
                 @endforeach
         <br>
