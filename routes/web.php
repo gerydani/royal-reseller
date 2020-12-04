@@ -22,7 +22,6 @@ Route::post('/tambah', 'UserController@store');
 // logout
 Route::middleware(['checkUser'])->group(function () {
     Route::get('/logout','HomeController@logout')->name('Logout');
-    // Route::post('/order','OrderController@store');
 });
 
     // Resources
