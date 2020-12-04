@@ -8,6 +8,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:400,600,700" rel="stylesheet" />
         <link href="{{ asset('colorlib-search-9/css/main.css') }}" rel="stylesheet" />
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+        <link href="{{ asset('assets/plugins/select2/css/select2.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
 
 @section('judul')
@@ -77,7 +78,6 @@ Input Barang
                                                 <div class="form-group">
                                                   <label class="col-4 col-form-label">Produk</label>
                                                   <select class="form-control select2" name="kode[]">
-                                                      <option value="" type="text"></option>
                                                       <option value="yaya">yaya</option>
                                                       <option value="yoyo">yyoyo</option>
                                                     {{-- @foreach ($order as $ord)
