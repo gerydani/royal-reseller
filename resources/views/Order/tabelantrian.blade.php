@@ -64,7 +64,7 @@
                                                 <td>{{ $queue->nama_toko }}</td>
                                                 <td>{{ $queue->catatan }}</td>
                                                 <td>
-                                                    <form class="" action="{{ route('order.update', 'id' => $queue->id]) }}" method="post">
+                                                    <form class="" action="{{ route('order.update', ['id' => $queue->id]) }}" method="post">
                                                         @csrf
                                                         <button type="submit" class="btn btn-primary btn-rounded" id="ceklist">Complete</button>
                                                     </form>
@@ -124,7 +124,7 @@
                                                     <td>{{ $pack->nama_toko }}</td>
                                                     <td>{{ $pack->catatan }}</td>
                                                     <td>
-                                                    <form class="" action="{{ route('order.update', 'id' => $pack->id]) }}" method="post">
+                                                    <form class="" action="{{ route('order.update', ['id' => $pack->id]) }}" method="post">
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger btn-rounded" id="remove">Remove</button>
                                                     </form>
