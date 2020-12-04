@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $user = Product::all();
+        $user = Product::all()->where('status', 1);
         return view('produk.tabelproduk',compact('user'));
     }
 
@@ -68,8 +68,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::where('id', $id)->first();
-        return view('produk.tambahproduk', compact('product'));
+        $user = Product::where('id', $id)->first();
+        return view('produk.tambahproduk', compact('user'));
     }
 
     /**
@@ -107,6 +107,7 @@ class ProductController extends Controller
     {
         $product = Product::where('id', $id)->first();
         $product->status = 0;
+        $product->update();
         return redirect()->route('product.index')->with('status','Data Berhasil dihapus');
     }
 }

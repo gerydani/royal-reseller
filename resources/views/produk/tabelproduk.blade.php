@@ -44,7 +44,7 @@
                                                 <th>Harga Kesepakatan</th>
                                                 <th>Dimensi(PxLxT)</th>
                                                 <th>Berat(Gram)</th>
-                                                <th>Edit Barang</th>
+                                                <th>Opsi</th>
                                             </tr>
                                             </thead>
                                         <tbody>
@@ -65,7 +65,7 @@
                                                     <form class="" action="{{ route('product.destroy', ['id' => $use->id]) }}" method="post">
                                                         @csrf
                                                         {{ method_field('delete') }}
-                                                        <button type="submit" class="btn btn-danger btn-rounded waves-effect waves-light w-md m-b-5" id="remove">Remove</button>
+                                                        <button type="submit" class="btn btn-danger btn-rounded waves-effect waves-light w-md m-b-5" id="remove">Non Aktifkan</button>
                                                     </form>
                                                 </td>
                                             @php
