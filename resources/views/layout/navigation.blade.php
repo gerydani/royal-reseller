@@ -4,21 +4,21 @@
             <!-- Navigation Menu-->
             <ul class="navigation-menu">
                 <li class="has-submenu">
-                    <a href="index.html"><i class="mdi mdi-view-dashboard"></i> <span> Dashboard </span> </a>
+                    <a href="/"><i class="mdi mdi-view-dashboard"></i> <span> Dashboard </span> </a>
                 </li>
                 <li class="has-submenu">
-                    <a href="#"><i class="mdi mdi-invert-colors"></i> <span> User Interface </span> </a>
+                    <a href="#"><i class="mdi mdi-invert-colors"></i> <span> Order </span> </a>
                     <ul class="submenu megamenu">
                         <li>
                             <ul>
-                                <li><a href="ui-buttons.html">Buttons</a></li>
-                                <li><a href="ui-cards.html">Cards</a></li>
-                                <li><a href="ui-draggable-cards.html">Draggable Cards</a></li>
-                                <li><a href="ui-typography.html">Typography </a></li>
+                                <li><a href="ui-buttons.html">Input Barang</a></li>
+                                <li><a href="">Tabel Antrian</a></li>
+                                <li><a href="ui-draggable-cards.html">Tabel Close Order</a></li>
+                                {{--  <li><a href="ui-typography.html">Typography </a></li>
                                 <li><a href="ui-checkbox-radio.html">Checkboxs-Radios</a></li>
                                 <li><a href="ui-material-icons.html">Material Design Icons</a></li>
                                 <li><a href="ui-font-awesome-icons.html">Font Awesome</a></li>
-                                <li><a href="ui-themify-icons.html">Themify Icons</a></li>
+                                <li><a href="ui-themify-icons.html">Themify Icons</a></li>  --}}
                             </ul>
                         </li>
                         <li>
@@ -115,14 +115,6 @@
                         </li>
                     </ul>
                 </li>
-                <li class="has-submenu" style="padding-left: 270px">
-                    <a href="logout"><i class="mdi mdi-logout"></i><span> Log out </span></a>
-                </li>
-                {{-- <li class="has-submenu" style="padding-left:320px">
-                    <div class="links">
-                        <a href="logout"><i class="mdi mdi-logout"></i><span>Log out</span></a>
-                    </div>
-                </li> --}}
             </ul>
             <!-- End navigation menu -->
         </div> <!-- end #navigation -->

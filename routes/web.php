@@ -44,7 +44,6 @@ Route::get('/menu','UserController@index')->name('menu');
 
 Route::middleware(['checkUser'])->group(function () {
     Route::get('/logout','HomeController@logout')->name('Logout');
-    Route::post('/order','OrderController@store');
 });
 
 Route::post('/create','UserController@createaturan')->name('buat');
@@ -67,3 +66,4 @@ Route::delete('/deleteproduk/{id}','ProdukController@destroy')->name('produk.des
 // Route::get('/order','OrderController@index')->name('order.index');
 // Route::get('/inputorder','OrderController@create')->name('order.input');
 // Route::post('/updateorder/{id}','OrderController@update')->name('order.update');
+// Route::get('/coba','UserController@index')->name('coba');

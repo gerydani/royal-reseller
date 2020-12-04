@@ -27,6 +27,8 @@
                         <li class="list-inline" name="aturan"><h4 style="">
                         {{ $atur->Peraturan }}
                         </h4></li>
+                        <br>
+                        <li class="list-inline"><button type="button" class="btn btn-primary"><a href="" style="color:white">Update Aturan</a></button></li>
                 </ul>
                 @endforeach
         <br>
@@ -52,12 +54,12 @@
                             <div class="col-12">
                                 <div class="card-box">
                                     <div class="table-responsive">
-                                        <h4 class="m-t-0 header-title" style="padding-left: 10px">Table Packing</h4>
+                                        <h4 class="m-t-0 header-title" style="padding-left: 10px">Tabel Pengemasan</h4>
                                         <table id="key-table1" class="table table-bordered">
                                             <thead>
                                             <tr>
                                                 <th style="width:5%">No</th>
-                                                <th>Nama Product</th>
+                                                <th>Nama Produk</th>
                                                 <th>Harga Kesepakatan</th>
                                                 <th>Status</th>
                                             </tr>

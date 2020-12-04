@@ -7,6 +7,7 @@
 @section('css')
         <link href="https://fonts.googleapis.com/css?family=Lato:400,600,700" rel="stylesheet" />
         <link href="{{ asset('colorlib-search-9/css/main.css') }}" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 @endsection
 
 @section('judul')
@@ -16,40 +17,23 @@ Input Barang
                 <div class="col-md-22">
                     <div class="col-xl-20">
                         <div class="card-box">
-                            <h3 class="header-title m-t-0 m-b-30">Aturan Menghindari Beruang Disaat Berkemah</h4>
-                                <ol class="strong">
-                                    <li>Jangan Main Klarinet</li>
-                                    <li>Jangan pernah melambaikan lampu senter ke depan dan ke belakang terlalu cepat. Itu dianggap undangan</li>
-                                    <li>Jangan pernah berhenti menatap sekitar</li>
-                                    <li>Jangan makan keju, kecuali yang kotak</li>
-                                    <li>Jangan pakai topi sombrero</li>
-                                    <li>Jangan pakai baju bodoh</li>
-                                    <li>Jangan pakai rok panjang</li>
-                                    <li>Jangan pakai sepatu merah</li>
-                                    <li>Jangan berlagak seperti kera</li>
-                                    <li>Jika beruang sudah mendekat, buat gambar lingkaran besar untuk melindungi diri dari gigitan beruang. Usahakan jangan lonjong</li>
-                                    <li>Jangan lari</li>
-                                    <li>Jangan jalan pincang</li>
-                                    <li>Jangan merangkak</li>
-                                </ol>
-                            <hr />
                             <h4 class="header-title m-t-0 m-b-30">Data Pengiriman</h4>
                             <form action="/order" data-parsley-validate novalidate method="post">
                                 @csrf
                                     <div class="form-group">
                                       <label class="col-4 col-form-label">Marketplace</label>
-                                      <select class="form-control" name="marketplace" id="">
+                                      <select class="form-control select2" name="marketplace" id="">
                                         <option>Shopee</option>
                                         <option>Tokopedia</option>
                                         <option>Bukalapak</option>
                                       </select>
                                     </div>
-                                <div class="form-group">
+                                {{--  <div class="form-group">
                                     <label class="col-4 col-form-label">Nama Toko*</label>
                                     <input type="text" name="namatoko" parsley-trigger="change" required
                                            placeholder="Nama toko" class="form-control" id=""
                                            value = "@isset($user->namatoko){{ $user->namatoko }}@endisset">
-                                </div>
+                                </div>  --}}
                                 <div class="form-group">
                                     <label class="col-4 col-form-label">Alamat Pengiriman*</label>
                                     <input id="" type="text" placeholder="Alamat Pengiriman" required
@@ -69,23 +53,30 @@ Input Barang
                                            value = "@isset($order->resi){{ $order->resi }}@endisset">
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-4 col-form-label">Catatan Toko*</label>
+                                    <label class="col-4 col-form-label">Tanggal Transaksi*</label>
+                                    <input type="date" required name=""
+                                           placeholder="" class="form-control" id=""
+                                           value = "">
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-4 col-form-label">Catatan Pembeli</label>
                                     <input type="text" required name="catatan"
-                                           placeholder="Catatan Toko" class="form-control" id=""
+                                           placeholder="Catatan Pembeli" class="form-control" id=""
                                            value = "@isset($order->catatan){{ $order->catatan }}@endisset">
+                                </div>
                                 </div>
                                 <hr />
                                 <div class="product-list">
                                     <h3>
                                         Barang
-                                        <button type="button" class="btn btn-primary tambah-produk"><i class="fa fa-plus" aria-hidden="true"></i> Tambah</button>
+                                        <button type="button" class="btn btn-primary tambah-produk"><i class="fa fa-plus" aria-hidden="true"></i>Tambah</button>
                                     </h3>
                                     <div class="produk">
                                         <div class="row baris">
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                   <label class="col-4 col-form-label">Produk</label>
-                                                  <select class="form-control" name="kode[]">
+                                                  <select class="form-control select2" name="kode[]">
                                                         <option value="yoyo">yoyo</option>
                                                         <option value="yaya">yaya</option>
                                                   </select>
@@ -117,17 +108,7 @@ Input Barang
                                     </button>
                                 </div>
                             </form>
-                            <div class="links">
-                                <br>
-                                <br>
-                                <a href="logout" class="f90-logout-button">Log out</a>
-                            </div>
                         </div>
-                        <div class="links">
-                                <br>
-                                <br>
-                                <a href="menu" class="f90-logout-button">Menu Toko</a>
-                            </div>
                     </div>
                 </div>
             </div>
@@ -135,6 +116,7 @@ Input Barang
 
 @section('js')
         <script type="text/javascript" src="{{ asset('assets/plugins/parsleyjs/dist/parsley.min.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 @endsection
 
 @section('script-js')

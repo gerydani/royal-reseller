@@ -52,6 +52,7 @@
                                                 <th>Nama Product</th>
                                                 <th>Quantity</th>
                                                 <th>Nama Toko</th>
+                                                <th>Tanggal Transaksi</th>
                                                 <th>Catatan Toko</th>
                                                 <th>Checklist Packaging</th>
                                             </tr>
@@ -62,6 +63,7 @@
                                                 <td>{{ $queue->nama_prod->name }}</td>
                                                 <td>{{ $queue->qty }}</td>
                                                 <td>{{ $queue->nama_toko }}</td>
+                                                <td>{{  }}</td>
                                                 <td>{{ $queue->catatan }}</td>
                                                 <td>
                                                     <form class="" action="{{ route('order.update', 'id' => $queue->id]) }}" method="post">
