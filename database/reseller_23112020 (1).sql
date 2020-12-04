@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2020 at 10:26 AM
+-- Generation Time: Dec 04, 2020 at 08:33 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -49,13 +49,13 @@ INSERT INTO `peraturan` (`id`, `Peraturan`, `updated_at`, `created_at`) VALUES
 
 CREATE TABLE `tblorder` (
   `id` int(11) NOT NULL,
-  `nama_toko` varchar(100) DEFAULT NULL,
-  `alamat` varchar(100) DEFAULT NULL,
-  `kode_booking` varchar(100) DEFAULT NULL,
+  `shop_id` int(11) DEFAULT NULL,
+  `address` varchar(100) DEFAULT NULL,
+  `booking_code` varchar(100) DEFAULT NULL,
   `no_resi` varchar(100) DEFAULT NULL,
-  `marketplace` varchar(100) DEFAULT NULL,
-  `catatan` varchar(100) DEFAULT NULL,
-  `status` int(2) NOT NULL DEFAULT 0,
+  `notes` varchar(100) DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `trx_date` date DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -64,11 +64,11 @@ CREATE TABLE `tblorder` (
 -- Dumping data for table `tblorder`
 --
 
-INSERT INTO `tblorder` (`id`, `nama_toko`, `alamat`, `kode_booking`, `no_resi`, `marketplace`, `catatan`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Dodol Garut', NULL, NULL, '34232wefsdwr', 'Shopee', 'Pelan pelan , sakit', 0, '2020-11-27 04:06:37', '2020-12-02 20:46:55'),
-(2, 'Dodol Garut', 'Jl. Sadang Saip No.21, Sadang Serang, Kecamatan Coblong, Kota Bandung', 'jhfjsdfjsdkf9298239u', '34232wefsdwr', 'Tokopedia', 'Pelan pelan , sakit', 0, '2020-11-27 04:08:40', '2020-12-02 20:46:57'),
-(3, 'breng breng', NULL, NULL, NULL, 'Tokopedia', NULL, 0, '2020-12-01 20:33:51', '2020-12-01 20:33:51'),
-(4, 'breng breng', NULL, NULL, NULL, 'Tokopedia', NULL, 0, '2020-12-01 20:39:21', '2020-12-01 20:39:21');
+INSERT INTO `tblorder` (`id`, `shop_id`, `address`, `booking_code`, `no_resi`, `notes`, `status`, `trx_date`, `created_at`, `updated_at`) VALUES
+(1, 123, NULL, NULL, '34232wefsdwr', 'Pelan pelan , sakit', 0, NULL, '2020-11-27 04:06:37', '2020-12-02 20:46:55'),
+(2, 134, 'Jl. Sadang Saip No.21, Sadang Serang, Kecamatan Coblong, Kota Bandung', 'jhfjsdfjsdkf9298239u', '34232wefsdwr', 'Pelan pelan , sakit', 0, NULL, '2020-11-27 04:08:40', '2020-12-02 20:46:57'),
+(3, 132, NULL, NULL, NULL, NULL, 0, NULL, '2020-12-01 20:33:51', '2020-12-01 20:33:51'),
+(4, 234, NULL, NULL, NULL, NULL, 0, NULL, '2020-12-01 20:39:21', '2020-12-01 20:39:21');
 
 -- --------------------------------------------------------
 
@@ -79,9 +79,10 @@ INSERT INTO `tblorder` (`id`, `nama_toko`, `alamat`, `kode_booking`, `no_resi`, 
 CREATE TABLE `tblorder_detail` (
   `id` int(11) NOT NULL,
   `trx_id` int(11) DEFAULT NULL,
-  `kode_produk` varchar(100) NOT NULL,
+  `prod_id` varchar(100) NOT NULL,
   `qty` varchar(100) NOT NULL,
-  `harga` varchar(100) NOT NULL,
+  `capital_price` int(11) DEFAULT NULL,
+  `agreed_price` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -90,10 +91,10 @@ CREATE TABLE `tblorder_detail` (
 -- Dumping data for table `tblorder_detail`
 --
 
-INSERT INTO `tblorder_detail` (`id`, `trx_id`, `kode_produk`, `qty`, `harga`, `created_at`, `updated_at`) VALUES
-(1, 1, '2', '123', '124345', '2020-11-27 04:06:37', '2020-11-27 04:06:37'),
-(3, 1, '4', '121', '124345', '2020-11-27 04:06:37', '2020-11-27 04:06:37'),
-(4, 2, '5', '1', '124345', '2020-11-27 04:08:40', '2020-11-27 04:08:40');
+INSERT INTO `tblorder_detail` (`id`, `trx_id`, `prod_id`, `qty`, `capital_price`, `agreed_price`, `created_at`, `updated_at`) VALUES
+(1, 1, '2', '123', 124345, NULL, '2020-11-27 04:06:37', '2020-11-27 04:06:37'),
+(3, 1, '4', '121', 124345, NULL, '2020-11-27 04:06:37', '2020-11-27 04:06:37'),
+(4, 2, '5', '1', 124345, NULL, '2020-11-27 04:08:40', '2020-11-27 04:08:40');
 
 -- --------------------------------------------------------
 
@@ -110,7 +111,7 @@ CREATE TABLE `tblproduct` (
   `agreed_price` int(11) DEFAULT NULL,
   `weight` int(11) DEFAULT NULL,
   `dimension` varchar(100) DEFAULT NULL,
-  `status` tinyint(1) DEFAULT NULL,
+  `status` tinyint(1) DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -120,7 +121,9 @@ CREATE TABLE `tblproduct` (
 --
 
 INSERT INTO `tblproduct` (`id`, `prod_id`, `name`, `sku`, `capital_price`, `agreed_price`, `weight`, `dimension`, `status`, `created_at`, `updated_at`) VALUES
-(5, '3', 'le minelare', 'le', 10000, 15000, 1000, '12x13x14', 0, NULL, NULL);
+(5, '2', 'alan ganteng', 'le', 10000, 15000, 1000, '12x13x14', 0, NULL, '2020-12-03 20:59:26'),
+(6, '4', 'klorofil', 'kloro', 50000, 60000, 213, '12x45x23', 0, '2020-12-03 20:39:59', '2020-12-03 21:04:57'),
+(8, '5', 'trwrwr', 'kloro', 1241424, 5235253, 213, '342f234', 1, '2020-12-03 20:42:31', '2020-12-03 20:42:31');
 
 -- --------------------------------------------------------
 
@@ -252,7 +255,7 @@ ALTER TABLE `tblorder_detail`
 -- AUTO_INCREMENT for table `tblproduct`
 --
 ALTER TABLE `tblproduct`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbltoko`
