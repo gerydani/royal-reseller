@@ -20,11 +20,12 @@
                 <div class="col-md-22">
                     <div class="col-xl-20">
                         <div class="card-box">
-                            <h4 class="header-title m-t-0 m-b-30">Tambah Produk</h4>
-                            @isset($order)
+                            @isset($user)
+                                <h4 class="header-title m-t-0 m-b-30">Edit Product</h4>
                                 <form class="form-horizontal" role="form" action="{{ route('product.update', ['id'=> $user->id]) }}" enctype="multipart/form-data" method="POST">
                                 {{ method_field('PUT') }}
                             @else
+                                <h4 class="header-title m-t-0 m-b-30">Tambah Produk</h4>
                                 <form class="form-horizontal" role="form" action="{{ route('product.store') }}" enctype="multipart/form-data" method="POST">
                             @endisset
                                 @csrf
@@ -69,17 +70,8 @@
                                     </button>
                                 </div>
                             </form>
-                            <div class="links">
-                                <br>
-                                <br>
-                                <a href="logout" class="f90-logout-button">Log out</a>
                             </div>
                         </div>
-                        <div class="links">
-                                <br>
-                                <br>
-                                <a href="/" class="f90-logout-button">Dashboard</a>
-                            </div>
                     </div>
                 </div>
             </div>

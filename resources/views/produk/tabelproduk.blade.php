@@ -44,7 +44,7 @@
                                                 <th>Harga Kesepakatan</th>
                                                 <th>Dimensi(PxLxT)</th>
                                                 <th>Berat(Gram)</th>
-                                                <th>Edit Barang</th>
+                                                <th>Opsi</th>
                                             </tr>
                                             </thead>
                                         <tbody>

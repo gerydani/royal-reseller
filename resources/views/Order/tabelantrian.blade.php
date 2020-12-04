@@ -52,7 +52,7 @@
                                                 <th>Nama Product</th>
                                                 <th>Quantity</th>
                                                 <th>Nama Toko</th>
-                                                <th>Tanggal Transaksi</th>
+                                                {{--  <th>Tanggal Transaksi</th>  --}}
                                                 <th>Catatan Toko</th>
                                                 <th>Checklist Packaging</th>
                                             </tr>
@@ -63,10 +63,10 @@
                                                 <td>{{ $queue->nama_prod->name }}</td>
                                                 <td>{{ $queue->qty }}</td>
                                                 <td>{{ $queue->nama_toko }}</td>
-                                                <td>{{  }}</td>
+                                                {{--  <td>{{  }}</td>  --}}
                                                 <td>{{ $queue->catatan }}</td>
                                                 <td>
-                                                    <form class="" action="{{ route('order.update', 'id' => $queue->id]) }}" method="post">
+                                                    <form class="" action="{{ route('order.update', ['id' => $queue->id]) }}" method="post">
                                                         @csrf
                                                         <button type="submit" class="btn btn-primary btn-rounded" id="ceklist">Complete</button>
                                                     </form>
@@ -86,17 +86,6 @@
                                     <h4 class="page-title">READY TO DELIVER</h4>
                                 </li>
                             </ul>
-                            {{--  <nav class="navbar-custom">
-                                <ul class="list-unstyled topbar-right-menu float-right mb-0">
-                                    <li class="hide-phone">
-                                        <form class="app-search">
-                                            <input type="text" placeholder="Search..."
-                                                   class="form-control">
-                                            <button type="submit"><i class="fa fa-search"></i></button>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </nav>  --}}
                         </div>
                     </div>
                 </div>
@@ -126,7 +115,7 @@
                                                     <td>{{ $pack->nama_toko }}</td>
                                                     <td>{{ $pack->catatan }}</td>
                                                     <td>
-                                                    <form class="" action="{{ route('order.update', 'id' => $pack->id]) }}" method="post">
+                                                    <form class="" action="{{ route('order.update', ['id' => $pack->id]) }}" method="post">
                                                         @csrf
                                                         <button type="submit" class="btn btn-danger btn-rounded" id="remove">Remove</button>
                                                     </form>

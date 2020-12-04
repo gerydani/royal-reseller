@@ -22,7 +22,7 @@ Route::post('/tambah', 'UserController@store');
 // logout
 Route::middleware(['checkUser'])->group(function () {
     Route::get('/logout','HomeController@logout')->name('Logout');
-    Route::post('/order','OrderController@store');
+    // Route::post('/order','OrderController@store');
 });
 
     // Resources
@@ -49,11 +49,11 @@ Route::middleware(['checkUser'])->group(function () {
 Route::post('/create','UserController@createaturan')->name('buat');
 Route::get('/dashboard','UserController@aturan')->name('aturan');
 
-// menu produk
-Route::get('/produk','ProdukController@index')->name('produk');
-Route::get('/insertproduk','ProdukController@create')->name('tampro');
-Route::post('/tambahproduk','ProdukController@store');
-Route::delete('/deleteproduk/{id}','ProdukController@destroy')->name('produk.destroy');
+// // menu produk
+// Route::get('/produk','ProdukController@index')->name('produk');
+// Route::get('/insertproduk','ProdukController@create')->name('tampro');
+// Route::post('/tambahproduk','ProdukController@store');
+// Route::delete('/deleteproduk/{id}','ProdukController@destroy')->name('produk.destroy');
 
 // // menu produk
 // Route::get('/produk','ProductController@index')->name('produk');
