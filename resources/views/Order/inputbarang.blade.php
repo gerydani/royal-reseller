@@ -69,7 +69,7 @@ Input Barang
                                 <div class="product-list">
                                     <h3>
                                         Barang
-                                        <button type="button" class="btn btn-primary tambah-produk"><i class="fa fa-plus" aria-hidden="true"></i>Tambah</button>
+                                        <button type="button" class="btn btn-primary tambah-produk"><i class="fa fa-plus" aria-hidden="true"></i>  Tambah</button>
                                     </h3>
                                     <div class="produk">
                                         <div class="row baris">
@@ -77,8 +77,12 @@ Input Barang
                                                 <div class="form-group">
                                                   <label class="col-4 col-form-label">Produk</label>
                                                   <select class="form-control select2" name="kode[]">
-                                                        <option value="yoyo">yoyo</option>
-                                                        <option value="yaya">yaya</option>
+                                                      <option value="" type="text"></option>
+                                                      <option value="yaya">yaya</option>
+                                                      <option value="yoyo">yyoyo</option>
+                                                    {{-- @foreach ($order as $ord)
+
+                                                    @endforeach --}}
                                                   </select>
                                                 </div>
                                             </div>
