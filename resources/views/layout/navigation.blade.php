@@ -7,13 +7,13 @@
                     <a href="/"><i class="mdi mdi-view-dashboard"></i> <span> Dashboard </span> </a>
                 </li>
                 <li class="has-submenu">
-                    <a href="#"><i class="mdi mdi-invert-colors"></i> <span> Order </span> </a>
+                    <a href="/order"><i class="mdi mdi-invert-colors"></i> <span> Order </span> </a>
                     <ul class="submenu megamenu">
                         <li>
                             <ul>
-                                <li><a href="ui-buttons.html">Input Barang</a></li>
-                                <li><a href="">Tabel Antrian</a></li>
-                                <li><a href="ui-draggable-cards.html">Tabel Close Order</a></li>
+                                <li><a href="/order/create">Input Barang</a></li>
+                                <li><a href="/order">Tabel Antrian</a></li>
+                                <li><a href="">Tabel Close Order</a></li>
                                 {{--  <li><a href="ui-typography.html">Typography </a></li>
                                 <li><a href="ui-checkbox-radio.html">Checkboxs-Radios</a></li>
                                 <li><a href="ui-material-icons.html">Material Design Icons</a></li>
@@ -21,7 +21,7 @@
                                 <li><a href="ui-themify-icons.html">Themify Icons</a></li>  --}}
                             </ul>
                         </li>
-                        <li>
+                        {{-- <li>
                             <ul>
                                 <li><a href="ui-dripicons.html">Dripicons</a></li>
                                 <li><a href="ui-modals.html">Modals</a></li>
@@ -32,35 +32,35 @@
                                 <li><a href="ui-treeview.html">Tree view</a>
                                 <li><a href="ui-widgets.html">Widgets</a></li>
                             </ul>
-                        </li>
+                        </li> --}}
                     </ul>
                 </li>
 
                 <li class="has-submenu">
-                    <a href="#"><i class="mdi mdi-texture"></i><span> Forms </span> </a>
+                    <a href="/toko"><i class="mdi mdi-texture"></i><span> Toko </span> </a>
                     <ul class="submenu">
-                        <li><a href="form-elements.html">General Elements</a></li>
-                        <li><a href="form-advanced.html">Advanced Form</a></li>
-                        <li><a href="form-validation.html">Form Validation</a></li>
+                        <li><a href="/toko">Status Toko</a></li>
+                        <li><a href="/toko/create">Menu Toko</a></li>
+                        {{-- <li><a href="form-validation.html">Form Validation</a></li>
                         <li><a href="form-wizard.html">Form Wizard</a></li>
                         <li><a href="form-fileupload.html">Form Uploads</a></li>
                         <li><a href="form-wysiwig.html">Wysiwig Editors</a></li>
-                        <li><a href="form-xeditable.html">X-editable</a></li>
+                        <li><a href="form-xeditable.html">X-editable</a></li> --}}
                     </ul>
                 </li>
 
                 <li class="has-submenu">
-                    <a href="#"><i class="mdi mdi-view-list"></i> <span> Tables </span> </a>
+                    <a href="/product"><i class="mdi mdi-view-list"></i> <span> Produk </span> </a>
                     <ul class="submenu">
-                        <li><a href="tables-basic.html">Basic Tables</a></li>
-                        <li><a href="tables-datatable.html">Data Table</a></li>
-                        <li><a href="tables-responsive.html">Responsive Table</a></li>
+                        <li><a href="/product">Tabel Produk</a></li>
+                        <li><a href="/product/create">Tambah Produk</a></li>
+                        {{-- <li><a href="tables-responsive.html">Responsive Table</a></li>
                         <li><a href="tables-editable.html">Editable Table</a></li>
-                        <li><a href="tables-tablesaw.html">Tablesaw Table</a></li>
+                        <li><a href="tables-tablesaw.html">Tablesaw Table</a></li> --}}
                     </ul>
                 </li>
 
-                <li class="has-submenu">
+                {{-- <li class="has-submenu">
                     <a href="#"><i class="mdi mdi-chart-donut-variant"></i><span> Charts </span> </a>
                     <ul class="submenu">
                         <li><a href="chart-flot.html">Flot Chart</a></li>
@@ -114,7 +114,7 @@
                             </ul>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
             </ul>
             <!-- End navigation menu -->
         </div> <!-- end #navigation -->

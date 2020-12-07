@@ -29,12 +29,6 @@ Input Barang
                                         <option>Bukalapak</option>
                                       </select>
                                     </div>
-                                {{--  <div class="form-group">
-                                    <label class="col-4 col-form-label">Nama Toko*</label>
-                                    <input type="text" name="namatoko" parsley-trigger="change" required
-                                           placeholder="Nama toko" class="form-control" id=""
-                                           value = "@isset($user->namatoko){{ $user->namatoko }}@endisset">
-                                </div>  --}}
                                 <div class="form-group">
                                     <label class="col-4 col-form-label">Alamat Pengiriman*</label>
                                     <input id="" type="text" placeholder="Alamat Pengiriman" required

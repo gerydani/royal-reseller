@@ -23,17 +23,6 @@
                                 <h4 class="page-title">WAITING LIST PACKAGING</h4>
                             </li>
                         </ul>
-                        {{--  <nav class="navbar-custom">
-                            <ul class="list-unstyled topbar-right-menu float-right mb-0">
-                                <li class="hide-phone">
-                                    <form class="app-search">
-                                        <input type="text" placeholder="Search..."
-                                               class="form-control">
-                                        <button type="submit"><i class="fa fa-search"></i></button>
-                                    </form>
-                                </li>
-                            </ul>
-                        </nav>  --}}
                     </div>
                 </div>
             </div>
@@ -100,10 +89,10 @@
                                                 <thead>
                                                 <tr>
                                                     <th>Market Place</th>
-                                                    <th>Nama Product</th>
+                                                    <th>Nama Produk</th>
                                                     <th>Quantity</th>
                                                     <th>Nama Toko</th>
-                                                    <th>Catatan Toko</th>
+                                                    <th>Catatan Pembeli</th>
                                                     <th>Checklist Packaging</th>
                                                 </tr>
                                                 </thead>
@@ -129,9 +118,6 @@
                             </div>
                         </div> <!-- container -->
                 </div> <!-- content -->
-                {{--  <footer class="footer text-right">
-                    ROYAL RESELLER
-                </footer>  --}}
             </div>
         </div>
 @endsection

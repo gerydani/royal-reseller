@@ -27,7 +27,7 @@
         <div class="clearfix"></div>
         <div class="wrapper-page">
             <div class="text-center">
-                <a href="index.html" class="logo"><span>Royal Warehouse<span> Reseller</span></span></a>
+                <a href="#" class="logo"><span>Royal Warehouse<span> Reseller</span></span></a>
                 <h5 class="text-muted mt-0 font-600">Aplikasi Reseller Royal Warehouse</h5>
             </div>
         	<div class="m-t-40 card-box">
@@ -48,30 +48,11 @@
                                 <input class="form-control" type="password" required="" placeholder="Password" name="password">
                             </div>
                         </div>
-
-                        {{--  <div class="form-group ">
-                            <div class="col-xs-12">
-                                <div class="checkbox checkbox-custom">
-                                    <input id="checkbox-signup" type="checkbox">
-                                    <label for="checkbox-signup">
-                                        Remember me
-                                    </label>
-                                </div>
-
-                            </div>
-                        </div>  --}}
-
                         <div class="form-group text-center m-t-30">
                             <div class="col-xs-12">
                                 <button class="btn btn-custom btn-bordred btn-block waves-effect waves-light" type="submit">Log In</button>
                             </div>
                         </div>
-
-                        {{--  <div class="form-group m-t-30 mb-0">
-                            <div class="col-sm-12">
-                                <a href="page-recoverpw.html" class="text-muted"><i class="fa fa-lock m-r-5"></i> Forgot your password?</a>
-                            </div>
-                        </div>  --}}
                     </form>
 
                 </div>
