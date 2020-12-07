@@ -129,7 +129,7 @@ class UserController extends Controller
 
     // public function ubah(Request $request)
     // {
-    //     return view('user.editprofile');
+    //     return view('order.tabelclose');
     // }
 
 }
