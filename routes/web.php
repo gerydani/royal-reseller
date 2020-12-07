@@ -12,6 +12,9 @@
 */
 
 // login dan register
+
+use App\Http\Controllers\UserController;
+
 Route::get('/', 'HomeController@index')->name('Home');
 Route::post('login','HomeController@login')->name('Login');
 Route::get('/aturan', 'HomeController@create')->name('input.aturan');
@@ -47,6 +50,8 @@ Route::middleware(['checkUser'])->group(function () {
 
 Route::post('/create','UserController@createaturan')->name('buat');
 Route::get('/dashboard','UserController@aturan')->name('aturan');
+
+// Route::get('/profile','UserController@ubah')->name('profile');
 
 // // menu produk
 // Route::get('/produk','ProdukController@index')->name('produk');

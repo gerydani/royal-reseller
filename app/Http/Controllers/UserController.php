@@ -127,4 +127,9 @@ class UserController extends Controller
         // return view('dashboard.dashboard',compact('aturan'));
     // }
 
+    // public function ubah(Request $request)
+    // {
+    //     return view('user.editprofile');
+    // }
+
 }
