@@ -4,6 +4,10 @@
         <link rel="shortcut icon" href="assets/images/favicon.ico">
 @endsection
 
+@php
+ use App\toko;
+@endphp
+
 @section('css')
         <!-- DataTables -->
         <link href="{{ asset('assets/plugins/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css" />
@@ -47,7 +51,7 @@
                     <tr>
                         <td>{{ $i }}</td>
                         <td>{{ $tok->infotoko->namaowner }}</td>
-                        <td>{{ $tok->marketplace }}</td>
+                        <td>{{ toko::join('marketplace','tbltoko.marketplace','marketplace.id')->where('marketplace.id', $tok->marketplace)->first()->name }}</td>
                         <td>{{ $tok->nama_toko }}</td>
                         <td>{{ $tok->username_mp }}</td>
                         <td>{{ $tok->password_mp }}</td>
