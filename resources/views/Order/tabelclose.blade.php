@@ -43,6 +43,7 @@
                                             <table id="key-table" class="table table-bordered tabelantrian">
                                                 <thead>
                                                 <tr>
+                                                    <th>Tanggal Transaksi</th>
                                                     <th>Market Place</th>
                                                     <th>Nama Product</th>
                                                     <th>Quantity</th>

@@ -1,7 +1,8 @@
 @extends('layout.main')
 
 @section('icon')
-        <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        {{--  <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css" />  --}}
 @endsection
 
 @section('css')
