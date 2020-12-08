@@ -4,6 +4,10 @@
         <link rel="shortcut icon" href="assets/images/favicon.ico">
 @endsection
 
+@php
+ use App\toko;
+@endphp
+
 @section('css')
         <link href="assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
@@ -56,10 +60,11 @@
                                                 </thead>
                                                 @foreach ($package as $pack)
                                                 <tr>
-                                                    <td>{{ $pack->toko->marketplace }}</td>
+                                                    <td>{{ $pack->trx_date }}</td>
+                                                    <td>{{ toko::join('marketplace','tbltoko.marketplace','marketplace.id')->where('tbltoko.id', $pack->shop_id)->first()->name }}</td>
                                                     <td>{{ $pack->nama_prod->name }}</td>
                                                     <td>{{ $pack->qty }}</td>
-                                                    <td>{{ $pack->toko->nama_toko }}</td>
+                                                    <td>{{ toko::where('id', $pack->shop_id)->first()->nama_toko }}</td>
                                                     <td>{{ $pack->address }}</td>
                                                     <td>{{ $pack->booking_code }}</td>
                                                     <td>{{ $pack->no_resi }}</td>
