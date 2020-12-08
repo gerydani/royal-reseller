@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 04, 2020 at 08:33 AM
+-- Generation Time: Dec 08, 2020 at 07:19 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `reseller_23112020`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `marketplace`
+--
+
+CREATE TABLE `marketplace` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `desc` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `marketplace`
+--
+
+INSERT INTO `marketplace` (`id`, `name`, `desc`) VALUES
+(1, 'tokopedia', 'toko'),
+(2, 'bukalapak', 'buka'),
+(3, 'shopee', 'shop');
 
 -- --------------------------------------------------------
 
@@ -65,10 +86,9 @@ CREATE TABLE `tblorder` (
 --
 
 INSERT INTO `tblorder` (`id`, `shop_id`, `address`, `booking_code`, `no_resi`, `notes`, `status`, `trx_date`, `created_at`, `updated_at`) VALUES
-(1, 123, NULL, NULL, '34232wefsdwr', 'Pelan pelan , sakit', 0, NULL, '2020-11-27 04:06:37', '2020-12-02 20:46:55'),
-(2, 134, 'Jl. Sadang Saip No.21, Sadang Serang, Kecamatan Coblong, Kota Bandung', 'jhfjsdfjsdkf9298239u', '34232wefsdwr', 'Pelan pelan , sakit', 0, NULL, '2020-11-27 04:08:40', '2020-12-02 20:46:57'),
-(3, 132, NULL, NULL, NULL, NULL, 0, NULL, '2020-12-01 20:33:51', '2020-12-01 20:33:51'),
-(4, 234, NULL, NULL, NULL, NULL, 0, NULL, '2020-12-01 20:39:21', '2020-12-01 20:39:21');
+(1, 2, NULL, NULL, '34232wefsdwr', 'Pelan pelan , sakit', 1, NULL, '2020-11-27 04:06:37', '2020-12-02 20:46:55'),
+(2, 4, 'Jl. Sadang Saip No.21, Sadang Serang, Kecamatan Coblong, Kota Bandung', 'jhfjsdfjsdkf9298239u', '34232wefsdwr', 'Pelan pelan , sakit', 0, NULL, '2020-11-27 04:08:40', '2020-12-02 20:46:57'),
+(5, 3, 'dsfsf', 'gsdgdsg', 'dsgsg', 'sdgsdg', 1, '2020-12-09', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -93,8 +113,8 @@ CREATE TABLE `tblorder_detail` (
 
 INSERT INTO `tblorder_detail` (`id`, `trx_id`, `prod_id`, `qty`, `capital_price`, `agreed_price`, `created_at`, `updated_at`) VALUES
 (1, 1, '2', '123', 124345, NULL, '2020-11-27 04:06:37', '2020-11-27 04:06:37'),
-(3, 1, '4', '121', 124345, NULL, '2020-11-27 04:06:37', '2020-11-27 04:06:37'),
-(4, 2, '5', '1', 124345, NULL, '2020-11-27 04:08:40', '2020-11-27 04:08:40');
+(3, 2, '4', '121', 124345, NULL, '2020-11-27 04:06:37', '2020-11-27 04:06:37'),
+(4, 5, '5', '1', 124345, NULL, '2020-11-27 04:08:40', '2020-11-27 04:08:40');
 
 -- --------------------------------------------------------
 
@@ -138,7 +158,7 @@ CREATE TABLE `tbltoko` (
   `username_mp` varchar(255) NOT NULL,
   `password_mp` varchar(255) NOT NULL,
   `status` varchar(255) DEFAULT NULL,
-  `marketplace` varchar(255) DEFAULT NULL,
+  `marketplace` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -148,8 +168,9 @@ CREATE TABLE `tbltoko` (
 --
 
 INSERT INTO `tbltoko` (`id`, `id_user`, `nama_toko`, `username_mp`, `password_mp`, `status`, `marketplace`, `created_at`, `updated_at`) VALUES
-(2, 2, 'breng breng', 'alanyy', 'nnfsdns', 'aktif', 'tokopedia', '2020-12-02 05:44:43', '2020-12-02 05:44:43'),
-(3, 4, 'saf', 'as', 'fa', 'aktif', 'tokopedia', '2020-12-02 05:44:46', '2020-12-02 05:44:46');
+(2, 2, 'breng breng', 'alanyy', 'nnfsdns', 'aktif', 2, '2020-12-08 04:27:47', '2020-12-08 04:27:47'),
+(3, 4, 'saf', 'as', 'fa', 'aktif', 3, '2020-12-08 04:27:52', '2020-12-08 04:27:52'),
+(4, 3, 'safas', 'safas', 'safasf', 'safasf', 1, '2020-12-08 05:50:20', '2020-12-08 05:50:20');
 
 -- --------------------------------------------------------
 
@@ -193,6 +214,12 @@ INSERT INTO `tbluser` (`id`, `username`, `bck_pass`, `password`, `namaowner`, `n
 --
 
 --
+-- Indexes for table `marketplace`
+--
+ALTER TABLE `marketplace`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `peraturan`
 --
 ALTER TABLE `peraturan`
@@ -234,6 +261,12 @@ ALTER TABLE `tbluser`
 --
 
 --
+-- AUTO_INCREMENT for table `marketplace`
+--
+ALTER TABLE `marketplace`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `peraturan`
 --
 ALTER TABLE `peraturan`
@@ -243,7 +276,7 @@ ALTER TABLE `peraturan`
 -- AUTO_INCREMENT for table `tblorder`
 --
 ALTER TABLE `tblorder`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tblorder_detail`
@@ -261,7 +294,7 @@ ALTER TABLE `tblproduct`
 -- AUTO_INCREMENT for table `tbltoko`
 --
 ALTER TABLE `tbltoko`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbluser`
