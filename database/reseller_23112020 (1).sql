@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2020 at 07:19 AM
+-- Generation Time: Dec 08, 2020 at 09:14 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -197,17 +197,15 @@ CREATE TABLE `tbluser` (
 --
 
 INSERT INTO `tbluser` (`id`, `username`, `bck_pass`, `password`, `namaowner`, `namatoko`, `email`, `nohp`, `id_toko`, `created_at`, `updated_at`) VALUES
-(1, 'ceking123', NULL, 'ceking123', 'Saypul', 'Ceking69', 'saypul123@gmail.com', '081234567890', NULL, '2020-11-23 03:04:51', '2020-11-23 03:04:51'),
-(2, 'ceking1234', NULL, 'ceking1234', 'Saypulidi', 'Ceking68', 'saypul123@gmail.com', '081234567890', NULL, '2020-11-23 03:06:46', '2020-11-23 03:06:46'),
-(4, 'vinagarut123', 'vinagarut123', '$2y$10$J3axvwGDph7finAfZEajAO3dfTYGgTn6HbjcaFc7IlnTLHmLj.5Yi', 'vina', 'Dodol Garut', 'vinagarut@gmail.com', '081234567890', NULL, '2020-11-23 22:51:35', '2020-11-23 22:51:35'),
+(1, 'ceking123', NULL, 'ceking123', 'Saypul', 'Ceking69', 'saypul123@gmail.com', '081234567890', '2', '2020-11-23 03:04:51', '2020-11-23 03:04:51'),
+(2, 'ceking1234', NULL, 'ceking1234', 'Saypulidi', 'Ceking68', 'saypul123@gmail.com', '081234567890', '1', '2020-11-23 03:06:46', '2020-11-23 03:06:46'),
+(3, 'tayilo11', 'tayilo11', '$2y$10$MAc7NZw.WTIZqrGP2MAjKe6Tpl0PPFDv7XOW9AtYuacvsmU5o2tSS', 'Tayilo', 'Tayori', 'tayilo21@gmail.com', '081243218765', NULL, '2020-11-29 20:17:53', '2020-11-29 20:17:53'),
+(4, 'vinagarut123', 'vinagarut123', '$2y$10$J3axvwGDph7finAfZEajAO3dfTYGgTn6HbjcaFc7IlnTLHmLj.5Yi', 'vina', 'Dodol Garut', 'vinagarut@gmail.com', '081234567890', '3', '2020-11-23 22:51:35', '2020-11-23 22:51:35'),
 (5, 'hayabusha123', 'hayabusha123', '$2y$10$.xjVzpkx5lejpqL.bGwISedsuXeyFeZSLzFDShFe1iBEI73KRnvHa', 'Hayabusha', 'Herooin', 'hayabusha123@gmail.com', '081234567898', NULL, '2020-11-26 02:55:16', '2020-11-26 02:55:16'),
 (6, 'ginogarut', 'ginogarut', '$2y$10$2QHs1RcjIR70k86Vsp8O5.MoIlzq5hXNOf1wQNiy.sV8CGPb0QyWy', 'Gino', 'Bersayap 2', 'gino321@gmail.com', '081267543210', NULL, '2020-11-26 03:00:56', '2020-11-26 03:00:56'),
 (7, 'cimoymontog', 'cimoymontog', '$2y$10$ZkPaRaYw60jDgLvKWS9douqRZBP5pNBoYeCOfg71WDSFXD3GC1tEi', 'Cimoy', 'Bersayap 3', 'cimoy321@gmail.com', '081267543211', NULL, '2020-11-26 03:02:29', '2020-11-26 03:02:29'),
 (8, 'toritori', 'toritori', '$2y$10$8l4jDqJ1BgyqmqrdW6zxEONYjlQ8MeyEgIPawNh7NZ607vHQmLFKK', 'tori', 'toritori', 'tori111@gmail.com', '081254328765', NULL, '2020-11-26 03:05:50', '2020-11-26 03:05:50'),
-(9, 'goregore', 'goregore', '$2y$10$WreCeC9WH3/.96Nh7zuTAuUeEfXv9LSn/hkJTbZFAj3q5I9fOS1V6', 'Gore', 'Satanic', 'gore12@gmail.com', '081298765432', NULL, '2020-11-26 03:07:18', '2020-11-26 03:07:18'),
-(10, 'aabbccdd', 'aabbccdd', '$2y$10$amdyTLQUJRg/cVmncMtwN.sKui2bQq5nVwktQkzGQ4gltBFmF4vGi', 'aabb', 'aa', 'aabb@gmail.com', '081254369876', NULL, '2020-11-26 03:26:25', '2020-11-26 03:26:25'),
-(11, 'torigo11', 'torigo11', '$2y$10$bKiSFG1qv5sL0ToBVl5ayeVQsNBCIIvrxkKk343yj63hKCyN7/O/e', 'Torigo', 'Yohoo11', 'torigo11@gmail.com', '081235432987', NULL, '2020-11-29 20:12:45', '2020-11-29 20:12:45'),
-(12, 'tayilo11', 'tayilo11', '$2y$10$MAc7NZw.WTIZqrGP2MAjKe6Tpl0PPFDv7XOW9AtYuacvsmU5o2tSS', 'Tayilo', 'Tayori', 'tayilo21@gmail.com', '081243218765', NULL, '2020-11-29 20:17:53', '2020-11-29 20:17:53');
+(9, 'goregore', 'goregore', '$2y$10$WreCeC9WH3/.96Nh7zuTAuUeEfXv9LSn/hkJTbZFAj3q5I9fOS1V6', 'Gore', 'Satanic', 'gore12@gmail.com', '081298765432', NULL, '2020-11-26 03:07:18', '2020-11-26 03:07:18');
 
 --
 -- Indexes for dumped tables
