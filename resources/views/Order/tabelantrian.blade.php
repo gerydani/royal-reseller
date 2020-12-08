@@ -4,6 +4,10 @@
         <link rel="shortcut icon" href="assets/images/favicon.ico">
 @endsection
 
+@php
+use App\toko;
+@endphp
+
 @section('css')
         <link href="assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
@@ -48,12 +52,11 @@
                                             </thead>
                                             @foreach ($antrian as $queue)
                                             <tr>
-                                                <td>{{ $queue->marketplace }}</td>
+                                                <td>{{ toko::join('marketplace','tbltoko.marketplace','marketplace.id')->where('tbltoko.id', $queue->shop_id)->first()->name }}</td>
                                                 <td>{{ $queue->nama_prod->name }}</td>
                                                 <td>{{ $queue->qty }}</td>
-                                                <td>{{ $queue->nama_toko }}</td>
-                                                {{--  <td>{{  }}</td>  --}}
-                                                <td>{{ $queue->catatan }}</td>
+                                                <td>{{ toko::where('id',$queue->shop_id)->first()->nama_toko }}</td>
+                                                <td>{{ $queue->notes }}</td>
                                                 <td>
                                                     <form class="" action="{{ route('order.update', ['id' => $queue->id]) }}" method="post">
                                                         @csrf
@@ -98,11 +101,11 @@
                                                 </thead>
                                                 @foreach ($package as $pack)
                                                 <tr>
-                                                    <td>{{ $pack->marketplace }}</td>
+                                                    <td>{{ toko::join('marketplace','tbltoko.marketplace','marketplace.id')->where('tbltoko.id', $pack->shop_id)->first()->name}}</td>
                                                     <td>{{ $pack->nama_prod->name }}</td>
                                                     <td>{{ $pack->qty }}</td>
-                                                    <td>{{ $pack->nama_toko }}</td>
-                                                    <td>{{ $pack->catatan }}</td>
+                                                    <td>{{ toko::where('id',$pack->shop_id)->first()->nama_toko }}</td>
+                                                    <td>{{ $pack->notes}}</td>
                                                     <td>
                                                     <form class="" action="{{ route('order.update', ['id' => $pack->id]) }}" method="post">
                                                         @csrf

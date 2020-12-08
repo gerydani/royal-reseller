@@ -76,9 +76,10 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $package = OrderDetail::join('tblorder','tblorder_detail.trx_id','tblorder.id')->where('tblorder.status', 1)->get();
+        return view('Order.tabelclose', compact('package'));
     }
 
     /**

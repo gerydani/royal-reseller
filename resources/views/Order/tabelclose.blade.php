@@ -17,13 +17,14 @@
                         <div class="container-fluid">
                             <ul class="nav navbar-nav list-inline navbar-left">
                                 <li class="list-inline-item">
-                                    <h4 class="page-title">READY TO DELIVER</h4>
+                                    <h4 class="page-title">SIAP DI CLOSE ORDER</h4>
                                 </li>
                             </ul>
                             <nav class="navbar-custom">
                                 <ul class="list-unstyled topbar-right-menu float-right mb-0">
                                     <li class="hide-phone">
                                         <button class="btn btn-danger waves-effect" type="submit">
+                                            <i class="fa fa-send-o" aria-hidden="true"></i>
                                             Close Order
                                         </button>
                                     </li>
@@ -52,16 +53,18 @@
                                                     <th>Catatan Toko</th>
                                                 </tr>
                                                 </thead>
+                                                @foreach ($package as $pack)
                                                 <tr>
-                                                    <td>shopee</td>
-                                                    <td>klorofil</td>
-                                                    <td>3</td>
-                                                    <td>breng breng</td>
-                                                    <td>Jalan Kenangan no.69</td>
-                                                    <td>AG547890KO</td>
-                                                    <td>1203974647GRR64709</td>
-                                                    <td>pake gojek yang datang</td>
+                                                    <td>{{ $pack->toko->marketplace }}</td>
+                                                    <td>{{ $pack->nama_prod->name }}</td>
+                                                    <td>{{ $pack->qty }}</td>
+                                                    <td>{{ $pack->toko->nama_toko }}</td>
+                                                    <td>{{ $pack->address }}</td>
+                                                    <td>{{ $pack->booking_code }}</td>
+                                                    <td>{{ $pack->no_resi }}</td>
+                                                    <td>{{ $pack->notes }}</td>
                                                 </tr>
+                                                @endforeach
                                             </table>
                                         </div>
                                     </div>

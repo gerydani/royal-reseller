@@ -74,9 +74,9 @@ Input Barang
                                                   <select class="form-control select2" name="kode[]">
                                                       <option value="yaya">yaya</option>
                                                       <option value="yoyo">yyoyo</option>
-                                                    {{-- @foreach ($order as $ord)
+                                                    @foreach ($order as $ord)
 
-                                                    @endforeach --}}
+                                                    @endforeach
                                                   </select>
                                                 </div>
                                             </div>

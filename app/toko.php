@@ -8,9 +8,9 @@ class toko extends Model
 {
     protected $table ='tbltoko';
     protected $fillable = [
-        'id','marketplace','nama_toko', 'username_mp', 'password_mp', 'status'
+        'id_user','marketplace','nama_toko', 'username_mp', 'password_mp', 'status'
     ];
     public function infotoko(){
-        return $this->belongsTo('App\User','id_user','id');
+        return $this->belongsTo('App\User','id','id_user');
     }
 }
