@@ -91,9 +91,9 @@ Input Barang
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                   <label class="col-4 col-form-label">Harga</label>
-                                                  <input type="text" required name="harga[]"
+                                                  {{-- <input type="text" required name="harga[]"
                                                   placeholder="Harga" class="form-control" id=""
-                                                  value = "@isset($order->nama_prod->agreed_price){{ $order->nama_prod->agreed_price }}@endisset">
+                                                  value = "@isset($order->nama_prod->agreed_price){{ $order->nama_prod->agreed_price }}@endisset"> --}}
                                                 </div>
                                             </div>
                                             <div class="col-md-2" style="padding-top: 30px">
