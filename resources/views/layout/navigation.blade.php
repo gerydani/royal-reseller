@@ -13,7 +13,7 @@
                             <ul>
                                 <li><a href="/order/create">Input Barang</a></li>
                                 <li><a href="/order">Tabel Antrian</a></li>
-                                <li><a href="">Tabel Close Order</a></li>
+                                <li><a href="/order/show">Tabel Close Order</a></li>
                                 {{--  <li><a href="ui-typography.html">Typography </a></li>
                                 <li><a href="ui-checkbox-radio.html">Checkboxs-Radios</a></li>
                                 <li><a href="ui-material-icons.html">Material Design Icons</a></li>
