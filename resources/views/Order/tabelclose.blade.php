@@ -42,6 +42,7 @@
                                             <table id="key-table" class="table table-bordered tabelantrian">
                                                 <thead>
                                                 <tr>
+                                                    <th>Tanggal Transaksi</th>
                                                     <th>Market Place</th>
                                                     <th>Nama Product</th>
                                                     <th>Quantity</th>
@@ -53,6 +54,7 @@
                                                 </tr>
                                                 </thead>
                                                 <tr>
+                                                    <td>08-Desember-2020</td>
                                                     <td>shopee</td>
                                                     <td>klorofil</td>
                                                     <td>3</td>
