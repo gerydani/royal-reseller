@@ -35,8 +35,13 @@
                     <div class="col-md-22">
                         <div class="col-xl-20">
                             <div class="card-box">
-                                <h3 class="header-title m-t-0 m-b-30">Form Data</h3>
-                                <form action="/tambah" method="post" data-parsley-validate novalidate>
+                                @isset($user)
+                                    <h3 class="header-title m-t-0 m-b-30">Form Data</h3>
+                                    <form action="/tambah" method="post" data-parsley-validate novalidate>
+                                @else
+                                    <h3 class="header-title m-t-0 m-b-30">Edit Profile</h3>
+                                    <form action="{{ route('update.profile') }}" method="post" data-parsley-validate novalidate>
+                                @endisset
                                     {{ csrf_field() }}
                                     <label class="col-4 col-form-label"><span class="text-danger">* required field</span></label>
                                     <div class="form-group">

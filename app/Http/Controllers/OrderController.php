@@ -29,7 +29,8 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('Order.inputbarang');
+        $order = OrderDetail::join('tblorder','tblorder_detail.trx_id','tblorder.id');
+        return view('Order.inputbarang',compact('order'));
     }
 
     /**

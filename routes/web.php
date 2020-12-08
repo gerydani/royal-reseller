@@ -21,6 +21,8 @@ Route::get('/aturan', 'HomeController@create')->name('input.aturan');
 Route::post('/postaturan', 'HomeController@store')->name('store.aturan');
 Route::get('/register', 'UserController@create')->name('registrasi');
 Route::post('/tambah', 'UserController@store');
+Route::get('/editprofile', 'UserController@edit')->name('edit.profile');
+Route::get('/updateprofile', 'UserController@update')->name('update.profile');
 
 // logout
 Route::middleware(['checkUser'])->group(function () {

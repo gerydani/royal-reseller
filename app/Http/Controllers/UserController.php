@@ -88,7 +88,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::where('id', $id)->first();
+        return view('user.registrasi', compact('user'));
     }
 
     /**
@@ -100,7 +101,20 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try{
+            $user = User::where('id', $id)->first();
+            $user->namatoko = $request->namatoko,
+            $user->namaowner =  $request->namaowner,
+            $user->email = $request->email,
+            $user->nohp = $request->nohp,
+            $user->username = $request->username,
+            $user->password = Hash::make($request->password),
+            $user->bck_pass = $request->password
+            $user->update();
+            return redirect()->route('home')->with('status', 'Data berhasil diupdate');
+        }catch(\Exception $e){
+            return redirect()->back()->withErrors($e->getMessage());
+        }
     }
 
     /**

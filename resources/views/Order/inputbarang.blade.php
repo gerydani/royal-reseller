@@ -52,7 +52,7 @@ Input Barang
                                     <label class="col-4 col-form-label">Tanggal Transaksi*</label>
                                     <input type="date" required name=""
                                            placeholder="" class="form-control" id=""
-                                           value = "">
+                                           value = "@isset($order->trx_date){{ $order->trx_date }}@endisset">
                                 </div>
                                 <div class="form-group">
                                     <label class="col-4 col-form-label">Catatan Pembeli</label>
@@ -73,10 +73,9 @@ Input Barang
                                                 <div class="form-group">
                                                   <label class="col-4 col-form-label">Produk</label>
                                                   <select class="form-control select2" name="kode[]">
-                                                      <option value="yaya">yaya</option>
-                                                      <option value="yoyo">yyoyo</option>
+                                                      <option value="#" disabled>Pilih Product</option>
                                                     @foreach ($order as $ord)
-
+                                                        <option value="{{ $ord->nama_prod->name }}">@isset($ord->nama_prod->name){{ $ord->prod_id->name }}@endisset</option>
                                                     @endforeach
                                                   </select>
                                                 </div>
@@ -84,15 +83,17 @@ Input Barang
                                             <div class="col-md-2">
                                                 <div class="form-group">
                                                   <label class="col-4 col-form-label">Quantitiy</label>
-                                                  <input type="number" class="form-control" name="qty[]">
-                                                  {{-- value="@isset($detail->qty){{ $detail->qty }}" --}}
+                                                  <input type="number" required name="qty[]"
+                                                  placeholder="Jumlah" class="form-control" id=""
+                                                  value = "@isset($order->qty){{ $order->qty }}@endisset">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                   <label class="col-4 col-form-label">Harga</label>
-                                                  <input type="text" class="form-control" name="harga[]">
-                                                  {{-- value="@isset($detail->harga){{ $detail->harga }}"> --}}
+                                                  <input type="text" required name="harga[]"
+                                                  placeholder="Harga" class="form-control" id=""
+                                                  value = "@isset($order->nama_prod->agreed_price){{ $order->nama_prod->agreed_price }}@endisset">
                                                 </div>
                                             </div>
                                             <div class="col-md-2" style="padding-top: 30px">
