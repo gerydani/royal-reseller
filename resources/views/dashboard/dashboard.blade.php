@@ -29,7 +29,7 @@
                         </h4></li>
                         <br>
                     <form action="">
-                        <li class="list-inline"><button type="button" class="btn btn-primary"><a href="" style="color:white">Update Aturan</a></button></li>
+                        <li class="list-inline"><button type="button" class="btn btn-primary"><a href="/aturan" style="color:white">Update Aturan</a></button></li>
                     </form>
                     </ul>
                 @endforeach
