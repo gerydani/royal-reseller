@@ -103,13 +103,13 @@ class UserController extends Controller
     {
         try{
             $user = User::where('id', $id)->first();
-            $user->namatoko = $request->namatoko,
-            $user->namaowner =  $request->namaowner,
-            $user->email = $request->email,
-            $user->nohp = $request->nohp,
-            $user->username = $request->username,
-            $user->password = Hash::make($request->password),
-            $user->bck_pass = $request->password
+            $user->namatoko = $request->namatoko;
+            $user->namaowner =  $request->namaowner;
+            $user->email = $request->email;
+            $user->nohp = $request->nohp;
+            $user->username = $request->username;
+            $user->password = Hash::make($request->password);
+            $user->bck_pass = $request->password;
             $user->update();
             return redirect()->route('home')->with('status', 'Data berhasil diupdate');
         }catch(\Exception $e){
