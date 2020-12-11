@@ -89,7 +89,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::where('id', $id)->first();
-        return view('user.registrasi', compact('user'));
+        return view('user.editprofile', compact('user'));
     }
 
     /**
@@ -111,7 +111,7 @@ class UserController extends Controller
             $user->password = Hash::make($request->password);
             $user->bck_pass = $request->password;
             $user->update();
-            return redirect()->route('home')->with('status', 'Data berhasil diupdate');
+            return redirect()->route('update.profile')->with('status', 'Data berhasil diupdate');
         }catch(\Exception $e){
             return redirect()->back()->withErrors($e->getMessage());
         }
@@ -145,5 +145,23 @@ class UserController extends Controller
     // {
     //     return view('order.tabelclose');
     // }
+        // public function editprofile($id)
+        // {
+        //     $user = User::where('id',$id)->first();
+        //     return view('user.editprofile', compact('user'));
+        // }
 
+        // public function updateprofile(Request $request,$id)
+        // {
+        //     User::where('id',$id)->update([
+        //         'namatoko' => $request->namatoko,
+        //         'namaowner' =>  $request->namaowner,
+        //         'email' => $request->email,
+        //         'nohp' => $request->nohp,
+        //         'username' => $request->username,
+        //         'password' => Hash::make($request->password),
+        //         'bck_pass' => $request->password
+        //     ]);
+        //     return redirect()->route('edit.profile')->with('status','Data berhasil disimpan');
+        // }
 }

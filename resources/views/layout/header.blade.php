@@ -82,12 +82,12 @@
                     <li class="dropdown notification-list">
                         <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown" href="#" role="button"
                             aria-haspopup="false" aria-expanded="false">
-                            <img src="assets/images/users/avatar-1.jpg" alt="user" class="rounded-circle image">
+                            <img src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt="user" class="rounded-circle image">
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
 
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <a href="{{ route('edit.profile') }}" class="dropdown-item notify-item">
                                 <i class="ti-user m-r-5"></i> Profile
                             </a>
 
