@@ -5,6 +5,10 @@
         {{--  <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet" type="text/css" />  --}}
 @endsection
 
+@php
+ use App\toko;
+@endphp
+
 @section('css')
         <link href="https://fonts.googleapis.com/css?family=Lato:400,600,700" rel="stylesheet" />
         <link href="{{ asset('colorlib-search-9/css/main.css') }}" rel="stylesheet" />
@@ -25,9 +29,10 @@ Input Barang
                                     <div class="form-group">
                                       <label class="col-4 col-form-label">Marketplace</label>
                                       <select class="form-control select2" name="marketplace" id="">
-                                        <option>Shopee</option>
-                                        <option>Tokopedia</option>
-                                        <option>Bukalapak</option>
+                                        <option value="#" disabled>Pilih Marketplace</option>
+                                          @foreach ($toko as $tok)
+                                            <option value="@isset($tok->marketplace){{ $tok->marketplace }}@endisset">{{ toko::join('marketplace','tbltoko.marketplace','marketplace.id')->where('tbltoko.marketplace', $tok->marketplace)->first()->name }}</option>
+                                          @endforeach
                                       </select>
                                     </div>
                                 <div class="form-group">
@@ -72,10 +77,10 @@ Input Barang
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                   <label class="col-4 col-form-label">Produk</label>
-                                                  <select class="form-control select2" name="kode[]">
+                                                  <select class="form-control select2" name="kode[]" id="produk" onchange="getHarga(this.value)">
                                                       <option value="#" disabled>Pilih Product</option>
-                                                    @foreach ($order as $ord)
-                                                        <option value="{{ $ord->nama_prod->name }}">@isset($ord->nama_prod->name){{ $ord->prod_id->name }}@endisset</option>
+                                                    @foreach ($product as $prod)
+                                                        <option value="@isset($prod->prod_id){{ $prod->prod_id }}@endisset">@isset($prod->name){{ $prod->name }}@endisset]</option>
                                                     @endforeach
                                                   </select>
                                                 </div>
@@ -91,9 +96,9 @@ Input Barang
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                   <label class="col-4 col-form-label">Harga</label>
-                                                  {{-- <input type="text" required name="harga[]"
-                                                  placeholder="Harga" class="form-control" id=""
-                                                  value = "@isset($order->nama_prod->agreed_price){{ $order->nama_prod->agreed_price }}@endisset"> --}}
+                                                  <input type="text" required name="harga[]"
+                                                  placeholder="Harga" class="form-control" id="harga"
+                                                  value = "@isset($product->agreed_price){{ $product->agreed_price }}@endisset">
                                                 </div>
                                             </div>
                                             <div class="col-md-2" style="padding-top: 30px">
@@ -120,19 +125,43 @@ Input Barang
 @endsection
 
 @section('script-js')
+        <script>
+         function getHarga(id){
+            $.ajax({
+                url : "{{route('getHarga')}}",
+                type : "get",
+                dataType: 'json',
+                data:{
+                    prod_id: id,
+                },
+            }).done(function (data) {
+                // var yoo = $(this).siblings();
+                $('#harga').val(data.agreed_price);
+                console.log(data.agreed_price);
+            }).fail(function (msg) {
+                alert('Gagal menampilkan data, silahkan refresh halaman.');
+            })
+         };
+        </script>
         <script type="text/javascript">
             $(document).ready(function() {
                 $('form').parsley();
             });
         </script>
         <script type="text/javascript">
-         $(document).ready(function() {
-            $('.tambah-produk').click(function (e) {
-                e.preventDefault();
-                var count = $(this).find('.count').val();
-                var produk = $('.baris').first().clone(true, true);
-                $('.produk').append(produk);
-            });
+         $(document).ready(function(data) {
+                var i=1;
+                $('.tambah-produk').click(function(){
+                    var produk = $('.baris').first().clone(true, true);
+                    i++;
+                    $('.produk').append('<div class="produk"><div class="row baris"><div class="col-md-4"><div class="form-group"><label class="col-4 col-form-label">Produk</label><select class="form-control select2" name="kode[]" id="produk" onchange="getHarga(this.value)"><option value="#" disabled>Pilih Product</option>@foreach ($product as $prod)<option value="@isset($prod->prod_id){{ $prod->prod_id }}@endisset">@isset($prod->name){{ $prod->name }}@endisset]</option>@endforeach</select></div></div><div class="col-md-2"><div class="form-group"><label class="col-4 col-form-label">Quantitiy</label><input type="number" required name="qty[]"placeholder="Jumlah" class="form-control" id=""value = "@isset($order->qty){{ $order->qty }}@endisset"></div></div><div class="col-md-4"><div class="form-group"><label class="col-4 col-form-label">Harga</label><input type="text" required name="harga[]"placeholder="Harga" class="form-control" id="harga'+i+'"value = "@isset($product->agreed_price){{ $product->agreed_price }}@endisset"></div></div><div class="col-md-2" style="padding-top: 30px"><button type="button" class="btn btn-danger hapus-produk"><i class="fa fa-times" aria-hidden="true"></i></button></div></div></div>');
+                });
+            // $('.tambah-produk').click(function (e) {
+            //     e.preventDefault();
+            //     var count = $(this).find('.count').val();
+            //     var produk = $('.baris').first().clone(true, true);
+            //     $('.produk').append(produk);
+            // });
             $('.hapus-produk').click(function (e){
                 var yoo = $(this).parent().parent();
                 if ($('.baris').length > 1) yoo.remove();

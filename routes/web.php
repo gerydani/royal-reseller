@@ -21,6 +21,10 @@ Route::get('/aturan', 'HomeController@create')->name('input.aturan');
 Route::post('/postaturan', 'HomeController@store')->name('store.aturan');
 Route::get('/register', 'UserController@create')->name('registrasi');
 Route::post('/tambah', 'UserController@store');
+Route::get('/editprofile', 'UserController@edit')->name('edit.profile');
+Route::get('/updateprofile', 'UserController@update')->name('update.profile');
+Route::get('/getHarga', 'OrderController@getHarga')->name('getHarga');
+//Edit Profile
 Route::get('/editprofile/{id}', 'UserController@edit')->name('edit.profile');
 Route::post('/updateprofile/{id}', 'UserController@update')->name('update.profile');
 
@@ -40,11 +44,12 @@ Route::middleware(['checkUser'])->group(function () {
         // Role Management
     ]);
 Route::get('/menu','UserController@index')->name('menu');
+//Route::post('/updatestatus','OrderController@update')->name('update.status');
 
 // //menu toko
 // Route::get('/toko','TokoController@index')->name('toko');
 // Route::get('/registoko','TokoController@create')->name('registoko');
-// Route::post('/tambahtoko','TokoController@store');
+Route::post('/tambahtoko/{id}','TokoController@store');
 
 Route::middleware(['checkUser'])->group(function () {
     Route::get('/logout','HomeController@logout')->name('Logout');

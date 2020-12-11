@@ -60,6 +60,7 @@ use App\toko;
                                                 <td>
                                                     <form class="" action="{{ route('order.update', ['id' => $queue->id]) }}" method="post">
                                                         @csrf
+                                                        {{ method_field('put') }}
                                                         <button type="submit" class="btn btn-primary btn-rounded" id="ceklist">Complete</button>
                                                     </form>
                                                 </td>
@@ -109,6 +110,7 @@ use App\toko;
                                                     <td>
                                                     <form class="" action="{{ route('order.update', ['id' => $pack->id]) }}" method="post">
                                                         @csrf
+                                                        {{ method_field('put') }}
                                                         <button type="submit" class="btn btn-danger btn-rounded" id="remove">Remove</button>
                                                     </form>
                                                     </td>
