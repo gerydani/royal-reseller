@@ -24,6 +24,9 @@ Route::post('/tambah', 'UserController@store');
 Route::get('/editprofile', 'UserController@edit')->name('edit.profile');
 Route::get('/updateprofile', 'UserController@update')->name('update.profile');
 Route::get('/getHarga', 'OrderController@getHarga')->name('getHarga');
+//Edit Profile
+Route::get('/editprofile/{id}', 'UserController@edit')->name('edit.profile');
+Route::post('/updateprofile/{id}', 'UserController@update')->name('update.profile');
 
 // logout
 Route::middleware(['checkUser'])->group(function () {

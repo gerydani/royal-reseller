@@ -21,6 +21,8 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 @section('content')
+    <br>
+    <br>
     <div class="row">
         <div class="col-12">
             <div class="card-box table-responsive">

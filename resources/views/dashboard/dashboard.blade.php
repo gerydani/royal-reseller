@@ -18,6 +18,8 @@
 @endsection
 
 @section('content')
+    <br>
+    <br>
     <div class="card-box">
         <h3 class="page-title text-uppercase" style="padding-left: 60px; text-align:center">Peraturan Yang Harus Ditaati</h4>
              <form action="/create" method="get">

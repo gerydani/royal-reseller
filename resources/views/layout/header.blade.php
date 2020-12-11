@@ -87,7 +87,7 @@
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
 
                             <!-- item-->
-                            <a href="{{ route('edit.profile') }}" class="dropdown-item notify-item">
+                            <a href="{{ route('edit.profile',['id'=>session('user_id')]) }}" class="dropdown-item notify-item">
                                 <i class="ti-user m-r-5"></i> Profile
                             </a>
 
