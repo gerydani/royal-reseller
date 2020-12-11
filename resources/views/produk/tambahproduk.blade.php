@@ -17,6 +17,8 @@
                 </div>
 @endsection
 @section('content')
+                <br>
+                <br>
                 <div class="col-md-22">
                     <div class="col-xl-20">
                         <div class="card-box">

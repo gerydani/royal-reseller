@@ -135,33 +135,4 @@ class UserController extends Controller
         $aturan->save();
         return redirect()->route('Home')->with('status','Data Berhasil disimpan');
     }
-
-    // public function aturan(Request $request){
-        // $aturan = Aturan::where('id',session('user_id'))->first();
-        // return view('dashboard.dashboard',compact('aturan'));
-    // }
-
-    // public function ubah(Request $request)
-    // {
-    //     return view('order.tabelclose');
-    // }
-        // public function editprofile($id)
-        // {
-        //     $user = User::where('id',$id)->first();
-        //     return view('user.editprofile', compact('user'));
-        // }
-
-        // public function updateprofile(Request $request,$id)
-        // {
-        //     User::where('id',$id)->update([
-        //         'namatoko' => $request->namatoko,
-        //         'namaowner' =>  $request->namaowner,
-        //         'email' => $request->email,
-        //         'nohp' => $request->nohp,
-        //         'username' => $request->username,
-        //         'password' => Hash::make($request->password),
-        //         'bck_pass' => $request->password
-        //     ]);
-        //     return redirect()->route('edit.profile')->with('status','Data berhasil disimpan');
-        // }
 }

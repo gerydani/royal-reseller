@@ -7,7 +7,7 @@
                     <a href="/"><i class="mdi mdi-view-dashboard"></i> <span> Dashboard </span> </a>
                 </li>
                 <li class="has-submenu">
-                    <a href="/order"><i class="mdi mdi-invert-colors"></i> <span> Order </span> </a>
+                    <a href="/order"><i class="mdi mdi-cart-arrow-right"></i> <span> Order </span> </a>
                     <ul class="submenu megamenu">
                         <li>
                             <ul>
@@ -37,7 +37,7 @@
                 </li>
 
                 <li class="has-submenu">
-                    <a href="/toko"><i class="mdi mdi-texture"></i><span> Toko </span> </a>
+                    <a href="/toko"><i class="mdi mdi-store"></i><span> Toko </span> </a>
                     <ul class="submenu">
                         <li><a href="/toko">Status Toko</a></li>
                         <li><a href="/toko/create">Menu Toko</a></li>
@@ -50,7 +50,7 @@
                 </li>
 
                 <li class="has-submenu">
-                    <a href="/product"><i class="mdi mdi-view-list"></i> <span> Produk </span> </a>
+                    <a href="/product"><i class="mdi mdi-package-variant-closed"></i> <span> Produk </span> </a>
                     <ul class="submenu">
                         <li><a href="/product">Tabel Produk</a></li>
                         <li><a href="/product/create">Tambah Produk</a></li>

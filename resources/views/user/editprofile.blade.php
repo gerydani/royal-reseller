@@ -30,7 +30,6 @@ Index Laporan Keuangan
                             <h4 class="header-title m-t-0 m-b-30">Data Tersimpan</h4>
                             <form action="{{ route('update.profile',['id'=>session('user_id')]) }}" method="post" data-parsley-validate novalidate>
                                 {{ csrf_field() }}
-                                {{-- <label class="col-4 col-form-label"><span class="text-danger">* required field</span></label> --}}
                                 <div class="form-group">
                                     <label class="col-4 col-form-label">Nama Toko</span></label>
                                     <input type="text" name="namatoko" parsley-trigger="change" required
@@ -66,6 +65,8 @@ Index Laporan Keuangan
                                            placeholder="Password" class="form-control" id=""
                                            value=""
                                 </div>
+                                <br>
+                                <br>
                                 <div class="form-group text-right m-b-0">
                                     <button class="btn btn-primary waves-effect waves-light" type="submit">
                                         Update
