@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Order;
 use App\OrderDetail;
+use App\Product;
+use App\toko;
 use PhpParser\Node\Stmt\TryCatch;
 
 class OrderController extends Controller
@@ -27,10 +29,16 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function getHarga(Request $request){
+        $harga = Product::where('prod_id',$request->prod_id)->first();
+        // return $harga;
+        echo json_encode($harga);
+    }
     public function create()
     {
-        $order = OrderDetail::join('tblorder','tblorder_detail.trx_id','tblorder.id');
-        return view('Order.inputbarang',compact('order'));
+        $product = Product::all();
+        $toko = toko::all();
+        return view('Order.inputbarang',compact('product','toko'));
     }
 
     /**
@@ -101,7 +109,7 @@ class OrderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
 
         $antrian = Order::where('id', $id)->first();
@@ -114,7 +122,7 @@ class OrderController extends Controller
         // success
         try{
             $antrian->update();
-            return redirect()->route('Order.index')->with('status', 'Data berhasil diupdate');
+            return redirect()->route('order.index')->with('status', 'Data berhasil diupdate');
         // fail
         }catch(\Exception $e){
             return redirect()->back()->withErrors($e->getMessage());

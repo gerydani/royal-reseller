@@ -28,7 +28,7 @@ Index Laporan Keuangan
                     <div class="col-xl-6">
                         <div class="card-box" style="width:201%">
                             <h4 class="header-title m-t-0 m-b-30">Data Tersimpan</h4>
-                            <form action="/tambah" method="post" data-parsley-validate novalidate>
+                            <form action="{{ route('update.profile', ['id'=> $user->id]) }}" method="post" data-parsley-validate novalidate>
                                 {{ csrf_field() }}
                                 {{-- <label class="col-4 col-form-label"><span class="text-danger">* required field</span></label> --}}
                                 <div class="form-group">
