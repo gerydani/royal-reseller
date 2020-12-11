@@ -150,18 +150,20 @@ Input Barang
         </script>
         <script type="text/javascript">
          $(document).ready(function(data) {
-                var i=1;
-                $('.tambah-produk').click(function(){
-                    var produk = $('.baris').first().clone(true, true);
-                    i++;
-                    $('.produk').append('<div class="produk"><div class="row baris"><div class="col-md-4"><div class="form-group"><label class="col-4 col-form-label">Produk</label><select class="form-control select2" name="kode[]" id="produk" onchange="getHarga(this.value)"><option value="#" disabled>Pilih Product</option>@foreach ($product as $prod)<option value="@isset($prod->prod_id){{ $prod->prod_id }}@endisset">@isset($prod->name){{ $prod->name }}@endisset]</option>@endforeach</select></div></div><div class="col-md-2"><div class="form-group"><label class="col-4 col-form-label">Quantitiy</label><input type="number" required name="qty[]"placeholder="Jumlah" class="form-control" id=""value = "@isset($order->qty){{ $order->qty }}@endisset"></div></div><div class="col-md-4"><div class="form-group"><label class="col-4 col-form-label">Harga</label><input type="text" required name="harga[]"placeholder="Harga" class="form-control" id="harga'+i+'"value = "@isset($product->agreed_price){{ $product->agreed_price }}@endisset"></div></div><div class="col-md-2" style="padding-top: 30px"><button type="button" class="btn btn-danger hapus-produk"><i class="fa fa-times" aria-hidden="true"></i></button></div></div></div>');
-                });
-            // $('.tambah-produk').click(function (e) {
-            //     e.preventDefault();
-            //     var count = $(this).find('.count').val();
-            //     var produk = $('.baris').first().clone(true, true);
-            //     $('.produk').append(produk);
-            // });
+                // var i=1;
+                // $('.tambah-produk').click(function(e){
+                //     e.preventdefault();
+                //     var produk = $('.baris').first().clone(true, true);
+                //     i++;
+                //     $('.produk').append('.produk');
+                //    // $('.produk').append('<div class="produk"><div class="row baris"><div class="col-md-4"><div class="form-group"><label class="col-4 col-form-label">Produk</label><select class="form-control select2" name="kode[]" id="produk" onchange="getHarga(this.value)"><option value="#" disabled>Pilih Product</option>@foreach ($product as $prod)<option value="@isset($prod->prod_id){{ $prod->prod_id }}@endisset">@isset($prod->name){{ $prod->name }}@endisset]</option>@endforeach</select></div></div><div class="col-md-2"><div class="form-group"><label class="col-4 col-form-label">Quantitiy</label><input type="number" required name="qty[]"placeholder="Jumlah" class="form-control" id=""value = "@isset($order->qty){{ $order->qty }}@endisset"></div></div><div class="col-md-4"><div class="form-group"><label class="col-4 col-form-label">Harga</label><input type="text" required name="harga[]"placeholder="Harga" class="form-control" id="harga'+i+'"value = "@isset($product->agreed_price){{ $product->agreed_price }}@endisset"></div></div><div class="col-md-2" style="padding-top: 30px"><button type="button" class="btn btn-danger hapus-produk"><i class="fa fa-times" aria-hidden="true"></i></button></div></div></div>');
+                // });
+            $('.tambah-produk').click(function (e) {
+                e.preventDefault();
+                var count = $(this).find('.count').val();
+                var produk = $('.baris').first().clone(true, true);
+                $('.produk').append(produk);
+            });
             $('.hapus-produk').click(function (e){
                 var yoo = $(this).parent().parent();
                 if ($('.baris').length > 1) yoo.remove();
