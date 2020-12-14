@@ -21,7 +21,7 @@
     <br>
     <br>
     <div class="card-box">
-        <h3 class="page-title text-uppercase" style="padding-left: 60px; text-align:center">Peraturan Yang Harus Ditaati</h4>
+        <h3 class="page-title text-uppercase" style="padding-left:30px; text-align:center">Peraturan Yang Harus Ditaati</h4>
              <form action="/create" method="get">
                 @csrf
                 @foreach ($aturan as $atur)

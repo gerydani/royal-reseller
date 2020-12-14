@@ -82,7 +82,7 @@ Input Barang
                                                   <select class="form-control select2" name="kode[]" id="produk" onchange="getHarga(this.value)">
                                                       <option value="#" disabled>Pilih Product</option>
                                                     @foreach ($product as $prod)
-                                                        <option value="@isset($prod->prod_id){{ $prod->prod_id }}@endisset">@isset($prod->name){{ $prod->name }}@endisset]</option>
+                                                        <option value="@isset($prod->prod_id){{ $prod->prod_id }}@endisset">@isset($prod->name){{ $prod->name }}@endisset</option>
                                                     @endforeach
                                                   </select>
                                                 </div>
