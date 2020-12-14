@@ -25,6 +25,7 @@
              <form action="/create" method="get">
                 @csrf
                 @foreach ($aturan as $atur)
+                @if ($atur == $atur->orderby('id','desc')->first())
                 <ul style=" padding-left:80px; text-align:center; padding-right:60px">
                         <li class="list-inline" name="aturan"><h4 style="">
                         {{ $atur->Peraturan }}
@@ -34,6 +35,7 @@
                         <li class="list-inline"><button type="button" class="btn btn-primary"><a href="/aturan" style="color:white">Update Aturan</a></button></li>
                     </form>
                     </ul>
+                @endif
                 @endforeach
         <br>
         <hr />
