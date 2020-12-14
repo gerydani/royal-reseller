@@ -79,7 +79,7 @@ Input Barang
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                   <label class="col-4 col-form-label">Produk</label>
-                                                  <select class="form-control select2" name="kode[]" id="produk" onchange="getHarga(this.value)">
+                                                  <select class="form-control select2 select-product" name="kode[]" id="produk">
                                                       <option value="#" disabled>Pilih Product</option>
                                                     @foreach ($product as $prod)
                                                         <option value="@isset($prod->prod_id){{ $prod->prod_id }}@endisset">@isset($prod->name){{ $prod->name }}@endisset</option>
@@ -99,7 +99,7 @@ Input Barang
                                                 <div class="form-group">
                                                   <label class="col-4 col-form-label">Harga</label>
                                                   <input type="text" required name="harga[]"
-                                                  placeholder="Harga" class="form-control" id="harga"
+                                                  placeholder="Harga" class="form-control harga"
                                                   value = "@isset($product->agreed_price){{ $product->agreed_price }}@endisset">
                                                 </div>
                                             </div>
@@ -169,6 +169,28 @@ Input Barang
             $('.hapus-produk').click(function (e){
                 var yoo = $(this).parent().parent();
                 if ($('.baris').length > 1) yoo.remove();
+            });
+            $('.select-product').change(function (e) {
+                e.preventDefault();
+                var select_product = $(this);
+                var id = e.target.value;
+                $.ajax({
+                    url : "{{route('getHarga')}}",
+                    type : "get",
+                    dataType: 'json',
+                    data:{
+                        prod_id: id,
+                    },
+                }).done(function (data) {
+                    // var yoo = $(this).siblings();
+                    // $('.harga').val(data.agreed_price);
+                    // console.log(select_product);
+                    var baris = select_product.parent().parent().parent();
+                    baris.find('.harga').val(data.agreed_price);
+                    // console.log(data.agreed_price);
+                }).fail(function (msg) {
+                    alert('Gagal menampilkan data, silahkan refresh halaman.');
+                })
             });
         });
         </script>
