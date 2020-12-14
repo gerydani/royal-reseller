@@ -106,7 +106,11 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::where('id', $id)->first();
-        $product->status = 0;
+        if ($product->status == 1){
+            $product->status = 0;
+        }else if ($product->status = 0){
+            $product->status = 1;
+        };
         $product->update();
         return redirect()->route('product.index')->with('status','Data Berhasil dihapus');
     }
