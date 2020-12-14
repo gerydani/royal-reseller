@@ -81,15 +81,18 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // echo "<pre>";
+        // print_r($request->all());
+        // die;
         try{
             $product = Product::where('id', $id)->first();
             $product->prod_id = $request->prod_id;
             $product->name = $request->name;
             $product->sku = $request->sku;
-            $product->capital_price = $product->capital_price;
-            $product->agreed_price = $product->agreed_price;
-            $product->weight = $product->weight;
-            $product->dimension = $product->dimension;
+            $product->capital_price = $request->capital_price;
+            $product->agreed_price = $request->agreed_price;
+            $product->weight = $request->weight;
+            $product->dimension = $request->dimension;
             $product->update();
             return redirect()->route('product.index')->with('status', 'Data berhasil diupdate');
         }catch(\Exception $e){
