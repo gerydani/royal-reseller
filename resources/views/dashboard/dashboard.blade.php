@@ -77,7 +77,11 @@
                                                 <td>{{ $i }}</td>
                                                 <td>{{ $use->name }}</td>
                                                 <td>{{ $use->agreed_price }}</td>
-                                                <td>{{ $use->status }}</td>
+                                            @if ($use->status == 0)
+                                                <td>Ready</td>
+                                            @elseif ($use->status == 1)
+                                                <td>Stok Kosong</td>
+                                            @endif
                                             @php
                                                 $i++;
                                             @endphp
