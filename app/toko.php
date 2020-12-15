@@ -13,4 +13,7 @@ class toko extends Model
     public function infotoko(){
         return $this->belongsTo('App\User','id_user','id');
     }
+    public function marketplaces(){
+        return $this->belongsTo('App\Marketplace','marketplace','id');
+    }
 }

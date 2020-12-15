@@ -62,7 +62,7 @@
                                                 <td>{{ $use->weight }}</td>
                                                 <td>
                                                     <a href="{{ route('product.edit', ['id' => $use->id]) }}" class="btn btn-custom btn-rounded waves-effect waves-light w-md m-b-5" id="edit">Edit</a>
-                                                    <form class="" action="{{ route('product.destroy', ['id' => $use->id]) }}" method="post">
+                                                    <form action="{{ route('product.destroy', ['id' => $use->id]) }}" method="post">
                                                         @csrf
                                                         {{ method_field('delete') }}
                                                         @if ($use->status == 1)

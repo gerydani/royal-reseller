@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 08, 2020 at 09:14 AM
+-- Generation Time: Dec 15, 2020 at 08:26 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -38,9 +38,9 @@ CREATE TABLE `marketplace` (
 --
 
 INSERT INTO `marketplace` (`id`, `name`, `desc`) VALUES
-(1, 'tokopedia', 'toko'),
-(2, 'bukalapak', 'buka'),
-(3, 'shopee', 'shop');
+(1, 'TOKOPEDIA', 'toko'),
+(2, 'BUKALAPAK', 'buka'),
+(3, 'SHOPEE', 'shop');
 
 -- --------------------------------------------------------
 
@@ -51,6 +51,7 @@ INSERT INTO `marketplace` (`id`, `name`, `desc`) VALUES
 CREATE TABLE `peraturan` (
   `id` int(11) NOT NULL,
   `Peraturan` text DEFAULT NULL,
+  `status` int(2) NOT NULL DEFAULT 1,
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -59,8 +60,9 @@ CREATE TABLE `peraturan` (
 -- Dumping data for table `peraturan`
 --
 
-INSERT INTO `peraturan` (`id`, `Peraturan`, `updated_at`, `created_at`) VALUES
-(10, 'Kecelakaan akibat kelalaian pengemudi masih sering terjadi. Sepanjang tahun 2019, sudah ada 15 orang yang meninggal karena kecelakaan lalu lintas, terutama di jalan tol. Mengendarai kendaraan saat mengantuk adalah salah satu penyumbang terbesar dari angka di atas. Hal ini bisa menyebabkan kecelakaan lalu lintas beruntun yang berakibat merugikan banyak orang. Insiden kecelakaan karena kelalaian ini bisa terjadi kapan saja, baik siang maupun malam. Maka kita harus selalu berkonsentrasi ketika mengendarai kendaraan di jalanan. Selain menjadi penyebab kecelakaan, kita juga bisa menjadi korban.', '2020-12-03 00:33:16', '2020-12-03 00:33:16');
+INSERT INTO `peraturan` (`id`, `Peraturan`, `status`, `updated_at`, `created_at`) VALUES
+(11, 'ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', 1, '2020-12-13 20:29:51', '2020-12-13 20:29:51'),
+(12, 'Kecelakaan akibat kelalaian pengemudi masih sering terjadi. Sepanjang tahun 2019, sudah ada 15 orang yang meninggal karena kecelakaan lalu lintas, terutama di jalan tol. Mengendarai kendaraan saat mengantuk adalah salah satu penyumbang terbesar dari angka di atas. Hal ini bisa menyebabkan kecelakaan lalu lintas beruntun yang berakibat merugikan banyak orang. Insiden kecelakaan karena kelalaian ini bisa terjadi kapan saja, baik siang maupun malam. Maka kita harus selalu berkonsentrasi ketika mengendarai kendaraan di jalanan. Selain menjadi penyebab kecelakaan, kita juga bisa menjadi korban.', 1, '2020-12-03 00:33:16', '2020-12-03 00:33:16');
 
 -- --------------------------------------------------------
 
@@ -86,9 +88,13 @@ CREATE TABLE `tblorder` (
 --
 
 INSERT INTO `tblorder` (`id`, `shop_id`, `address`, `booking_code`, `no_resi`, `notes`, `status`, `trx_date`, `created_at`, `updated_at`) VALUES
-(1, 2, NULL, NULL, '34232wefsdwr', 'Pelan pelan , sakit', 1, NULL, '2020-11-27 04:06:37', '2020-12-02 20:46:55'),
-(2, 4, 'Jl. Sadang Saip No.21, Sadang Serang, Kecamatan Coblong, Kota Bandung', 'jhfjsdfjsdkf9298239u', '34232wefsdwr', 'Pelan pelan , sakit', 0, NULL, '2020-11-27 04:08:40', '2020-12-02 20:46:57'),
-(5, 3, 'dsfsf', 'gsdgdsg', 'dsgsg', 'sdgsdg', 1, '2020-12-09', NULL, NULL);
+(1, 2, NULL, NULL, '34232wefsdwr', 'Pelan pelan , sakit', 0, NULL, '2020-11-27 04:06:37', '2020-12-10 20:54:55'),
+(2, 4, 'Jl. Sadang Saip No.21, Sadang Serang, Kecamatan Coblong, Kota Bandung', 'jhfjsdfjsdkf9298239u', '34232wefsdwr', 'Pelan pelan , sakit', 0, NULL, '2020-11-27 04:08:40', '2020-12-10 20:54:58'),
+(5, 3, 'dsfsf', 'gsdgdsg', 'dsgsg', 'sdgsdg', 1, '2020-12-09', NULL, NULL),
+(6, NULL, NULL, NULL, '24234', NULL, 1, NULL, '2020-12-14 00:20:01', '2020-12-14 00:20:01'),
+(7, NULL, NULL, NULL, '24234', NULL, 1, NULL, '2020-12-14 01:06:47', '2020-12-14 01:06:47'),
+(8, NULL, NULL, NULL, '24234', NULL, 1, NULL, '2020-12-14 01:44:41', '2020-12-14 01:44:41'),
+(9, NULL, NULL, NULL, '24234', NULL, 1, NULL, '2020-12-14 02:02:44', '2020-12-14 02:02:44');
 
 -- --------------------------------------------------------
 
@@ -131,7 +137,7 @@ CREATE TABLE `tblproduct` (
   `agreed_price` int(11) DEFAULT NULL,
   `weight` int(11) DEFAULT NULL,
   `dimension` varchar(100) DEFAULT NULL,
-  `status` tinyint(1) DEFAULT 1,
+  `status` int(1) DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -141,9 +147,10 @@ CREATE TABLE `tblproduct` (
 --
 
 INSERT INTO `tblproduct` (`id`, `prod_id`, `name`, `sku`, `capital_price`, `agreed_price`, `weight`, `dimension`, `status`, `created_at`, `updated_at`) VALUES
-(5, '2', 'alan ganteng', 'le', 10000, 15000, 1000, '12x13x14', 0, NULL, '2020-12-03 20:59:26'),
-(6, '4', 'klorofil', 'kloro', 50000, 60000, 213, '12x45x23', 0, '2020-12-03 20:39:59', '2020-12-03 21:04:57'),
-(8, '5', 'trwrwr', 'kloro', 1241424, 5235253, 213, '342f234', 1, '2020-12-03 20:42:31', '2020-12-03 20:42:31');
+(5, '2', 'SFAAS', 'SAFSAF', 22332, 243434, 122, '12d12d12d', 1, NULL, '2020-12-14 03:01:43'),
+(6, '9', 'chlorophyl', 'phyl', 50000, 60000, 213, '12x45x23', 0, '2020-12-03 20:39:59', '2020-12-14 02:36:42'),
+(8, '5', 'trwrwr', 'kloro', 1241424, 5235253, 213, '342f234', 1, '2020-12-03 20:42:31', '2020-12-14 03:17:09'),
+(9, '6', 'herbalku', 'kloro', 35353, 121212, 32, '12x45x23', 0, '2020-12-14 00:18:35', '2020-12-14 00:18:42');
 
 -- --------------------------------------------------------
 
@@ -157,7 +164,7 @@ CREATE TABLE `tbltoko` (
   `nama_toko` varchar(255) DEFAULT NULL,
   `username_mp` varchar(255) NOT NULL,
   `password_mp` varchar(255) NOT NULL,
-  `status` varchar(255) DEFAULT NULL,
+  `status` int(2) DEFAULT 1,
   `marketplace` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
@@ -168,9 +175,15 @@ CREATE TABLE `tbltoko` (
 --
 
 INSERT INTO `tbltoko` (`id`, `id_user`, `nama_toko`, `username_mp`, `password_mp`, `status`, `marketplace`, `created_at`, `updated_at`) VALUES
-(2, 2, 'breng breng', 'alanyy', 'nnfsdns', 'aktif', 2, '2020-12-08 04:27:47', '2020-12-08 04:27:47'),
-(3, 4, 'saf', 'as', 'fa', 'aktif', 3, '2020-12-08 04:27:52', '2020-12-08 04:27:52'),
-(4, 3, 'safas', 'safas', 'safasf', 'safasf', 1, '2020-12-08 05:50:20', '2020-12-08 05:50:20');
+(2, 2, 'breng breng', 'alanyy', 'nnfsdns', 1, 2, '2020-12-15 06:00:14', '2020-12-14 23:00:14'),
+(3, 4, 'saf', 'as', 'fa', 1, 3, '2020-12-15 06:00:19', '2020-12-14 23:00:19'),
+(4, 3, 'safas', 'safas', 'safasf', 1, 1, '2020-12-15 07:11:33', '2020-12-15 00:11:33'),
+(5, 2, 'breng breng', 'as', '31231', NULL, 3, '2020-12-15 07:03:13', '2020-12-15 07:03:13'),
+(6, 3, 'breng breng', 'as', '31231', NULL, 3, '2020-12-15 07:03:21', '2020-12-15 07:03:21'),
+(7, 6, 'breng breng', 'as', '31231', NULL, 3, '2020-12-15 07:02:42', '2020-12-15 07:02:42'),
+(8, 7, 'breng breng', 'as', '31231', NULL, 3, '2020-12-15 07:02:45', '2020-12-15 07:02:45'),
+(9, 8, 'breng breng', 'as', '31231', NULL, 3, '2020-12-15 07:02:48', '2020-12-15 07:02:48'),
+(10, 9, 'breng breng', 'as', '31231', NULL, 3, '2020-12-15 07:02:53', '2020-12-15 07:02:53');
 
 -- --------------------------------------------------------
 
@@ -268,13 +281,13 @@ ALTER TABLE `marketplace`
 -- AUTO_INCREMENT for table `peraturan`
 --
 ALTER TABLE `peraturan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tblorder`
 --
 ALTER TABLE `tblorder`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tblorder_detail`
@@ -286,13 +299,13 @@ ALTER TABLE `tblorder_detail`
 -- AUTO_INCREMENT for table `tblproduct`
 --
 ALTER TABLE `tblproduct`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tbltoko`
 --
 ALTER TABLE `tbltoko`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `tbluser`

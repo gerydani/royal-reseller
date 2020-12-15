@@ -57,7 +57,23 @@
                         <td>{{ $tok->nama_toko }}</td>
                         <td>{{ $tok->username_mp }}</td>
                         <td>{{ $tok->password_mp }}</td>
-                        <td>{{ $tok->status }}</td>
+                    @if ($tok->status == 1)
+                        <td>
+                            <form action="{{ route('toko.destroy', ['id' => $tok->id]) }}" method="post">
+                                @csrf
+                                {{ method_field('delete') }}
+                                <button class="btn btn-rounded btn-success">Aktif</button>
+                            </form>
+                        </td>
+                    @elseif ($tok->status == 0)
+                        <td>
+                            <form action="{{ route('toko.destroy', ['id' => $tok->id]) }}" method="post">
+                                @csrf
+                                {{ method_field('delete') }}
+                                <button class="btn btn-rounded btn-danger">Tidak Aktif</button>
+                            </form>
+                        </td>
+                    @endif
                     @php
                         $i++
                     @endphp

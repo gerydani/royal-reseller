@@ -112,7 +112,7 @@ class HomeController extends Controller
             $user = User::where('username',$request->username)->first();
 
             if($user && Hash::check($request->password, $user->password)){
-                $request->session()->put('username', $request->usernmae);
+                $request->session()->put('username', $request->username);
 
                 // if(empty($user->rolemapping()->first())){
                 //     $request->session()->put('role',"null");

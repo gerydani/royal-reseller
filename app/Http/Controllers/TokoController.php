@@ -15,7 +15,7 @@ class TokoController extends Controller
      */
     public function index()
     {
-        $toko = toko::all();
+        $toko = toko::where('id_user',session('user_id'))->get();
         return view('toko.tokostatus',compact('toko'));
     }
 
@@ -26,7 +26,8 @@ class TokoController extends Controller
      */
     public function create()
     {
-        return view('toko.menutoko');
+        $toko = toko::all();
+        return view('toko.menutoko',compact('toko'));
     }
 
     /**
@@ -38,7 +39,6 @@ class TokoController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(),[
-            'marketplace' => 'required|string',
             'namatoko' =>  'required|string'
         ]);
         if ($validator->fails()) {
@@ -55,7 +55,7 @@ class TokoController extends Controller
             'status' => $request->statustoko
         ));
         $toko->save();
-        return redirect()->route('toko')->with('status','Data Berhasil disimpan');
+        return redirect()->route('toko.index')->with('status','Data Berhasil disimpan');
     }
 
     /**
@@ -100,6 +100,19 @@ class TokoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $toko = toko::where('id',$id)->first();
+        if ($toko->status == 1){
+            $toko->status = 0;
+        }elseif ($toko->status == 0){
+            $toko->status = 1;
+        };
+        try{
+            $toko->update();
+            return redirect()->route('toko.index')->with('status', 'Data berhasil diupdate');
+        // fail
+        }catch(\Exception $e){
+            return redirect()->back()->withErrors($e->getMessage());
+        }
+
     }
 }
