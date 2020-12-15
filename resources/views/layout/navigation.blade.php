@@ -38,26 +38,26 @@
 
                 <li class="has-submenu">
                     <a href="/toko"><i class="mdi mdi-store"></i><span> Toko </span> </a>
-                    <ul class="submenu">
+                    {{--  <ul class="submenu">
                         <li><a href="/toko">Status Toko</a></li>
                         <li><a href="/toko/create">Menu Toko</a></li>
-                        {{-- <li><a href="form-validation.html">Form Validation</a></li>
+                        <li><a href="form-validation.html">Form Validation</a></li>
                         <li><a href="form-wizard.html">Form Wizard</a></li>
                         <li><a href="form-fileupload.html">Form Uploads</a></li>
                         <li><a href="form-wysiwig.html">Wysiwig Editors</a></li>
-                        <li><a href="form-xeditable.html">X-editable</a></li> --}}
-                    </ul>
+                        <li><a href="form-xeditable.html">X-editable</a></li>
+                    </ul>  --}}
                 </li>
 
                 <li class="has-submenu">
                     <a href="/product"><i class="mdi mdi-package-variant-closed"></i> <span> Produk </span> </a>
-                    <ul class="submenu">
+                    {{--  <ul class="submenu">
                         <li><a href="/product">Tabel Produk</a></li>
                         <li><a href="/product/create">Tambah Produk</a></li>
-                        {{-- <li><a href="tables-responsive.html">Responsive Table</a></li>
+                        <li><a href="tables-responsive.html">Responsive Table</a></li>
                         <li><a href="tables-editable.html">Editable Table</a></li>
-                        <li><a href="tables-tablesaw.html">Tablesaw Table</a></li> --}}
-                    </ul>
+                        <li><a href="tables-tablesaw.html">Tablesaw Table</a></li>
+                    </ul>  --}}
                 </li>
 
                 {{-- <li class="has-submenu">

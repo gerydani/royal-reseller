@@ -33,12 +33,12 @@
                                 @csrf
                                 <div class="form-group">
                                     <label class="col-4 col-form-label">Kode Produk</label>
-                                    <input type="text" name="prod_id" required placeholder="Kode Produk"
+                                    <input type="text" name="prod_id" disabled placeholder="Kode Produk"
                                             class="form-control" id="" value = "@isset($user->prod_id){{$user->prod_id}}@endisset">
                                 </div>
                                 <div class="form-group">
                                     <label class="col-4 col-form-label">Nama Produk</label>
-                                    <input id="" type="text" placeholder="Nama Produk" required
+                                    <input id="" type="text" placeholder="Nama Produk" disabled
                                            class="form-control" name="name" value = "@isset($user->name){{$user->name}}@endisset">
                                 </div>
                                 <div class="form-group">
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="col-4 col-form-label">Harga Modal</label>
-                                    <input type="text" required name="capital_price" placeholder="Harga Modal"
+                                    <input type="text" disabled name="capital_price" placeholder="Harga Modal"
                                             class="form-control" id="" value ="@isset($user->capital_price){{$user->capital_price}}@endisset">
                                 </div>
                                 <div class="form-group">

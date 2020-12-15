@@ -26,15 +26,9 @@
     <div class="row">
         <div class="col-12">
             <div class="card-box table-responsive">
-                <h5 class="m-t-0 header-title">Status Toko</h5>
+                <h5 class="m-t-0 header-title">Status Toko <a href="/toko/create" class="btn btn-primary btn-rounded w-md waves-effect waves-light m-b-5" style="float:right; margin-right:40px">Tambah Toko</a></h5>
                 <p class="text-muted font-14 m-b-30">
                 </p>
-
-                {{--  <a href="/mitra/tambah" class="btn btn-success btn-rounded w-md waves-effect waves-light m-b-5"> Tambah Mitra</a>
-
-                <br/>
-                <br/>  --}}
-
                 <table id="responsive-datatable" class="table table-bordered table-bordered dt-responsive wrap" cellspacing="0" width="100%">
                     <thead>
                         <th>No</th>
@@ -44,6 +38,7 @@
                         <th>Username Toko</th>
                         <th>Password Toko</th>
                         <th>Status</th>
+                        <th>Action</th>
                     </thead>
                     {{--  @foreach($mitra as $m)  --}}
                         @php
@@ -62,8 +57,19 @@
                             <form action="{{ route('toko.destroy', ['id' => $tok->id]) }}" method="post">
                                 @csrf
                                 {{ method_field('delete') }}
-                                <button class="btn btn-rounded btn-success">Aktif</button>
+                                <button class="btn btn-rounded btn-success waves-effect waves-light w-md m-b-5">Aktif</button>
                             </form>
+                        </td>
+                        <td>
+                            <form action="" method="">
+                                @csrf
+                                <button class="btn btn-custom btn-rounded waves-effect waves-light w-md m-b-5">Update</button>
+                            <form>
+                            <br>
+                            <form action="" method="">
+                                @csrf
+                                <button class="btn btn-danger btn-rounded waves-effect waves-light w-md m-b-5">Delete</button>
+                            <form>
                         </td>
                     @elseif ($tok->status == 0)
                         <td>
