@@ -24,14 +24,16 @@
                     <div class="col-xl-20">
                         <div class="card-box">
                             <h4 class="header-title m-t-0 m-b-30">Atur Toko</h4>
-                            <form action="/tambahtoko" data-parsley-validate novalidate method="post">
+                            <form action="/toko/store" data-parsley-validate novalidate method="post">
                                 @csrf
                                     <div class="form-group">
                                       <label class="col-4 col-form-label">Marketplace</label>
                                       <select class="form-control" name="marketplace">
-                                        <option value="shopee">Shopee</option>
-                                        <option value="tokopedia">Tokopedia</option>
-                                        <option value="bukalapak">Bukalapak</option>
+                                        {{-- <option value="shopee">Shopee</option> --}}
+                                        @foreach ($toko as $tok)
+                                            <option value="@isset($tok->marketplace){{ $tok->marketplace }}@endisset">{{ $tok->marketplaces->name }}</option>
+                                        @endforeach
+                                        {{-- <option value="bukalapak">Bukalapak</option> --}}
                                       </select>
                                     </div>
                                 <div class="form-group">
@@ -51,13 +53,6 @@
                                     <input type="text" name="passwordmp"
                                            placeholder="Password Marketplace" class="form-control"
                                            value = "@isset($toko->password_mp){{ $toko->password_mp }}@endisset">
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-4 col-form-label">Status Toko</label>
-                                    <select class="form-control" name="statustoko">
-                                        <option value="aktif">Aktif</option>
-                                        <option value="tidak aktif">Tidak Aktif</option>
-                                      </select>
                                 </div>
                                 <div class="form-group text-right m-b-0">
                                     <button class="btn btn-primary waves-effect waves-light" type="submit">
