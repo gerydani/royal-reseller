@@ -9,6 +9,8 @@ use App\toko;
 @endphp
 
 @section('css')
+        {{--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">  --}}
         <link href="assets/plugins/datatables/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/plugins/datatables/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/plugins/datatables/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
@@ -41,19 +43,20 @@ use App\toko;
                                         <table id="key-table1" class="table table-bordered tabelantrian">
                                             <thead>
                                             <tr>
+                                                <th>Kode Booking</th>
                                                 <th>Market Place</th>
                                                 <th>Nama Product</th>
                                                 <th>Quantity</th>
                                                 <th>Nama Toko</th>
-                                                {{--  <th>Tanggal Transaksi</th>  --}}
                                                 <th>Catatan Toko</th>
                                                 <th>Checklist Packaging</th>
                                             </tr>
                                             </thead>
                                             @foreach ($antrian as $queue)
                                             <tr>
+                                                <td>{{ $queue->qty }}</td>
                                                 <td>{{ toko::join('marketplace','tbltoko.marketplace','marketplace.id')->where('tbltoko.id', $queue->shop_id)->first()->name }}</td>
-                                                <td>{{ $queue->nama_prod->name }}</td>
+                                                <td>{{ $queue->qty }}</td>
                                                 <td>{{ $queue->qty }}</td>
                                                 <td>{{ toko::where('id',$queue->shop_id)->first()->nama_toko }}</td>
                                                 <td>{{ $queue->notes }}</td>
@@ -92,6 +95,7 @@ use App\toko;
                                             <table id="key-table" class="table table-bordered tabelantrian">
                                                 <thead>
                                                 <tr>
+                                                    <th>Kode Booking</th>
                                                     <th>Market Place</th>
                                                     <th>Nama Produk</th>
                                                     <th>Quantity</th>
@@ -102,8 +106,9 @@ use App\toko;
                                                 </thead>
                                                 @foreach ($package as $pack)
                                                 <tr>
+                                                    <td>{{ $pack->qty }}</td>
                                                     <td>{{ toko::join('marketplace','tbltoko.marketplace','marketplace.id')->where('tbltoko.id', $pack->shop_id)->first()->name}}</td>
-                                                    <td>{{ $pack->nama_prod->name }}</td>
+                                                    <td>{{ $pack->qty }}</td>
                                                     <td>{{ $pack->qty }}</td>
                                                     <td>{{ toko::where('id',$pack->shop_id)->first()->nama_toko }}</td>
                                                     <td>{{ $pack->notes}}</td>
@@ -129,6 +134,8 @@ use App\toko;
 
 
 @section('js')
+        {{--  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>  --}}
         <script src="assets/plugins/datatables/jquery.dataTables.min.js"></script>
         <script src="assets/plugins/datatables/dataTables.bootstrap4.min.js"></script>
         <script src="assets/plugins/datatables/dataTables.buttons.min.js"></script>

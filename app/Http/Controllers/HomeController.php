@@ -19,14 +19,14 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        if($request->session()->has('isLoggedIn')){
+        if ($request->session()->has('isLoggedIn')) {
             $user = Product::all();
             $aturan = Aturan::all();
             // echo "<pre>";
             // print_r($request->all());
             // die;
-            return view('dashboard.dashboard',compact('user','aturan'));
-        }else{
+            return view('dashboard.dashboard', compact('user', 'aturan'));
+        } else {
             return view('user.login');
         }
     }
@@ -50,10 +50,10 @@ class HomeController extends Controller
     public function store(Request $request)
     {
         $aturan = new Aturan(array(
-            'Peraturan'=> $request ->aturan
+            'Peraturan' => $request->aturan
         ));
         $aturan->save();
-        return redirect()->route('Home')->with('status','Data Berhasil Disimpan');
+        return redirect()->route('Home')->with('status', 'Data Berhasil Disimpan');
     }
 
     /**
@@ -98,9 +98,9 @@ class HomeController extends Controller
      */
     public function destroy($id)
     {
-
     }
-    public function login(Request $request){
+    public function login(Request $request)
+    {
 
         $validator = Validator::make($request->all(), [
             'username' => 'required',
@@ -108,10 +108,10 @@ class HomeController extends Controller
         ]);
         if ($validator->fails()) {
             return redirect()->back();
-        }else{
-            $user = User::where('username',$request->username)->first();
+        } else {
+            $user = User::where('username', $request->username)->first();
 
-            if($user && Hash::check($request->password, $user->password)){
+            if ($user && Hash::check($request->password, $user->password)) {
                 $request->session()->put('username', $request->username);
 
                 // if(empty($user->rolemapping()->first())){
@@ -129,12 +129,13 @@ class HomeController extends Controller
                 // die;
 
                 return redirect()->route('Home');
-            }else{
+            } else {
                 return redirect()->back();
             }
         }
     }
-    public function logout(Request $request){
+    public function logout(Request $request)
+    {
         $request->session()->flush();
         return redirect()->route('Home');
     }

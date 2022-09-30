@@ -80,6 +80,7 @@
                                         </tbody>
                                         </table>
                                     </div>
+                                    <a href= "{{ route('product.create') }}" class="btn btn-success btn-rounded waves-effect waves-light w-md m-b-5">Tambah Produk</a>
                                 </div>
                             </div>
                         </div>

@@ -15,7 +15,7 @@ class ProductController extends Controller
     public function index()
     {
         $user = Product::all();
-        return view('produk.tabelproduk',compact('user'));
+        return view('produk.tabelproduk', compact('user'));
     }
 
     /**
@@ -46,7 +46,7 @@ class ProductController extends Controller
             'dimension' => $request->dimension
         ));
         $product->save();
-        return redirect()->route('product.index')->with('status','Data Berhasil disimpan');
+        return redirect()->route('product.index')->with('status', 'Data Berhasil disimpan');
     }
 
     /**
@@ -68,8 +68,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $user = Product::where('id', $id)->first();
-        return view('produk.tambahproduk', compact('user'));
+        $product = Product::where('id', $id)->first();
+        return view('produk.tambahproduk', compact('product'));
     }
 
     /**
@@ -81,10 +81,11 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //dd($request);
         // echo "<pre>";
         // print_r($request->all());
         // die;
-        try{
+        try {
             $product = Product::where('id', $id)->first();
             $product->prod_id = $request->prod_id;
             $product->name = $request->name;
@@ -95,7 +96,7 @@ class ProductController extends Controller
             $product->dimension = $request->dimension;
             $product->update();
             return redirect()->route('product.index')->with('status', 'Data berhasil diupdate');
-        }catch(\Exception $e){
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());
         }
     }
@@ -109,12 +110,12 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $product = Product::where('id', $id)->first();
-        if ($product->status == 1){
+        if ($product->status == 1) {
             $product->status = 0;
-        }else if ($product->status == 0){
+        } else if ($product->status == 0) {
             $product->status = 1;
         };
         $product->update();
-        return redirect()->route('product.index')->with('status','Data Berhasil diubah');
+        return redirect()->route('product.index')->with('status', 'Data Berhasil diubah');
     }
 }

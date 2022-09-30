@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Marketplace;
 use Illuminate\Http\Request;
 
 use App\Order;
@@ -19,9 +20,9 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $antrian = OrderDetail::join('tblorder','tblorder_detail.trx_id','tblorder.id')->where('tblorder.status', 0)->get();
-        $package = OrderDetail::join('tblorder','tblorder_detail.trx_id','tblorder.id')->where('tblorder.status', 1)->get();
-        return view('Order.tabelantrian', compact('antrian','package') );
+        $antrian = OrderDetail::join('tblorder', 'tblorder_detail.trx_id', 'tblorder.id')->where('tblorder.status', 0)->get();
+        $package = OrderDetail::join('tblorder', 'tblorder_detail.trx_id', 'tblorder.id')->where('tblorder.status', 1)->get();
+        return view('Order.tabelantrian', compact('antrian', 'package'));
     }
 
     /**
@@ -29,8 +30,9 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getHarga(Request $request){
-        $harga = Product::where('prod_id',$request->prod_id)->first();
+    public function getHarga(Request $request)
+    {
+        $harga = Product::where('prod_id', $request->prod_id)->first();
         // return $harga;
         echo json_encode($harga);
     }
@@ -38,7 +40,9 @@ class OrderController extends Controller
     {
         $product = Product::all();
         $toko = toko::all();
-        return view('Order.inputbarang',compact('product','toko'));
+        //dd($product);
+        return view('Order.form', compact('product', 'toko'));
+        // return view('Order.inputbarang', compact('product', 'toko'));
     }
 
     /**
@@ -49,23 +53,27 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
+        $order = new Order(array(
+            // 'marketplace' => $request->marketplace,
+            // 'nama_toko' => $request->namatoko,
 
-        $order= new Order(array(
-            'marketplace' => $request ->marketplace,
-            'nama_toko' => $request ->namatoko,
-            'alamat' => $request ->alamat,
-            'kode_booking' => $request ->booking,
-            'no_resi' => $request ->resi,
-            'catatan' => $request ->catatan
+            'shop_id' => $request->marketplace,
+            'address' => $request->alamat,
+            'booking_code' => $request->booking,
+            'no_resi' => $request->resi,
+            'notes' => $request->catatan,
+            'trx_date' => $request->trx_date
         ));
+        // dd($request->all());
         $order->save();
 
-        for($i=0;$i<count($request->qty);$i++){
-            $detail= new OrderDetail(array(
+        for ($i = 0; $i < count($request->qty); $i++) {
+            $detail = new OrderDetail(array(
                 'trx_id' => $order->id,
-                'kode_produk' => $request ->kode[$i],
-                'qty' => $request ->qty[$i],
-                'harga' => $request ->harga[$i]
+                'prod_id' => $request->prod_id[$i],
+                'qty' => $request->qty[$i],
+                'harga' => $request->harga[$i]
             ));
             $detail->save();
         }
@@ -76,7 +84,7 @@ class OrderController extends Controller
         //     'harga' => $request ->harga
         // ));
         // $detail->save();
-        return redirect()->back()->with('status','Data Berhasil Disimpan');
+        return redirect()->back()->with('status', 'Data Berhasil Disimpan');
     }
 
     /**
@@ -87,7 +95,7 @@ class OrderController extends Controller
      */
     public function show()
     {
-        $package = OrderDetail::join('tblorder','tblorder_detail.trx_id','tblorder.id')->where('tblorder.status', 1)->get();
+        $package = OrderDetail::join('tblorder', 'tblorder_detail.trx_id', 'tblorder.id')->where('tblorder.status', 1)->get();
         return view('Order.tabelclose', compact('package'));
     }
 
@@ -113,18 +121,17 @@ class OrderController extends Controller
     {
 
         $antrian = Order::where('id', $id)->first();
-        if($antrian->status==0){
+        if ($antrian->status == 0) {
             $antrian->status = 1;
-        }
-        else if($antrian->status==1){
+        } else if ($antrian->status == 1) {
             $antrian->status = 0;
         }
         // success
-        try{
+        try {
             $antrian->update();
             return redirect()->route('order.index')->with('status', 'Data berhasil diupdate');
-        // fail
-        }catch(\Exception $e){
+            // fail
+        } catch (\Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());
         }
     }

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Marketplace;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\toko;
+use App\User;
 
 class TokoController extends Controller
 {
@@ -15,8 +17,8 @@ class TokoController extends Controller
      */
     public function index()
     {
-        $toko = toko::where('id_user',session('user_id'))->get();
-        return view('toko.tokostatus',compact('toko'));
+        $toko = toko::where('id_user', session('user_id'))->get();
+        return view('toko.tokostatus', compact('toko'));
     }
 
     /**
@@ -26,8 +28,8 @@ class TokoController extends Controller
      */
     public function create()
     {
-        $toko = toko::all();
-        return view('toko.menutoko',compact('toko'));
+        $marketplace = Marketplace::all();
+        return view('toko.menutoko', compact('marketplace'));
     }
 
     /**
@@ -38,7 +40,8 @@ class TokoController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),[
+        // dd($request);
+        $validator = Validator::make($request->all(), [
             'namatoko' =>  'required|string'
         ]);
         if ($validator->fails()) {
@@ -48,6 +51,7 @@ class TokoController extends Controller
         // print_r($request->all());
         // die;
         $toko = new toko(array(
+            'id_user' => session('user_id'),
             'marketplace' => $request->marketplace,
             'nama_toko' =>  $request->namatoko,
             'username_mp' => $request->usernamemp,
@@ -55,7 +59,7 @@ class TokoController extends Controller
             'status' => $request->statustoko
         ));
         $toko->save();
-        return redirect()->route('toko.index')->with('status','Data Berhasil disimpan');
+        return redirect()->route('toko.index')->with('status', 'Data Berhasil disimpan');
     }
 
     /**
@@ -69,6 +73,22 @@ class TokoController extends Controller
         //
     }
 
+    public function changeStatus($id)
+    {
+        $toko = toko::where('id', $id)->first();
+        if ($toko->status == 1) {
+            $toko->status = 0;
+        } elseif ($toko->status == 0) {
+            $toko->status = 1;
+        };
+        try {
+            $toko->update();
+            return redirect()->route('toko.index')->with('status', 'Data berhasil diupdate');
+            // fail
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors($e->getMessage());
+        }
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -77,7 +97,9 @@ class TokoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $toko = toko::where('id', $id)->first();
+        $marketplace = Marketplace::all();
+        return view('toko.menutoko', compact('toko', 'marketplace'));
     }
 
     /**
@@ -89,7 +111,18 @@ class TokoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $toko = toko::where('id', $id)->first();
+            $toko->id_user = session('user_id');
+            $toko->marketplace = $request->marketplace;
+            $toko->nama_toko = $request->namatoko;
+            $toko->username_mp = $request->usernamemp;
+            $toko->password_mp = $request->passwordmp;
+            $toko->update();
+            return redirect()->route('toko.index')->with('status', 'Data berhasil diupdate');
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors($e->getMessage());
+        }
     }
 
     /**
@@ -100,19 +133,7 @@ class TokoController extends Controller
      */
     public function destroy($id)
     {
-        $toko = toko::where('id',$id)->first();
-        if ($toko->status == 1){
-            $toko->status = 0;
-        }elseif ($toko->status == 0){
-            $toko->status = 1;
-        };
-        try{
-            $toko->update();
-            return redirect()->route('toko.index')->with('status', 'Data berhasil diupdate');
-        // fail
-        }catch(\Exception $e){
-            return redirect()->back()->withErrors($e->getMessage());
-        }
-
+        toko::where('id', $id)->delete();
+        return redirect()->back();
     }
 }

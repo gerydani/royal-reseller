@@ -16,7 +16,7 @@
 use App\Http\Controllers\UserController;
 
 Route::get('/', 'HomeController@index')->name('Home');
-Route::post('login','HomeController@login')->name('Login');
+Route::post('login', 'HomeController@login')->name('Login');
 Route::get('/aturan', 'HomeController@create')->name('input.aturan');
 Route::post('/postaturan', 'HomeController@store')->name('store.aturan');
 Route::get('/register', 'UserController@create')->name('registrasi');
@@ -30,34 +30,36 @@ Route::post('/updateprofile/{id}', 'UserController@update')->name('update.profil
 
 // logout
 Route::middleware(['checkUser'])->group(function () {
-    Route::get('/logout','HomeController@logout')->name('Logout');
+    Route::get('/logout', 'HomeController@logout')->name('Logout');
 });
 
-    // Resources
-    Route::resources([
-        // Employee
-        'toko' => 'TokoController',
-        // Modul Management
-        'product' => 'ProductController',
-        // Sub Modul Management
-        'order' => 'OrderController',
-        // Role Management
-    ]);
-Route::get('/menu','UserController@index')->name('menu');
+// Resources
+Route::resources([
+    // Employee
+    'toko' => 'TokoController',
+    // Modul Management
+    'product' => 'ProductController',
+    // Sub Modul Management
+    'order' => 'OrderController',
+    // Role Management
+]);
+Route::get('/menu', 'UserController@index')->name('menu');
 //Route::post('/updatestatus','OrderController@update')->name('update.status');
 
 // //menu toko
 // Route::get('/toko','TokoController@index')->name('toko');
 // Route::get('/registoko','TokoController@create')->name('registoko');
-Route::post('/tambahtoko/{id}','TokoController@store');
+Route::post('/changestat/{id}', 'TokoController@changeStatus')->name('changeStat');
+Route::post('/tambahtoko/{id}', 'TokoController@store');
 
 Route::middleware(['checkUser'])->group(function () {
-    Route::get('/logout','HomeController@logout')->name('Logout');
+    Route::get('/logout', 'HomeController@logout')->name('Logout');
 });
 
-Route::post('/create','UserController@createaturan')->name('buat');
-Route::get('/dashboard','UserController@aturan')->name('aturan');
+Route::post('/create', 'UserController@createaturan')->name('buat');
+Route::get('/dashboard', 'UserController@aturan')->name('aturan');
 
+Route::post('/uploadorder', 'OrderController@uploadOrder')->name('uploadOrder');
 // Route::get('/profile','UserController@ubah')->name('profile');
 
 // // menu produk
@@ -68,7 +70,7 @@ Route::get('/dashboard','UserController@aturan')->name('aturan');
 
 // // menu produk
 // Route::get('/produk','ProductController@index')->name('produk');
-// Route::get('/insertproduk','ProductController@create')->name('tampro');
+//Route::get('/insertproduk','ProductController@create')->name('tampro');
 // Route::post('/tambahproduk','ProductController@store');
 // Route::delete('/deleteproduk/{id}','ProductController@destroy')->name('produk.destroy');
 
